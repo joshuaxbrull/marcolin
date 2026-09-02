@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcolin · Location manager</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+  <header class="top">
+    <a class="back" href="../">← Hub</a>
+    <p class="kicker">Marcolin</p>
+    <h1>Location manager</h1>
+  </header>
+
+  <section id="login-view" class="panel">
+    <p class="lead">Manager sign-in. Password is hashed in the repo. After 5 failed tries this browser locks for 15 minutes.</p>
+    <form id="login-form">
+      <label>Password
+        <input type="password" id="password" autocomplete="current-password" required>
+      </label>
+      <p class="status" id="login-status" hidden></p>
+      <button type="submit">Unlock</button>
+    </form>
+  </section>
+
+  <section id="app-view" class="layout" hidden>
+    <aside class="panel">
+      <label>Find a place
+        <input type="search" id="place-search" placeholder="Business name or address" autocomplete="off">
+      </label>
+      <ul class="hints" id="hints" hidden></ul>
+      <form id="loc-form" class="loc-form">
+        <input type="hidden" id="loc-id">
+        <label>Name <input id="loc-name" required></label>
+        <label>Address <input id="loc-address" required></label>
+        <label>City <input id="loc-city" required></label>
+        <label>State
+          <select id="loc-state">
+            <option>MD</option><option>DE</option><option>VA</option><option>WV</option>
+          </select>
+        </label>
+        <label>Phone <input id="loc-phone" inputmode="tel"></label>
+        <label>Hours <input id="loc-hours" placeholder="Mo-Fr 09:00-17:00"></label>
+        <label>Type
+          <select id="loc-kind">
+            <option value="eyewear">Eyewear</option>
+            <option value="dealership">Dealer</option>
+          </select>
+        </label>
+        <p class="geo" id="loc-geo">No pin yet</p>
+        <div class="row">
+          <button type="submit">Add / update</button>
+          <button type="button" class="ghost" id="clear-form">Clear</button>
+        </div>
+      </form>
+    </aside>
+
+    <main class="panel">
+      <div class="toolbar">
+        <input type="search" id="list-search" placeholder="Filter the list">
+        <select id="list-kind">
+          <option value="ALL">All types</option>
+          <option value="eyewear">Eyewear</option>
+          <option value="dealership">Dealers</option>
+        </select>
+      </div>
+      <p class="count" id="list-count"></p>
+      <ul class="loc-list" id="loc-list"></ul>
+      <div class="save-box">
+        <label>GitHub token <span class="hint">(contents:write on joshuaxbrull/marcolin, kept in this session only)</span>
+          <input type="password" id="gh-token" autocomplete="off" placeholder="ghp_…">
+        </label>
+        <p class="status" id="save-status" hidden></p>
+        <button type="button" id="save-btn">Save to GitHub</button>
+      </div>
+    </main>
+  </section>
+
+  <script type="module" src="portal.js"></script>
+</body>
+</html>
