@@ -62,6 +62,10 @@ async function decryptToken(digestHex, blob) {
   const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, data);
   return new TextDecoder().decode(plain);
 }
+
+let picked = null;
+
+function locKind(loc) {
   return loc.kind === "dealership" ? "dealership" : "eyewear";
 }
 
@@ -252,6 +256,8 @@ loginForm.addEventListener("submit", async (event) => {
       return;
     }
   }
+  document.body.classList.remove("is-locked");
+  document.body.classList.add("is-open");
   loginView.hidden = true;
   appView.hidden = false;
   await loadLocations();
