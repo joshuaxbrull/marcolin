@@ -4,55 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marcolin</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100dvh;
-      display: grid;
-      place-items: center;
-      background: #1c1914;
-      color: #f4f1ea;
-      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-      padding: 2rem;
-    }
-    main { width: min(36rem, 100%); }
-    p.kicker {
-      color: #f15a22;
-      letter-spacing: 0.32em;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-    h1 { font-size: 2.4rem; margin: 0.4rem 0 1.6rem; letter-spacing: 0.04em; }
-    a {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-      border: 1px solid #3a342c;
-      padding: 1.1rem 1.2rem;
-      margin-bottom: 0.8rem;
-      background: #161310;
-    }
-    a:hover { border-color: #f15a22; }
-    a strong { display: block; font-size: 1.05rem; }
-    a span { color: #b8b2a6; font-size: 0.9rem; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hub.css">
 </head>
 <body>
-  <main>
+  <div class="grain" aria-hidden="true"></div>
+  <main class="hub">
     <p class="kicker">Marcolin</p>
-    <h1>Brand sites</h1>
-    <a href="./harleydavidson/">
-      <strong>Harley-Davidson Eyewear</strong>
-      <span>Store locator · MD, DE, VA, WV</span>
+    <h1>Find the ride.<br>Find the shop.</h1>
+    <p class="deck">Licensed brand sites for Harley-Davidson Eyewear and the World Cup project.</p>
+
+    <a class="card primary" href="./harleydavidson/">
+      <span class="card-kicker">Harley-Davidson Eyewear</span>
+      <strong>Store locator</strong>
+      <span>64 shops and 34 dealers · MD, DE, VA, WV</span>
     </a>
-    <a href="./worldcup/">
+    <a class="card" href="./worldcup/">
+      <span class="card-kicker">Adidas</span>
       <strong>World Cup</strong>
-      <span>Adidas World Cup site</span>
+      <span>The original 3D World Cup site</span>
     </a>
-    <a href="./portal/">
-      <strong>Manager portal</strong>
-      <span>Add or remove locations</span>
-    </a>
+
+    <a class="manager" href="./portal/">Manager sign-in</a>
   </main>
 </body>
 </html>
