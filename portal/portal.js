@@ -1,5 +1,4 @@
 const LOCK_KEY = "marcolin-portal-lock";
-const TOKEN_KEY = "marcolin-portal-token";
 
 const loginView = document.getElementById("login-view");
 const appView = document.getElementById("app-view");
@@ -12,7 +11,7 @@ const saveStatus = document.getElementById("save-status");
 let auth = null;
 let locations = [];
 let hintTimer = 0;
-let picked = null;
+let sessionToken = "";
 
 function showStatus(el, text) {
   el.hidden = !text;
@@ -52,7 +51,17 @@ async function hashPassword(password, saltHex, iterations) {
   return hex(bits);
 }
 
-function locKind(loc) {
+function fromHex(value) {
+  return new Uint8Array(String(value).match(/../g).map((b) => parseInt(b, 16)));
+}
+
+async function decryptToken(digestHex, blob) {
+  const key = await crypto.subtle.importKey("raw", fromHex(digestHex), "AES-GCM", false, ["decrypt"]);
+  const iv = fromHex(blob.iv);
+  const data = fromHex(blob.data);
+  const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, data);
+  return new TextDecoder().decode(plain);
+}
   return loc.kind === "dealership" ? "dealership" : "eyewear";
 }
 
@@ -235,10 +244,16 @@ loginForm.addEventListener("submit", async (event) => {
     return;
   }
   writeLock({ fails: 0, until: 0 });
+  if (auth.token?.iv && auth.token?.data) {
+    try {
+      sessionToken = await decryptToken(digest, auth.token);
+    } catch {
+      showStatus(loginStatus, "Password worked, but the saved GitHub token could not be unlocked.");
+      return;
+    }
+  }
   loginView.hidden = true;
   appView.hidden = false;
-  const saved = sessionStorage.getItem(TOKEN_KEY);
-  if (saved) document.getElementById("gh-token").value = saved;
   await loadLocations();
 });
 
@@ -273,12 +288,11 @@ document.getElementById("list-search").addEventListener("input", renderList);
 document.getElementById("list-kind").addEventListener("change", renderList);
 
 document.getElementById("save-btn").addEventListener("click", async () => {
-  const token = document.getElementById("gh-token").value.trim();
+  const token = sessionToken;
   if (!token) {
-    showStatus(saveStatus, "Paste a GitHub token with contents:write.");
+    showStatus(saveStatus, "Unlock did not load a GitHub token.");
     return;
   }
-  sessionStorage.setItem(TOKEN_KEY, token);
   const { owner, repo, path, branch } = auth.github;
   showStatus(saveStatus, "Saving…");
   try {
