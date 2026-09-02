@@ -884,19 +884,6 @@
     "id": 68
   },
   {
-    "name": "Harley-Davidson of Frederick",
-    "address": "5722 Urbana Pike",
-    "city": "Frederick",
-    "state": "MD",
-    "phone": "3016948177",
-    "lat": 39.39041924775,
-    "lng": -77.405029665994,
-    "geocode": "census",
-    "kind": "dealership",
-    "hours": "",
-    "id": 69
-  },
-  {
     "name": "Harley-Davidson of Washington, DC",
     "address": "9407 Livingston Rd",
     "city": "Fort Washington",
@@ -908,19 +895,6 @@
     "kind": "dealership",
     "hours": "",
     "id": 70
-  },
-  {
-    "name": "Highland Harley-Davidson",
-    "address": "1285 National Hwy",
-    "city": "Cumberland",
-    "state": "MD",
-    "phone": "2403620200",
-    "lat": 39.636790254645,
-    "lng": -78.84360642523,
-    "geocode": "census",
-    "kind": "dealership",
-    "hours": "",
-    "id": 71
   },
   {
     "name": "Old Glory Harley-Davidson",
@@ -999,19 +973,6 @@
     "kind": "dealership",
     "hours": "",
     "id": 77
-  },
-  {
-    "name": "Bull Run Harley-Davidson",
-    "address": "9321 Center St",
-    "city": "Manassas",
-    "state": "VA",
-    "phone": "7036313750",
-    "lat": 38.7508298,
-    "lng": -77.4820161,
-    "geocode": "nominatim",
-    "kind": "dealership",
-    "hours": "",
-    "id": 78
   },
   {
     "name": "Colonial Harley-Davidson",
@@ -1129,19 +1090,6 @@
     "kind": "dealership",
     "hours": "",
     "id": 87
-  },
-  {
-    "name": "Southside Harley-Davidson",
-    "address": "385 N Witchduck Rd",
-    "city": "Virginia Beach",
-    "state": "VA",
-    "phone": "7574998964",
-    "lat": 36.848583351336,
-    "lng": -76.155505462526,
-    "geocode": "census",
-    "kind": "dealership",
-    "hours": "",
-    "id": 88
   },
   {
     "name": "Stonewall Harley-Davidson",
