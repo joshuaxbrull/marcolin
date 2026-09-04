@@ -143,19 +143,6 @@
     "kind": "eyewear"
   },
   {
-    "id": 12,
-    "name": "Peninsula Eye Center",
-    "address": "314 Franklin Ave",
-    "city": "Berlin",
-    "state": "MD",
-    "phone": "4106413954",
-    "lat": 38.330604897746,
-    "lng": -75.214632752296,
-    "geocode": "census-street",
-    "hours": "Mo-Fr 08:30-16:00",
-    "kind": "eyewear"
-  },
-  {
     "id": 13,
     "name": "Family Eye Healthcare Clinic",
     "address": "3101 E Cumberland Rd",
