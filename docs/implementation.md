@@ -25,12 +25,12 @@ The canonical production code is `joshuaxbrull/marcolin`, based on main revision
 
 ## Release handoff
 
-- [Security and deployment status](security-review.md): initial Worker deployed with verified security headers; both local Git histories scanned; automated security checks prepared. GitHub sign-in is required to publish changes and apply remote protections.
+- [Security and deployment status](security-review.md): Worker deployed with GitHub App secrets configured; both local Git histories scanned; owner 2FA and remote repository protections verified.
 - [Cloudflare agent setup](cloudflare-setup.md): official skills and five MCP connections are installed and loaded after restart.
-- [Manager activation and live verification](../manager/README.md): still requires GitHub App creation/installation and secret configuration. Public destination is intentionally empty until configured.
+- [Manager activation and live verification](../manager/README.md): GitHub App creation and secret configuration are complete. Installation confirmation, a real manager login/save and a second-device refresh still need verification.
 - [Directory audit](directory-audit.md): 92 retained locations, 87 Census street matches, five pins for manual review, and source notes for every retained record. Prioritize Ocean City stock/phone confirmation and the conflicting Longmeadow address.
 - [Card proofs and print specification](../cards/README.md): final production needs a higher-resolution copy of the selected photograph and a physical QR scan.
 
 Do not describe this branch as deployed or the PDFs as press-approved until those remaining checks are complete. Roll back locator code independently if needed; never restore the public credential envelope.
 
-The exposed legacy credential was revoked on 2026-09-08. [Retirement verification](credential-retirement.json) records GitHub's HTTP 401 authentication response without any credential values. Old password-portal saves are disabled until the new manager is activated.
+The exposed legacy credential was revoked on 2026-09-08. [Retirement verification](credential-retirement.json) records GitHub's HTTP 401 authentication response without any credential values. The old password portal is replaced by the configured GitHub App manager.

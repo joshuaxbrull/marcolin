@@ -1,10 +1,17 @@
 {
   "name": "Marcolin Location Manager",
-  "url": "https://joshuaxbrull.github.io/marcolin/",
+  "url": "https://marcolin-manager.marcolin-event-locator.workers.dev/",
   "public": false,
-  "hook_attributes": { "active": false },
-  "default_permissions": { "contents": "write", "metadata": "read" },
+  "hook_attributes": {
+    "active": false
+  },
+  "default_permissions": {
+    "contents": "write",
+    "metadata": "read"
+  },
   "default_events": [],
-  "callback_urls": [],
+  "callback_urls": [
+    "https://marcolin-manager.marcolin-event-locator.workers.dev/auth/callback"
+  ],
   "request_oauth_on_install": false
 }

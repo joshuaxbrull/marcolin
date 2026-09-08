@@ -1,7 +1,7 @@
 # Cloudflare deployment
 
-## Manager deployment still pending
+## Manager deployment
 
-The initial Worker is now deployed at `https://marcolin-manager.marcolin-event-locator.workers.dev`. The account ID is pinned in its Wrangler configuration. Resume [manager activation](../manager/README.md) to create/install the GitHub App, configure its secrets, and verify a real manager save on a second device. See [the security review](security-review.md) for deployment checks and exact remaining work.
+The Worker is deployed at `https://marcolin-manager.marcolin-event-locator.workers.dev`. The account ID is pinned in its Wrangler configuration. The private GitHub App has been created and its secrets configured directly in Cloudflare. Sign-in now redirects to GitHub, and unsigned API requests are rejected. See [the security review](security-review.md) for deployment checks and [manager verification](../manager/README.md) for the remaining real save/device check.
 
-The GitHub CLI also needs a fresh sign-in because its previous credential was the exposed legacy token that was revoked. The event implementation remains in the local `event-ready` branch; static-site changes have not been pushed or deployed. Old password-portal saves remain disabled until the new manager is activated.
+Fresh owner GitHub CLI sign-in is complete, account 2FA is enabled, and both repositories have verified security protections. The old exposed token remains revoked. Static-site release status is recorded in the security review.
