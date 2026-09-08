@@ -31,8 +31,8 @@ Both GitHub release workflows and Pages deployments passed. Live file comparison
 - [Cloudflare agent setup](cloudflare-setup.md): official skills and five MCP connections are installed and loaded after restart.
 - [Manager activation and live verification](../manager/README.md): GitHub App creation and secret configuration are complete. Installation confirmation, a real manager login/save and a second-device refresh still need verification.
 - [Directory audit](directory-audit.md): 92 retained locations, 87 Census street matches, five pins for manual review, and source notes for every retained record. Prioritize Ocean City stock/phone confirmation and the conflicting Longmeadow address.
-- [Card proofs and print specification](../cards/README.md): final production needs a higher-resolution copy of the selected photograph and a physical QR scan.
+- [Card proofs and print specification](../cards/README.md): the supplied `Harley.jpg` now provides approximately 387 effective ppi; physical print approval and a QR scan remain.
 
-The site is deployed. The PDFs remain design proofs until the photography and physical print/QR checks are complete. Roll back locator code independently if needed; never restore the public credential envelope.
+The site is deployed. The PDFs remain design proofs until the physical print/QR checks are complete. Roll back locator code independently if needed; never restore the public credential envelope.
 
 The exposed legacy credential was revoked on 2026-09-08. [Retirement verification](credential-retirement.json) records GitHub's HTTP 401 authentication response without any credential values. The old password portal is replaced by the configured GitHub App manager.
