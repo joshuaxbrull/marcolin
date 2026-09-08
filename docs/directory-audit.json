@@ -1,0 +1,3289 @@
+{
+  "checkedAt": "2026-09-08",
+  "corrections": [
+    {
+      "id": 1,
+      "name": "Katzen Eye - Bel Air",
+      "field": "address",
+      "before": "3401 Box Hill Corporate Center Dr",
+      "after": "3401 Box Hill Corporate Center Dr, Suite 202",
+      "source": "https://www.katzeneye.com/contact-us/"
+    },
+    {
+      "id": 3,
+      "name": "Vision Specialists of Annapolis",
+      "field": "address",
+      "before": "116 Defense Hwy",
+      "after": "116 Defense Hwy, Suite 502",
+      "source": "https://www.annapolis.vision/what-we-do"
+    },
+    {
+      "id": 15,
+      "name": "Chatham Eyecare Center",
+      "field": "address",
+      "before": "13995 US Highway 29",
+      "after": "13995 US Highway 29, Suite 100",
+      "source": "https://chathameyecarecenter.com/"
+    },
+    {
+      "id": 20,
+      "name": "Friedrichs Family Eye Center - Danville",
+      "field": "address",
+      "before": "723 Piney Forest Rd",
+      "after": "723 Piney Forest Rd, Suite 103",
+      "source": "https://www.friedrichsfamilyeyecenter.com/"
+    },
+    {
+      "id": 31,
+      "name": "Blue Ridge Optical - Hardy",
+      "field": "phone",
+      "before": "5407214433",
+      "after": "5407217200",
+      "source": "https://blueridgeoptical.com/contact-us/"
+    },
+    {
+      "id": 32,
+      "name": "Eastern Eye Associates",
+      "field": "phone",
+      "before": "7572298660",
+      "after": "8046422290",
+      "source": "https://www.eea2020.com/"
+    },
+    {
+      "id": 42,
+      "name": "Peepers Family Eyecare",
+      "field": "address",
+      "before": "1311 S Main St",
+      "after": "1311 S Main St, Suite 104",
+      "source": "https://www.peeperseye.com/contact-us"
+    },
+    {
+      "id": 42,
+      "name": "Peepers Family Eyecare",
+      "field": "phone",
+      "before": "3028294118",
+      "after": "3018294118",
+      "source": "https://www.peeperseye.com/contact-us"
+    },
+    {
+      "id": 50,
+      "name": "Lindsey Optical",
+      "field": "address",
+      "before": "310 Locust St",
+      "after": "310 Locust St, Suite 6",
+      "source": "https://www.lindseyoptical.com/"
+    },
+    {
+      "id": 51,
+      "name": "Rebuck & Associates Eye Care",
+      "field": "address",
+      "before": "805 N Mildred St",
+      "after": "805 N Mildred St, Suite 3",
+      "source": "https://randaeye.com/contact/"
+    },
+    {
+      "id": 52,
+      "name": "Johnson-Curran Optometry Center",
+      "field": "phone",
+      "before": "5403627565",
+      "after": "5403662457",
+      "source": "https://johnsoncurran.com/location/valley-view/"
+    },
+    {
+      "id": 52,
+      "name": "Johnson-Curran Optometry Center",
+      "field": "hours",
+      "before": "Mo 08:30-18:30; Tu-Fr 08:30-17:30; Sa 08:00-13:00",
+      "after": "Mo-We 08:00-18:00; Th 07:30-18:00; Fr 08:00-17:30; Sa by appointment",
+      "source": "https://johnsoncurran.com/location/valley-view/"
+    },
+    {
+      "id": 58,
+      "name": "Delaware Eye Care Center - Smyrna",
+      "field": "address",
+      "before": "100 S Main St",
+      "after": "100 S Main St Suite 217",
+      "source": "https://www.delawareeyecare.com/contact-us/request-an-appointment/"
+    },
+    {
+      "id": 58,
+      "name": "Delaware Eye Care Center - Smyrna",
+      "field": "phone",
+      "before": "",
+      "after": "3026596597",
+      "source": "https://www.delawareeyecare.com/contact-us/request-an-appointment/"
+    },
+    {
+      "id": 59,
+      "name": "Patrick County Eye Associates",
+      "field": "phone",
+      "before": "2766947127",
+      "after": "2766947126",
+      "source": "https://www.patrickchamber.com/profile.cfm?ID=595"
+    },
+    {
+      "id": 60,
+      "name": "Enochs Eye Care",
+      "field": "address",
+      "before": "3575 Bridge Rd",
+      "after": "3575 Bridge Rd, Suite 19",
+      "source": "https://www.findclarityvision.com/suffolk-va/3575-bridge-rd-number-19/"
+    },
+    {
+      "id": 61,
+      "name": "Sterling Optical - Waldorf",
+      "field": "phone",
+      "before": "3019324391",
+      "after": "3019324390",
+      "source": "https://www.sterlingoptical.com/locations/waldorf/"
+    },
+    {
+      "id": 62,
+      "name": "Carroll Eye Care",
+      "field": "phone",
+      "before": "4108761761",
+      "after": "4108489243",
+      "source": "https://carrolleyecare.com/"
+    },
+    {
+      "id": 62,
+      "name": "Carroll Eye Care",
+      "field": "hours",
+      "before": "Mo-Fr 09:00-17:00",
+      "after": "Mo,We 08:00-19:00; Tu,Th,Fr 08:00-17:00; Sa 09:00-12:00",
+      "source": "https://carrolleyecare.com/"
+    },
+    {
+      "id": 67,
+      "name": "Eisenhauer's Chesapeake Harley-Davidson",
+      "field": "phone",
+      "before": "4108932493",
+      "after": "4104574541",
+      "source": "https://www.chesapeakehd.com/"
+    },
+    {
+      "id": 73,
+      "name": "Rommel Harley-Davidson Delmarva",
+      "field": "address",
+      "before": "2410 N Salisbury Blvd",
+      "after": "2410-A N Salisbury Blvd",
+      "source": "https://www.delmarva-hog.com/"
+    },
+    {
+      "id": 73,
+      "name": "Rommel Harley-Davidson Delmarva",
+      "field": "phone",
+      "before": "4102633345",
+      "after": "4108452535",
+      "source": "https://www.delmarva-hog.com/"
+    },
+    {
+      "id": 74,
+      "name": "Rommel Harley-Davidson",
+      "field": "phone",
+      "before": "3026588800",
+      "after": "3026596400",
+      "source": "https://www.rommelhd.com/Accessibility-Statement"
+    }
+  ],
+  "records": [
+    {
+      "id": 1,
+      "name": "Katzen Eye - Bel Air",
+      "address": "3401 Box Hill Corporate Center Dr, Suite 202",
+      "city": "Abingdon",
+      "state": "MD",
+      "phone": "4105690707",
+      "lat": 39.470410141117,
+      "lng": -76.305627560579,
+      "geocode": "census-street",
+      "hours": "Mo 08:00-16:00; Tu 08:00-18:00; We-Th 08:00-17:00; Fr 08:00-16:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 1,
+        "source": "https://www.katzeneye.com/contact-us/",
+        "note": "Suite 202 added. Website lists a central phone; keep existing optical line pending manager confirmation."
+      },
+      "coordinateCheck": {
+        "id": 1,
+        "name": "Katzen Eye - Bel Air",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.305627560579,
+          39.470410141117
+        ],
+        "matchedAddress": "3401 BOX HILL CORPORATE CENTER DR, ABINGDON, MD, 21009",
+        "censusCoordinates": [
+          -76.305627560579,
+          39.470410141117
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 2,
+      "name": "Accomac Optometric Center",
+      "address": "23079 Courthouse Ave",
+      "city": "Accomac",
+      "state": "VA",
+      "phone": "7577877040",
+      "lat": 37.725579013354,
+      "lng": -75.672630444716,
+      "geocode": "census-street",
+      "hours": "Mo-Tu,Th-Fr 08:00-16:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 2,
+        "source": "https://www.accomacoptometric.com/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 2,
+        "name": "Accomac Optometric Center",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.672630444716,
+          37.725579013354
+        ],
+        "matchedAddress": "23079 COURTHOUSE AVE, ACCOMAC, VA, 23301",
+        "censusCoordinates": [
+          -75.672630444716,
+          37.725579013354
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 3,
+      "name": "Vision Specialists of Annapolis",
+      "address": "116 Defense Hwy, Suite 502",
+      "city": "Annapolis",
+      "state": "MD",
+      "phone": "4102248908",
+      "lat": 38.985783549362,
+      "lng": -76.550904588843,
+      "geocode": "census-street",
+      "hours": "Tu-We 12:00-19:00; Th-Fr 09:00-16:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 3,
+        "source": "https://www.annapolis.vision/what-we-do",
+        "note": "Suite 502 added; phone agrees."
+      },
+      "coordinateCheck": {
+        "id": 3,
+        "name": "Vision Specialists of Annapolis",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.550904588843,
+          38.985783549362
+        ],
+        "matchedAddress": "116 DEFENSE HWY, ANNAPOLIS, MD, 21401",
+        "censusCoordinates": [
+          -76.550904588843,
+          38.985783549362
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bay Hills Eye Care",
+      "address": "1294 Bay Dale Dr",
+      "city": "Arnold",
+      "state": "MD",
+      "phone": "4107571350",
+      "lat": 39.039090670283,
+      "lng": -76.479226150585,
+      "geocode": "census-street",
+      "hours": "Mo-Tu 10:00-19:00; We 09:00-17:00; Th 10:00-19:00; Fr 09:00-16:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 4,
+        "source": "https://www.bayhillseyecare.com/mobile/contactus/contactus.aspx/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 4,
+        "name": "Bay Hills Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.479226150585,
+          39.039090670283
+        ],
+        "matchedAddress": "1294 BAY DALE DR, ARNOLD, MD, 21012",
+        "censusCoordinates": [
+          -76.479226150585,
+          39.039090670283
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 5,
+      "name": "Family Eye Care Centers of Virginia",
+      "address": "306 England St",
+      "city": "Ashland",
+      "state": "VA",
+      "phone": "8047988593",
+      "lat": 37.758754401855,
+      "lng": -77.477334654012,
+      "geocode": "census-street",
+      "hours": "Mo-We 09:00-17:00; Th 10:00-19:00; Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 5,
+        "source": "https://www.feccva.com/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 5,
+        "name": "Family Eye Care Centers of Virginia",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.477334654012,
+          37.758754401855
+        ],
+        "matchedAddress": "306 ENGLAND ST, ASHLAND, VA, 23005",
+        "censusCoordinates": [
+          -77.477334654012,
+          37.758754401855
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 7,
+      "name": "Katzen Eye - Mercy",
+      "address": "301 St. Paul Pl",
+      "city": "Baltimore",
+      "state": "MD",
+      "phone": "4107278380",
+      "lat": 39.292414116438,
+      "lng": -76.613471443651,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-16:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 7,
+        "source": "https://www.katzeneye.com/contact-us/",
+        "note": "Professional Office Building, suites 514 and 902. Confirm optical suite and direct phone with manager."
+      },
+      "coordinateCheck": {
+        "id": 7,
+        "name": "Katzen Eye - Mercy",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.613471443651,
+          39.292414116438
+        ],
+        "matchedAddress": "301 ST PAUL PL, BALTIMORE, MD, 21202",
+        "censusCoordinates": [
+          -76.613471443651,
+          39.292414116438
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 8,
+      "name": "Young Eyes",
+      "address": "2 Hamill Rd",
+      "city": "Baltimore",
+      "state": "MD",
+      "phone": "4104338488",
+      "lat": 39.352616578813,
+      "lng": -76.646344577293,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 8,
+        "source": "https://tomatoglasses.com/Stockist/young-eyes-optical/",
+        "note": "Manufacturer stockist confirms address/phone and suite 345; confirm with shop."
+      },
+      "coordinateCheck": {
+        "id": 8,
+        "name": "Young Eyes",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.646344577293,
+          39.352616578813
+        ],
+        "matchedAddress": "2 HAMILL CT, BALTIMORE, MD, 21210",
+        "censusCoordinates": [
+          -76.646344577292,
+          39.352616578813
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 9,
+      "name": "Baltimore Eye Physicians",
+      "address": "6231 N Charles St",
+      "city": "Baltimore",
+      "state": "MD",
+      "phone": "4103772044",
+      "lat": 39.377448923232,
+      "lng": -76.62679349337,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-16:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 9,
+        "source": "https://www.bepeye.com/locations/baltimore-md",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 9,
+        "name": "Baltimore Eye Physicians",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.62679349337,
+          39.377448923232
+        ],
+        "matchedAddress": "6231 N CHARLES ST, BALTIMORE, MD, 21212",
+        "censusCoordinates": [
+          -76.62679349337,
+          39.377448923232
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 10,
+      "name": "Jared P. Quesenberry, OD",
+      "address": "1332 Lowry St",
+      "city": "Bedford",
+      "state": "VA",
+      "phone": "5405869575",
+      "lat": 37.328510806536,
+      "lng": -79.499604212356,
+      "geocode": "census-street",
+      "hours": "Mo-Th 07:30-17:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 10,
+        "source": "",
+        "note": "No current owner source confirmed. Verify suite A, phone and operating status with manager."
+      },
+      "coordinateCheck": {
+        "id": 10,
+        "name": "Jared P. Quesenberry, OD",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.499604212356,
+          37.328510806536
+        ],
+        "matchedAddress": "1332 LOWRY ST, BEDFORD, VA, 24523",
+        "censusCoordinates": [
+          -79.499604212356,
+          37.328510806536
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 11,
+      "name": "Brewer & Marshall",
+      "address": "10490 Baltimore Ave",
+      "city": "Beltsville",
+      "state": "MD",
+      "phone": "3019373677",
+      "lat": 39.027827549443,
+      "lng": -76.917764250203,
+      "geocode": "census-street",
+      "hours": "Tu-Fr 09:00-17:30; Sa 10:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 11,
+        "source": "https://brewerandmarshall.weebly.com/contact.html",
+        "note": "Street address confirmed; phone not independently confirmed in this pass."
+      },
+      "coordinateCheck": {
+        "id": 11,
+        "name": "Brewer & Marshall",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.917764250203,
+          39.027827549443
+        ],
+        "matchedAddress": "10490 BALTIMORE AVE, BELTSVILLE, MD, 20705",
+        "censusCoordinates": [
+          -76.917764250203,
+          39.027827549443
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 13,
+      "name": "Family Eye Healthcare Clinic",
+      "address": "3101 E Cumberland Rd",
+      "city": "Bluefield",
+      "state": "WV",
+      "phone": "+13043253603",
+      "lat": 37.253947634996,
+      "lng": -81.204804377712,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:30-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 13,
+        "source": "",
+        "note": "No current owner source confirmed. Verify current operation and phone with manager."
+      },
+      "coordinateCheck": {
+        "id": 13,
+        "name": "Family Eye Healthcare Clinic",
+        "match": "Match",
+        "originalCoordinates": [
+          -81.204804377712,
+          37.253947634996
+        ],
+        "matchedAddress": "3101 E CUMBERLAND RD, BLUEFIELD, WV, 24701",
+        "censusCoordinates": [
+          -81.204804377712,
+          37.253947634996
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 14,
+      "name": "Focus Optical Boutique",
+      "address": "232 Mason Ave",
+      "city": "Cape Charles",
+      "state": "VA",
+      "phone": "7573316208",
+      "lat": 37.267034288032,
+      "lng": -76.018838484209,
+      "geocode": "census-street",
+      "hours": "Mo-Sa 10:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 14,
+        "source": "https://focusopticalboutique.com/",
+        "note": "Street address confirmed; manager should confirm phone."
+      },
+      "coordinateCheck": {
+        "id": 14,
+        "name": "Focus Optical Boutique",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.018838484209,
+          37.267034288032
+        ],
+        "matchedAddress": "232 MASON AVE, CAPE CHARLES, VA, 23310",
+        "censusCoordinates": [
+          -76.018838484209,
+          37.267034288033
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 15,
+      "name": "Chatham Eyecare Center",
+      "address": "13995 US Highway 29, Suite 100",
+      "city": "Chatham",
+      "state": "VA",
+      "phone": "4344324393",
+      "lat": 36.793883604199,
+      "lng": -79.393952283343,
+      "geocode": "census-street",
+      "hours": "Mo-Th 08:00-12:00, 13:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 15,
+        "source": "https://chathameyecarecenter.com/",
+        "note": "Suite 100 added; current homepage phone retained."
+      },
+      "coordinateCheck": {
+        "id": 15,
+        "name": "Chatham Eyecare Center",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.393952283343,
+          36.793883604199
+        ],
+        "matchedAddress": "13995 US HWY 29, CHATHAM, VA, 24531",
+        "censusCoordinates": [
+          -79.393952283343,
+          36.793883604199
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 16,
+      "name": "Friedrichs Family Eye Center - Chatham",
+      "address": "32 N Main St",
+      "city": "Chatham",
+      "state": "VA",
+      "phone": "4344321500",
+      "lat": 36.827261880285,
+      "lng": -79.398271699081,
+      "geocode": "census-street",
+      "hours": "Mo 08:30-17:00; Tu 08:00-17:30; We-Fr 08:30-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 16,
+        "source": "https://www.friedrichsfamilyeyecenter.com/",
+        "note": "Street address and branch phone agree."
+      },
+      "coordinateCheck": {
+        "id": 16,
+        "name": "Friedrichs Family Eye Center - Chatham",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.398271699081,
+          36.827261880285
+        ],
+        "matchedAddress": "32 MAIN ST, CHATHAM, VA, 24531",
+        "censusCoordinates": [
+          -79.398271699081,
+          36.827261880285
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 17,
+      "name": "Great Bridge Eye Care",
+      "address": "160 Mt Pleasant Rd",
+      "city": "Chesapeake",
+      "state": "VA",
+      "phone": "7574824022",
+      "lat": 36.71174227005,
+      "lng": -76.235639926273,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-11:30, 13:00-16:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 17,
+        "source": "https://www.greatbridgeeyecare.com/contact-us/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 17,
+        "name": "Great Bridge Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.235639926273,
+          36.71174227005
+        ],
+        "matchedAddress": "160 MOUNT PLEASANT RD, CHESAPEAKE, VA, 23322",
+        "censusCoordinates": [
+          -76.235639926273,
+          36.71174227005
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 18,
+      "name": "Cockeysville Opticians & Eyecare",
+      "address": "10255 York Rd",
+      "city": "Cockeysville",
+      "state": "MD",
+      "phone": "4106660610",
+      "lat": 39.470886220974,
+      "lng": -76.639273564047,
+      "geocode": "census-street",
+      "hours": "Mo 09:00-17:00; Tu 09:00-19:00; We 09:00-17:00; Th 09:00-19:00; Fr 09:00-17:00; Sa 09:00-15:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 18,
+        "source": "https://coeoptical.com/hours-location/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 18,
+        "name": "Cockeysville Opticians & Eyecare",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.639273564047,
+          39.470886220974
+        ],
+        "matchedAddress": "10255 YORK RD, COCKEYSVILLE, MD, 21030",
+        "censusCoordinates": [
+          -76.639273564047,
+          39.470886220974
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 19,
+      "name": "Dr. Craig Hoover",
+      "address": "691 Laurel St",
+      "city": "Culpeper",
+      "state": "VA",
+      "phone": "5408250541",
+      "lat": 38.457218305542,
+      "lng": -78.015520643338,
+      "geocode": "census-street",
+      "hours": "Mo 08:30-17:00; Tu 08:30-18:30; We-Fr 08:30-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 19,
+        "source": "https://www.molinahealthcare.com/members/az/en-us/-/media/Molina/PublicWebsite/PDF/members/va/Provider-Directories/MCC-CCC-Plus-Provider-Directory-Northern-Winchester-Region-January-2022.pdf",
+        "note": "Only an older insurer listing was found. Confirm current operation and suite 100."
+      },
+      "coordinateCheck": {
+        "id": 19,
+        "name": "Dr. Craig Hoover",
+        "match": "Match",
+        "originalCoordinates": [
+          -78.015520643338,
+          38.457218305542
+        ],
+        "matchedAddress": "691 LAUREL ST, CULPEPER, VA, 22701",
+        "censusCoordinates": [
+          -78.015520643338,
+          38.457218305542
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 20,
+      "name": "Friedrichs Family Eye Center - Danville",
+      "address": "723 Piney Forest Rd, Suite 103",
+      "city": "Danville",
+      "state": "VA",
+      "phone": "4347936912",
+      "lat": 36.611699465376,
+      "lng": -79.405670211408,
+      "geocode": "census-street",
+      "hours": "Mo 08:30-17:00; Tu 08:30-17:30; We 08:30-17:00; Th 08:30-17:30; Fr 08:30-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 20,
+        "source": "https://www.friedrichsfamilyeyecenter.com/",
+        "note": "Suite 103 added; branch phone agrees."
+      },
+      "coordinateCheck": {
+        "id": 20,
+        "name": "Friedrichs Family Eye Center - Danville",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.405670211408,
+          36.611699465376
+        ],
+        "matchedAddress": "723 PINEY FOREST RD, DANVILLE, VA, 24540",
+        "censusCoordinates": [
+          -79.405670211408,
+          36.611699465376
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 21,
+      "name": "Simon Eye - Dover",
+      "address": "820 Walker Rd",
+      "city": "Dover",
+      "state": "DE",
+      "phone": "3022391933",
+      "lat": 39.170058973376,
+      "lng": -75.543279293873,
+      "geocode": "census-street",
+      "hours": "Mo-We 08:00-17:00; Th 10:00-19:00; Fr 08:00-16:00; Sa 08:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 21,
+        "source": "https://www.willseye.org/diabetes-day/",
+        "note": "Provider program confirms address/phone; confirm suite C with shop."
+      },
+      "coordinateCheck": {
+        "id": 21,
+        "name": "Simon Eye - Dover",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.543279293873,
+          39.170058973376
+        ],
+        "matchedAddress": "820 WALKER RD, DOVER, DE, 19904",
+        "censusCoordinates": [
+          -75.543279293873,
+          39.170058973377
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 22,
+      "name": "Delaware Eye Care Center - Dover",
+      "address": "16 Old Rudnick Ln",
+      "city": "Dover",
+      "state": "DE",
+      "phone": "8009002020",
+      "lat": 39.135013685168,
+      "lng": -75.521395955346,
+      "geocode": "census-street",
+      "hours": "Mo-We 08:00-17:00; Th 08:00-16:30; Fr 08:00-15:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 22,
+        "source": "https://www.delawareeyecare.com/locations/dover-old-rudnick/",
+        "note": "Street address confirmed. Confirm direct optical phone; existing central number retained."
+      },
+      "coordinateCheck": {
+        "id": 22,
+        "name": "Delaware Eye Care Center - Dover",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.521395955346,
+          39.135013685168
+        ],
+        "matchedAddress": "16 OLD RUDNICK LN, DOVER, DE, 19901",
+        "censusCoordinates": [
+          -75.521395955346,
+          39.135013685168
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 23,
+      "name": "AP Eye Care",
+      "address": "9665A Main St",
+      "city": "Fairfax",
+      "state": "VA",
+      "phone": "7039782020",
+      "lat": 38.841904247053,
+      "lng": -77.278498527028,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 10:00-17:30; Sa 10:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 23,
+        "source": "https://apeyecare.net/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 23,
+        "name": "AP Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.278498527028,
+          38.841904247053
+        ],
+        "matchedAddress": "9665A MAIN ST, FAIRFAX, VA, 22031",
+        "censusCoordinates": [
+          -77.278498527028,
+          38.841904247053
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 24,
+      "name": "Gatten Eye Care",
+      "address": "100 Bailey Dr",
+      "city": "Franklin",
+      "state": "VA",
+      "phone": "7575626101",
+      "lat": 36.671662354691,
+      "lng": -76.94668975049,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 24,
+        "source": "https://www.gatteneyecare.com/make-an-appointment",
+        "note": "Street address confirmed; phone needs manager confirmation."
+      },
+      "coordinateCheck": {
+        "id": 24,
+        "name": "Gatten Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.94668975049,
+          36.671662354691
+        ],
+        "matchedAddress": "100 BAILEY DR, FRANKLIN, VA, 23851",
+        "censusCoordinates": [
+          -76.946689750489,
+          36.671662354691
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 25,
+      "name": "Fredericktowne Eyecare",
+      "address": "1202 E Patrick St",
+      "city": "Frederick",
+      "state": "MD",
+      "phone": "3016638858",
+      "lat": 39.407941842199,
+      "lng": -77.389259521631,
+      "geocode": "census-street",
+      "hours": "Mo-Tu 09:00-18:00; We 09:00-13:00; Th-Fr 09:00-18:00; Sa 09:00-13:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 25,
+        "source": "https://psc.walman.com/safety/web/walman/master.php?state=MD",
+        "note": "Manufacturer provider list confirms address/phone; lists suite 4. Confirm suite with shop."
+      },
+      "coordinateCheck": {
+        "id": 25,
+        "name": "Fredericktowne Eyecare",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.389259521631,
+          39.407941842199
+        ],
+        "matchedAddress": "1202 E PATRICK ST, FREDERICK, MD, 21701",
+        "censusCoordinates": [
+          -77.389259521631,
+          39.407941842199
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 26,
+      "name": "The Eyeglass Factory",
+      "address": "1211 N Shenandoah Ave",
+      "city": "Front Royal",
+      "state": "VA",
+      "phone": "5406362020",
+      "lat": 38.933191565175,
+      "lng": -78.19895096749,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:30; Sa 10:00-13:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 26,
+        "source": "https://www.theeyeglassfactoryfrontroyal.com/aboutus",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 26,
+        "name": "The Eyeglass Factory",
+        "match": "Match",
+        "originalCoordinates": [
+          -78.19895096749,
+          38.933191565175
+        ],
+        "matchedAddress": "1211 N SHENANDOAH AVE, FRONT ROYAL, VA, 22630",
+        "censusCoordinates": [
+          -78.19895096749,
+          38.933191565175
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 27,
+      "name": "Blue Ridge Eye Care Associates",
+      "address": "800 E Stuart Dr",
+      "city": "Galax",
+      "state": "VA",
+      "phone": "2762364171",
+      "lat": 36.674500345027,
+      "lng": -80.90763950892,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-17:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 27,
+        "source": "https://blueridgeeyecare.com/our-practice/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 27,
+        "name": "Blue Ridge Eye Care Associates",
+        "match": "Match",
+        "originalCoordinates": [
+          -80.90763950892,
+          36.674500345027
+        ],
+        "matchedAddress": "800 E STUART DR, GALAX, VA, 24333",
+        "censusCoordinates": [
+          -80.90763950892,
+          36.674500345027
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 28,
+      "name": "Thompson Vision Care",
+      "address": "5900 Greenbelt Rd",
+      "city": "Greenbelt",
+      "state": "MD",
+      "phone": "3019824200",
+      "lat": 38.998186118951,
+      "lng": -76.913299997403,
+      "geocode": "census-street",
+      "hours": "Tu-Sa 08:30-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 28,
+        "source": "https://www.thompsonvisioncare.com/default.aspx",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 28,
+        "name": "Thompson Vision Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.913299997403,
+          38.998186118951
+        ],
+        "matchedAddress": "5900 GREENBELT RD, GREENBELT, MD, 20770",
+        "censusCoordinates": [
+          -76.913299997402,
+          38.998186118951
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 29,
+      "name": "Longmeadow Eyecare",
+      "address": "12818 Shank Farm Way, Ste G",
+      "city": "Hagerstown",
+      "state": "MD",
+      "phone": "3017973030",
+      "lat": 39.664406714771,
+      "lng": -77.699721252827,
+      "geocode": "census-street",
+      "hours": "Mo 09:00-18:00; Tu 09:00-17:00; We-Th 09:00-18:00; Fr 09:00-17:00; Sa 09:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 29,
+        "source": "https://longmeadoweyecare.com/contact/",
+        "note": "CONFLICT: same owner page contains both 1545 Potomac Ave and 12818 Shank Farm Way Suite G. Phone agrees. Keep existing pin until manager confirms."
+      },
+      "coordinateCheck": {
+        "id": 29,
+        "name": "Longmeadow Eyecare",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.699721252827,
+          39.664406714771
+        ],
+        "matchedAddress": "12818 SHANK FARMWAY, HAGERSTOWN, MD, 21742",
+        "censusCoordinates": [
+          -77.699721252827,
+          39.664406714771
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 30,
+      "name": "Eye to Eye Optical",
+      "address": "1 Coliseum Crossing",
+      "city": "Hampton",
+      "state": "VA",
+      "phone": "7578263392",
+      "lat": 37.04941549305,
+      "lng": -76.391685138161,
+      "geocode": "census-street",
+      "hours": "Mo 09:00-17:00; Tu-Fr 09:00-18:00; Sa 09:00-16:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 30,
+        "source": "https://www.nicholasandmelandfamilyeyecare.com/",
+        "note": "Practice address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 30,
+        "name": "Eye to Eye Optical",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.391685138161,
+          37.04941549305
+        ],
+        "matchedAddress": "1 COLISEUM DR, HAMPTON, VA, 23666",
+        "censusCoordinates": [
+          -76.391685138161,
+          37.04941549305
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 31,
+      "name": "Blue Ridge Optical - Hardy",
+      "address": "13295 Booker T Washington Hwy",
+      "city": "Hardy",
+      "state": "VA",
+      "phone": "5407217200",
+      "lat": 37.120284769941,
+      "lng": -79.712796047158,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-12:00, 13:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 31,
+        "source": "https://blueridgeoptical.com/contact-us/",
+        "note": "Updated to published Hardy branch phone."
+      },
+      "coordinateCheck": {
+        "id": 31,
+        "name": "Blue Ridge Optical - Hardy",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.712796047158,
+          37.120284769941
+        ],
+        "matchedAddress": "13295 BOOKER T WASHINGTON HWY, HARDY, VA, 24101",
+        "censusCoordinates": [
+          -79.712796047158,
+          37.120284769941
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 32,
+      "name": "Eastern Eye Associates",
+      "address": "3449 George Washington Memorial Hwy",
+      "city": "Hayes",
+      "state": "VA",
+      "phone": "8046422290",
+      "lat": 37.302314542108,
+      "lng": -76.512316536862,
+      "geocode": "census-street",
+      "hours": "Mo 08:00-17:00; Tu 08:00-19:00; We-Th 08:00-17:00; Fr 08:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 32,
+        "source": "https://www.eea2020.com/",
+        "note": "Updated to published Hayes phone."
+      },
+      "coordinateCheck": {
+        "id": 32,
+        "name": "Eastern Eye Associates",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.512316536862,
+          37.302314542108
+        ],
+        "matchedAddress": "3449 GEORGE WASHINGTON MEMORIAL HWY, HAYES, VA, 23072",
+        "censusCoordinates": [
+          -76.512316536862,
+          37.302314542108
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 33,
+      "name": "Eye Care on the Ridge",
+      "address": "843 W Stuart Dr",
+      "city": "Hillsville",
+      "state": "VA",
+      "phone": "2767289323",
+      "lat": 36.75630591761,
+      "lng": -80.741971926577,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 33,
+        "source": "https://eyecareontheridge.com/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 33,
+        "name": "Eye Care on the Ridge",
+        "match": "Match",
+        "originalCoordinates": [
+          -80.741971926577,
+          36.75630591761
+        ],
+        "matchedAddress": "843 W STUART DR, HILLSVILLE, VA, 24343",
+        "censusCoordinates": [
+          -80.741971926577,
+          36.756305917611
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 34,
+      "name": "Lebow Eye Associates",
+      "address": "221 E Broadway",
+      "city": "Hopewell",
+      "state": "VA",
+      "phone": "8044585819",
+      "lat": 37.304470557693,
+      "lng": -77.285838894341,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 34,
+        "source": "https://www.leboweye.com/hopewell-office",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 34,
+        "name": "Lebow Eye Associates",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.285838894341,
+          37.304470557693
+        ],
+        "matchedAddress": "221 E BROADWAY AVE, HOPEWELL, VA, 23860",
+        "censusCoordinates": [
+          -77.285838894341,
+          37.304470557693
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 35,
+      "name": "Stylish Eyes",
+      "address": "266 N Main St",
+      "city": "Kilmarnock",
+      "state": "VA",
+      "phone": "8044352620",
+      "lat": 37.71592853029,
+      "lng": -76.381420137748,
+      "geocode": "census-street",
+      "hours": "Mo-Tu 10:00-17:30; Th-Fr 10:00-17:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 35,
+        "source": "https://shopstylisheyes.com/",
+        "note": "Phone confirmed. Verify suite D with shop."
+      },
+      "coordinateCheck": {
+        "id": 35,
+        "name": "Stylish Eyes",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.381420137748,
+          37.71592853029
+        ],
+        "matchedAddress": "266 N MAIN ST, KILMARNOCK, VA, 22482",
+        "censusCoordinates": [
+          -76.381420137748,
+          37.71592853029
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 36,
+      "name": "Sterling Optical - LaVale",
+      "address": "1221B National Hwy",
+      "city": "LaVale",
+      "state": "MD",
+      "phone": "3017294240",
+      "lat": 39.637773975605,
+      "lng": -78.833450923758,
+      "geocode": "census-street",
+      "hours": "Mo 09:00-16:00; Tu 09:00-18:00; We-Th 09:00-17:00; Fr 09:00-16:00; Sa 09:00-11:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 36,
+        "source": "https://www.sterlingoptical.com/locations/lavale/",
+        "note": "Phone confirmed; full street address needs manager confirmation."
+      },
+      "coordinateCheck": {
+        "id": 36,
+        "name": "Sterling Optical - LaVale",
+        "match": "Match",
+        "originalCoordinates": [
+          -78.833450923758,
+          39.637773975605
+        ],
+        "matchedAddress": "1221B NATIONAL HWY, LAVALE, MD, 21502",
+        "censusCoordinates": [
+          -78.833450923758,
+          39.637773975605
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 37,
+      "name": "Charles W. Tyhurst, OD",
+      "address": "1614 E Main St",
+      "city": "Lebanon",
+      "state": "VA",
+      "phone": "2768891315",
+      "lat": 36.905766169999,
+      "lng": -82.052294222375,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 37,
+        "source": "",
+        "note": "No current owner source confirmed. Verify current operation, address and phone."
+      },
+      "coordinateCheck": {
+        "id": 37,
+        "name": "Charles W. Tyhurst, OD",
+        "match": "Match",
+        "originalCoordinates": [
+          -82.052294222375,
+          36.905766169999
+        ],
+        "matchedAddress": "1614 MAIN ST, LEBANON, VA, 24266",
+        "censusCoordinates": [
+          -82.052294222375,
+          36.905766169999
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 38,
+      "name": "Katzen Eye - Lutherville",
+      "address": "1209 York Rd",
+      "city": "Lutherville",
+      "state": "MD",
+      "phone": "4108288044",
+      "lat": 39.415989003271,
+      "lng": -76.613783705088,
+      "geocode": "census-street",
+      "hours": "Mo 08:00-17:00; Tu-Th 08:00-18:30; Fr 08:00-16:00; Sa 09:00-13:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 38,
+        "source": "https://www.katzeneye.com/contact-us/",
+        "note": "Street address confirmed. Website central phone differs; keep optical number pending manager confirmation."
+      },
+      "coordinateCheck": {
+        "id": 38,
+        "name": "Katzen Eye - Lutherville",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.613783705088,
+          39.415989003271
+        ],
+        "matchedAddress": "1209 YORK RD, LUTHERVILLE, MD, 21093",
+        "censusCoordinates": [
+          -76.613783705088,
+          39.415989003271
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 39,
+      "name": "A.G. Jefferson Opticians",
+      "address": "1007 Sheffield Dr",
+      "city": "Lynchburg",
+      "state": "VA",
+      "phone": "4348463937",
+      "lat": 37.369842474904,
+      "lng": -79.186127687846,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:30; Sa 09:00-12:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 39,
+        "source": "https://pchp.net/index.php/vision-services.html",
+        "note": "Insurer confirms phone; owner address and operation need manager confirmation."
+      },
+      "coordinateCheck": {
+        "id": 39,
+        "name": "A.G. Jefferson Opticians",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.186127687846,
+          37.369842474904
+        ],
+        "matchedAddress": "1007 SHEFFIELD DR, LYNCHBURG, VA, 24502",
+        "censusCoordinates": [
+          -79.186127687846,
+          37.369842474904
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 40,
+      "name": "Vision 2020",
+      "address": "171 Retail Commons Pkwy",
+      "city": "Martinsburg",
+      "state": "WV",
+      "phone": "3046892020",
+      "lat": 39.438879593312,
+      "lng": -77.991087427765,
+      "geocode": "census-street",
+      "hours": "Mo 09:00-18:00; Tu 09:00-17:00; We-Th 09:00-18:00; Fr 09:00-17:00; Sa 09:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 40,
+        "source": "https://longmeadoweyecare.com/contact/",
+        "note": "Owner confirms Martinsburg branch and phone; confirm street address and suite 6 with shop."
+      },
+      "coordinateCheck": {
+        "id": 40,
+        "name": "Vision 2020",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.991087427765,
+          39.438879593312
+        ],
+        "matchedAddress": "171 RETAIL COMMONS PKWY, MARTINSBURG, WV, 25403",
+        "censusCoordinates": [
+          -77.991087427765,
+          39.438879593312
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 41,
+      "name": "Friedrichs Family Eye Center - Martinsville",
+      "address": "1975 Virginia Ave",
+      "city": "Martinsville",
+      "state": "VA",
+      "phone": "2766473937",
+      "lat": 36.706620565255,
+      "lng": -79.909223404614,
+      "geocode": "census-street",
+      "hours": "Mo 08:30-17:30; Tu 08:30-18:00; We-Fr 08:30-17:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 41,
+        "source": "https://www.friedrichsfamilyeyecenter.com/",
+        "note": "Street address and branch phone agree."
+      },
+      "coordinateCheck": {
+        "id": 41,
+        "name": "Friedrichs Family Eye Center - Martinsville",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.909223404614,
+          36.706620565255
+        ],
+        "matchedAddress": "1975 VIRGINIA AVE, MARTINSVILLE, VA, 24112",
+        "censusCoordinates": [
+          -79.909223404614,
+          36.706620565255
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 42,
+      "name": "Peepers Family Eyecare",
+      "address": "1311 S Main St, Suite 104",
+      "city": "Mount Airy",
+      "state": "MD",
+      "phone": "3018294118",
+      "lat": 39.367464100413,
+      "lng": -77.164730907679,
+      "geocode": "census-street",
+      "hours": "Mo 10:00-18:00; Tu 09:00-17:00; Th 10:00-18:00; Fr 09:00-17:00; Sa 09:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 42,
+        "source": "https://www.peeperseye.com/contact-us",
+        "note": "Corrected Maryland phone and added suite 104."
+      },
+      "coordinateCheck": {
+        "id": 42,
+        "name": "Peepers Family Eyecare",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.164730907679,
+          39.367464100413
+        ],
+        "matchedAddress": "1311 S MAIN ST, MOUNT AIRY, MD, 21771",
+        "censusCoordinates": [
+          -77.164730907679,
+          39.367464100413
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 43,
+      "name": "Sober Family Eye Care",
+      "address": "8841C Belair Rd",
+      "city": "Nottingham",
+      "state": "MD",
+      "phone": "4106822888",
+      "lat": 39.39605836354,
+      "lng": -76.483365592919,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:00; Sa 09:00-12:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 43,
+        "source": "https://www.sobereyecare.com/about.html",
+        "note": "Street address and phone agree; existing unit C retained."
+      },
+      "coordinateCheck": {
+        "id": 43,
+        "name": "Sober Family Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.483365592919,
+          39.39605836354
+        ],
+        "matchedAddress": "8841C BELAIR RD, NOTTINGHAM, MD, 21236",
+        "censusCoordinates": [
+          -76.483365592919,
+          39.39605836354
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 44,
+      "name": "Sunglass City",
+      "address": "901 Atlantic Ave",
+      "city": "Ocean City",
+      "state": "MD",
+      "phone": "4102892427",
+      "lat": 38.339572414364,
+      "lng": -75.080574960676,
+      "geocode": "census-street",
+      "hours": "Su 09:00-22:00; Mo-Th 10:00-22:00; Fr-Sa 09:00-22:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 44,
+        "source": "https://www.locally.com/store/77485/sunglass-city",
+        "note": "Event-area priority: retailer listing confirms street, but current owner source/phone/Harley stock require manager confirmation."
+      },
+      "coordinateCheck": {
+        "id": 44,
+        "name": "Sunglass City",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.080574960676,
+          38.339572414364
+        ],
+        "matchedAddress": "901 ATLANTIC AVE, OCEAN CITY, MD, 21842",
+        "censusCoordinates": [
+          -75.080574960676,
+          38.339572414364
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 45,
+      "name": "Looking Glass Optical",
+      "address": "8028 Ritchie Hwy, Ste 124",
+      "city": "Pasadena",
+      "state": "MD",
+      "phone": "4107680202",
+      "lat": 39.129347417358,
+      "lng": -76.592905425507,
+      "geocode": "census-street",
+      "hours": "Mo 09:00-18:00; Tu 11:00-18:00; We 09:00-18:00; Th 10:00-18:00; Fr 09:00-16:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 45,
+        "source": "https://www.lookingglassoptical.com/",
+        "note": "Phone confirmed; street address supported by practice welcome form. Existing suite retained."
+      },
+      "coordinateCheck": {
+        "id": 45,
+        "name": "Looking Glass Optical",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.592905425507,
+          39.129347417358
+        ],
+        "matchedAddress": "8028 RITCHIE HWY, PASADENA, MD, 21122",
+        "censusCoordinates": [
+          -76.592905425507,
+          39.129347417358
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 46,
+      "name": "Petersburg Family Eyecare",
+      "address": "44 Medical Park Blvd",
+      "city": "Petersburg",
+      "state": "VA",
+      "phone": "8048983373",
+      "lat": 37.182639034974,
+      "lng": -77.363522330049,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 46,
+        "source": "",
+        "note": "No current owner source confirmed. Verify operation and suite H with manager."
+      },
+      "coordinateCheck": {
+        "id": 46,
+        "name": "Petersburg Family Eyecare",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.363522330049,
+          37.182639034974
+        ],
+        "matchedAddress": "44 MEDICAL PARK BLVD, PETERSBURG, VA, 23805",
+        "censusCoordinates": [
+          -77.363522330049,
+          37.182639034974
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 47,
+      "name": "The Spectacle Family Eyecare",
+      "address": "28 Virginia Ave",
+      "city": "Petersburg",
+      "state": "WV",
+      "phone": "6818920393",
+      "lat": 38.992822815939,
+      "lng": -79.123131036984,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 47,
+        "source": "https://locations.essilorusa.com/wv/petersburg/28-virginia-ave",
+        "note": "Manufacturer directory confirms address and phone; current owner confirmation pending."
+      },
+      "coordinateCheck": {
+        "id": 47,
+        "name": "The Spectacle Family Eyecare",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.123131036984,
+          38.992822815939
+        ],
+        "matchedAddress": "28 VIRGINIA AVE, PETERSBURG, WV, 26847",
+        "censusCoordinates": [
+          -79.123131036984,
+          38.99282281594
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 48,
+      "name": "Crater Vision Center",
+      "address": "3333 S Crater Rd",
+      "city": "Petersburg",
+      "state": "VA",
+      "phone": "8047323937",
+      "lat": 37.184383088458,
+      "lng": -77.367367430312,
+      "geocode": "census-street",
+      "hours": "Mo-Tu 09:00-17:30; We 09:00-14:00; Th-Fr 09:00-17:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 48,
+        "source": "https://individual.carefirst.com/carefirst-resources/pdf/group-ma-vision-provider-directory-spanish.pdf",
+        "note": "Insurer confirms address/phone and suite 2D. Owner confirmation pending."
+      },
+      "coordinateCheck": {
+        "id": 48,
+        "name": "Crater Vision Center",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.367367430312,
+          37.184383088458
+        ],
+        "matchedAddress": "3333 S CRATER RD, PETERSBURG, VA, 23805",
+        "censusCoordinates": [
+          -77.367367430312,
+          37.184383088458
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 49,
+      "name": "Drs. Nichol & Weidema",
+      "address": "1518 Market St",
+      "city": "Pocomoke City",
+      "state": "MD",
+      "phone": "4109571113",
+      "lat": 38.063208630497,
+      "lng": -75.551298279438,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:30-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 49,
+        "source": "https://gowoyo.org/shine-taskforce-resources/",
+        "note": "Community directory calls this Lower Shore Vision Center; name spelling Nickol also differs. Address/phone supported; manager should confirm public name."
+      },
+      "coordinateCheck": {
+        "id": 49,
+        "name": "Drs. Nichol & Weidema",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.551298279438,
+          38.063208630497
+        ],
+        "matchedAddress": "1518 MARKET ST, POCOMOKE CITY, MD, 21851",
+        "censusCoordinates": [
+          -75.551298279438,
+          38.063208630497
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 50,
+      "name": "Lindsey Optical",
+      "address": "310 Locust St, Suite 6",
+      "city": "Princeton",
+      "state": "WV",
+      "phone": "3044872020",
+      "lat": 37.362095367327,
+      "lng": -81.078530334798,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 50,
+        "source": "https://www.lindseyoptical.com/",
+        "note": "Suite 6 added; phone agrees."
+      },
+      "coordinateCheck": {
+        "id": 50,
+        "name": "Lindsey Optical",
+        "match": "Match",
+        "originalCoordinates": [
+          -81.078530334798,
+          37.362095367327
+        ],
+        "matchedAddress": "310 LOCUST ST, PRINCETON, WV, 24740",
+        "censusCoordinates": [
+          -81.078530334798,
+          37.362095367327
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 51,
+      "name": "Rebuck & Associates Eye Care",
+      "address": "805 N Mildred St, Suite 3",
+      "city": "Ranson",
+      "state": "WV",
+      "phone": "3047252020",
+      "lat": 39.30577068517,
+      "lng": -77.863823954593,
+      "geocode": "census-street",
+      "hours": "Mo-Tu 09:00-19:00; We 09:00-16:00; Th-Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 51,
+        "source": "https://randaeye.com/contact/",
+        "note": "Suite 3 added; phone agrees."
+      },
+      "coordinateCheck": {
+        "id": 51,
+        "name": "Rebuck & Associates Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.863823954593,
+          39.30577068517
+        ],
+        "matchedAddress": "805 N MILDRED ST, RANSON, WV, 25438",
+        "censusCoordinates": [
+          -77.863823954592,
+          39.30577068517
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 52,
+      "name": "Johnson-Curran Optometry Center",
+      "address": "5049 Valley View Blvd NW",
+      "city": "Roanoke",
+      "state": "VA",
+      "phone": "5403662457",
+      "lat": 37.308136376999,
+      "lng": -79.969263035641,
+      "geocode": "census-street",
+      "hours": "Mo-We 08:00-18:00; Th 07:30-18:00; Fr 08:00-17:30; Sa by appointment",
+      "kind": "eyewear",
+      "audit": {
+        "id": 52,
+        "source": "https://johnsoncurran.com/location/valley-view/",
+        "note": "Updated branch phone and posted hours; appointments required Saturday."
+      },
+      "coordinateCheck": {
+        "id": 52,
+        "name": "Johnson-Curran Optometry Center",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.969263035641,
+          37.308136376999
+        ],
+        "matchedAddress": "5049 VALLEY VIEW BLVD NORTH NW, ROANOKE, VA, 24012",
+        "censusCoordinates": [
+          -79.969263035641,
+          37.308136376999
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 53,
+      "name": "National Optical",
+      "address": "1507 Hershberger Rd NW",
+      "city": "Roanoke",
+      "state": "VA",
+      "phone": "5403620300",
+      "lat": 37.315007202892,
+      "lng": -79.959758028139,
+      "geocode": "census-street",
+      "hours": "Mo-Sa 09:00-18:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 53,
+        "source": "https://www.nationalopticalonline.com/call-national-optical-virginia",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 53,
+        "name": "National Optical",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.959758028139,
+          37.315007202892
+        ],
+        "matchedAddress": "1507 HERSHBERGER RD NW, ROANOKE, VA, 24012",
+        "censusCoordinates": [
+          -79.959758028139,
+          37.315007202892
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 54,
+      "name": "Blue Ridge Optical - Roanoke",
+      "address": "1960 Electric Rd",
+      "city": "Roanoke",
+      "state": "VA",
+      "phone": "5407769722",
+      "lat": 37.247652046821,
+      "lng": -80.033530796171,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:30-17:30; Sa 08:30-12:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 54,
+        "source": "https://blueridgeoptical.com/contact-us/",
+        "note": "Street address and branch phone agree."
+      },
+      "coordinateCheck": {
+        "id": 54,
+        "name": "Blue Ridge Optical - Roanoke",
+        "match": "Match",
+        "originalCoordinates": [
+          -80.033530796171,
+          37.247652046821
+        ],
+        "matchedAddress": "1960 ELECTRIC RD, ROANOKE, VA, 24018",
+        "censusCoordinates": [
+          -80.033530796171,
+          37.247652046821
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 55,
+      "name": "Blue Ridge Optical - Botetourt",
+      "address": "33 British Woods Dr",
+      "city": "Roanoke",
+      "state": "VA",
+      "phone": "5409926797",
+      "lat": 37.357312410417,
+      "lng": -79.884320997835,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-17:00; Sa 08:00-12:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 55,
+        "source": "https://blueridgeoptical.com/contact-us/",
+        "note": "Street address and branch phone agree."
+      },
+      "coordinateCheck": {
+        "id": 55,
+        "name": "Blue Ridge Optical - Botetourt",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.884320997835,
+          37.357312410417
+        ],
+        "matchedAddress": "33 BRITISH WOODS DR, ROANOKE, VA, 24019",
+        "censusCoordinates": [
+          -79.884320997835,
+          37.357312410417
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 56,
+      "name": "Rocky Mount Family Eyecare",
+      "address": "345 S Main St",
+      "city": "Rocky Mount",
+      "state": "VA",
+      "phone": "5404835256",
+      "lat": 36.994393091232,
+      "lng": -79.889379469364,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 56,
+        "source": "https://www.karteszeyecare.com/tanyard-road-rocky-mount/",
+        "note": "Published street address and branch phone agree despite page title mentioning Tanyard Road."
+      },
+      "coordinateCheck": {
+        "id": 56,
+        "name": "Rocky Mount Family Eyecare",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.889379469364,
+          36.994393091232
+        ],
+        "matchedAddress": "345 S MAIN ST, ROCKY MOUNT, VA, 24151",
+        "censusCoordinates": [
+          -79.889379469364,
+          36.994393091232
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 57,
+      "name": "Friedrichs Family Eye Center - Rocky Mount",
+      "address": "395 S Main St",
+      "city": "Rocky Mount",
+      "state": "VA",
+      "phone": "5404830284",
+      "lat": 36.993696092122,
+      "lng": -79.889539523889,
+      "geocode": "census-street",
+      "hours": "Mo 09:00-17:30; Tu-Fr 08:30-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 57,
+        "source": "https://www.friedrichsfamilyeyecenter.com/",
+        "note": "Street address and branch phone agree."
+      },
+      "coordinateCheck": {
+        "id": 57,
+        "name": "Friedrichs Family Eye Center - Rocky Mount",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.889539523889,
+          36.993696092122
+        ],
+        "matchedAddress": "395 S MAIN ST, ROCKY MOUNT, VA, 24151",
+        "censusCoordinates": [
+          -79.889539523889,
+          36.993696092122
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 58,
+      "name": "Delaware Eye Care Center - Smyrna",
+      "address": "100 S Main St Suite 217",
+      "city": "Smyrna",
+      "state": "DE",
+      "phone": "3026596597",
+      "lat": 39.299807851683,
+      "lng": -75.604730945136,
+      "geocode": "census-street",
+      "hours": "Mo-We 08:00-17:00; Th 08:00-16:30; Fr 08:00-15:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 58,
+        "source": "https://www.delawareeyecare.com/contact-us/request-an-appointment/",
+        "note": "Corrected suite and optical phone."
+      },
+      "coordinateCheck": {
+        "id": 58,
+        "name": "Delaware Eye Care Center - Smyrna",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.604730945136,
+          39.299807851683
+        ],
+        "matchedAddress": "100 S MAIN ST, SMYRNA, DE, 19977",
+        "censusCoordinates": [
+          -75.604730945136,
+          39.299807851683
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 59,
+      "name": "Patrick County Eye Associates",
+      "address": "797 Woodland Dr, Ste 101",
+      "city": "Stuart",
+      "state": "VA",
+      "phone": "2766947126",
+      "lat": 36.639923,
+      "lng": -80.2533155,
+      "geocode": "nominatim-full",
+      "hours": "Mo-Tu 08:30-11:45, 12:45-17:00; We 08:30-12:00; Th 08:30-11:45, 12:45-17:00; Fr 08:30-11:45, 12:45-16:30",
+      "kind": "eyewear",
+      "audit": {
+        "id": 59,
+        "source": "https://www.patrickchamber.com/profile.cfm?ID=595",
+        "note": "Chamber member profile confirms address; updated published phone. Pin requires manual review."
+      },
+      "coordinateCheck": {
+        "id": 59,
+        "name": "Patrick County Eye Associates",
+        "match": "No_Match",
+        "originalCoordinates": [
+          -80.2533155,
+          36.639923
+        ],
+        "needsPinReview": true
+      }
+    },
+    {
+      "id": 60,
+      "name": "Enochs Eye Care",
+      "address": "3575 Bridge Rd, Suite 19",
+      "city": "Suffolk",
+      "state": "VA",
+      "phone": "7576382015",
+      "lat": 36.862149061332,
+      "lng": -76.467371475471,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:30; Sa 08:00-14:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 60,
+        "source": "https://www.findclarityvision.com/suffolk-va/3575-bridge-rd-number-19/",
+        "note": "Added suite 19 from current owner page; phone and posted hours agree."
+      },
+      "coordinateCheck": {
+        "id": 60,
+        "name": "Enochs Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.467371475471,
+          36.862149061332
+        ],
+        "matchedAddress": "3575 BRIDGE RD, SUFFOLK, VA, 23435",
+        "censusCoordinates": [
+          -76.467371475471,
+          36.862149061332
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 61,
+      "name": "Sterling Optical - Waldorf",
+      "address": "1272 Smallwood Dr W",
+      "city": "Waldorf",
+      "state": "MD",
+      "phone": "3019324390",
+      "lat": 38.6129271,
+      "lng": -76.9274,
+      "geocode": "nominatim-full",
+      "hours": "Mo 09:00-17:00; Tu 09:00-18:00; We 09:00-17:00; Th 09:00-18:00; Fr 09:00-17:00; Sa 09:00-15:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 61,
+        "source": "https://www.sterlingoptical.com/locations/waldorf/",
+        "note": "Updated store phone; address and posted hours agree. Pin requires manual review."
+      },
+      "coordinateCheck": {
+        "id": 61,
+        "name": "Sterling Optical - Waldorf",
+        "match": "No_Match",
+        "originalCoordinates": [
+          -76.9274,
+          38.6129271
+        ],
+        "needsPinReview": true
+      }
+    },
+    {
+      "id": 62,
+      "name": "Carroll Eye Care",
+      "address": "1129 Business Pkwy S, Ste A",
+      "city": "Westminster",
+      "state": "MD",
+      "phone": "4108489243",
+      "lat": 39.605119027015,
+      "lng": -77.000402372524,
+      "geocode": "census-street",
+      "hours": "Mo,We 08:00-19:00; Tu,Th,Fr 08:00-17:00; Sa 09:00-12:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 62,
+        "source": "https://carrolleyecare.com/",
+        "note": "Updated published phone and posted hours; current moved address agrees."
+      },
+      "coordinateCheck": {
+        "id": 62,
+        "name": "Carroll Eye Care",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.000402372524,
+          39.605119027015
+        ],
+        "matchedAddress": "1129 BUSINESS PKWY S, WESTMINSTER, MD, 21157",
+        "censusCoordinates": [
+          -77.000402372524,
+          39.605119027015
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 63,
+      "name": "The Optical Center",
+      "address": "216 W Boscawen St",
+      "city": "Winchester",
+      "state": "VA",
+      "phone": "5406672220",
+      "lat": 39.184864600092,
+      "lng": -78.168895726836,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 09:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 63,
+        "source": "",
+        "note": "No current owner source confirmed. Verify current operation at 216 W Boscawen St and phone."
+      },
+      "coordinateCheck": {
+        "id": 63,
+        "name": "The Optical Center",
+        "match": "Match",
+        "originalCoordinates": [
+          -78.168895726836,
+          39.184864600092
+        ],
+        "matchedAddress": "216 W BOSCAWEN ST, WINCHESTER, VA, 22601",
+        "censusCoordinates": [
+          -78.168895726836,
+          39.184864600092
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "id": 64,
+      "name": "Wythe Eye Associates",
+      "address": "530 W Ridge Rd",
+      "city": "Wytheville",
+      "state": "VA",
+      "phone": "2762230033",
+      "lat": 36.953403805573,
+      "lng": -81.095301018499,
+      "geocode": "census-street",
+      "hours": "Mo-Fr 08:00-13:00, 14:00-17:00",
+      "kind": "eyewear",
+      "audit": {
+        "id": 64,
+        "source": "https://www.wytheeyeassociates.net/contact-us.html",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 64,
+        "name": "Wythe Eye Associates",
+        "match": "Match",
+        "originalCoordinates": [
+          -81.095301018499,
+          36.953403805573
+        ],
+        "matchedAddress": "530 W RIDGE RD, WYTHEVILLE, VA, 24382",
+        "censusCoordinates": [
+          -81.095301018499,
+          36.953403805573
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "All American Harley-Davidson",
+      "address": "8126 Old Leonardtown Rd",
+      "city": "Hughesville",
+      "state": "MD",
+      "phone": "3012745000",
+      "lat": 38.539742835676,
+      "lng": -76.787795453176,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 65,
+      "audit": {
+        "id": 65,
+        "source": "https://www.npda.org/veloitem/all-american-harley-davidson",
+        "note": "Dealer association confirms address and phone; owner confirmation pending."
+      },
+      "coordinateCheck": {
+        "id": 65,
+        "name": "All American Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.787795453176,
+          38.539742835676
+        ],
+        "matchedAddress": "8126 OLD LEONARDTOWN RD, HUGHESVILLE, MD, 20637",
+        "censusCoordinates": [
+          -76.787795453176,
+          38.539742835676
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "District Harley-Davidson",
+      "address": "7830 Airpark Rd",
+      "city": "Gaithersburg",
+      "state": "MD",
+      "phone": "3019484581",
+      "lat": 39.170423235005,
+      "lng": -77.159635927855,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 66,
+      "audit": {
+        "id": 66,
+        "source": "https://www.districtducati.com/default.asp?id=456290&page=xListEvents",
+        "note": "Historical shared-dealer page supports address/phone. Confirm current Harley business with manager."
+      },
+      "coordinateCheck": {
+        "id": 66,
+        "name": "District Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.159635927855,
+          39.170423235005
+        ],
+        "matchedAddress": "7830 AIRPARK RD, GAITHERSBURG, MD, 20879",
+        "censusCoordinates": [
+          -77.159635927855,
+          39.170423235005
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Eisenhauer's Chesapeake Harley-Davidson",
+      "address": "4600 Thunder Ct",
+      "city": "Darlington",
+      "state": "MD",
+      "phone": "4104574541",
+      "lat": 39.649187937574,
+      "lng": -76.203479459727,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 67,
+      "audit": {
+        "id": 67,
+        "source": "https://www.chesapeakehd.com/",
+        "note": "Updated to published dealer phone; address agrees."
+      },
+      "coordinateCheck": {
+        "id": 67,
+        "name": "Eisenhauer's Chesapeake Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.203479459727,
+          39.649187937574
+        ],
+        "matchedAddress": "4600 THUNDER CT, DARLINGTON, MD, 21034",
+        "censusCoordinates": [
+          -76.203479459727,
+          39.649187937575
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Harley-Davidson of Baltimore",
+      "address": "8845 Pulaski Hwy",
+      "city": "Rosedale",
+      "state": "MD",
+      "phone": "4102382003",
+      "lat": 39.340476435652,
+      "lng": -76.471388403145,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 68,
+      "audit": {
+        "id": 68,
+        "source": "https://www.hdstore.com/map-hours-directions-harley-davidson-dealership--hours",
+        "note": "Street address and main phone agree; alternate website tracking number also shown."
+      },
+      "coordinateCheck": {
+        "id": 68,
+        "name": "Harley-Davidson of Baltimore",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.471388403145,
+          39.340476435652
+        ],
+        "matchedAddress": "8845 PULASKI HWY, ROSEDALE, MD, 21237",
+        "censusCoordinates": [
+          -76.471388403145,
+          39.340476435652
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Harley-Davidson of Washington, DC",
+      "address": "9407 Livingston Rd",
+      "city": "Fort Washington",
+      "state": "MD",
+      "phone": "3012481200",
+      "lat": 38.760485758747,
+      "lng": -76.995300478964,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 70,
+      "audit": {
+        "id": 70,
+        "source": "https://www.hdofdc.com/index.asp",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 70,
+        "name": "Harley-Davidson of Washington, DC",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.995300478964,
+          38.760485758747
+        ],
+        "matchedAddress": "9407 LIVINGSTON RD, FORT WASHINGTON, MD, 20744",
+        "censusCoordinates": [
+          -76.995300478964,
+          38.760485758748
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Old Glory Harley-Davidson",
+      "address": "11800 Laurel Bowie Rd",
+      "city": "Laurel",
+      "state": "MD",
+      "phone": "3015750575",
+      "lat": 39.051883570143,
+      "lng": -76.836219895481,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 72,
+      "audit": {
+        "id": 72,
+        "source": "https://www.oldgloryhog.com/",
+        "note": "Affiliated HOG chapter confirms street address. Multiple tracking phone numbers exist; manager should confirm preferred number."
+      },
+      "coordinateCheck": {
+        "id": 72,
+        "name": "Old Glory Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.836219895481,
+          39.051883570143
+        ],
+        "matchedAddress": "11800 LAUREL BOWIE RD, LAUREL, MD, 20708",
+        "censusCoordinates": [
+          -76.836219895481,
+          39.051883570143
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Rommel Harley-Davidson Delmarva",
+      "address": "2410-A N Salisbury Blvd",
+      "city": "Salisbury",
+      "state": "MD",
+      "phone": "4108452535",
+      "lat": 38.403200461906,
+      "lng": -75.569330032548,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 73,
+      "audit": {
+        "id": 73,
+        "source": "https://www.delmarva-hog.com/",
+        "note": "Affiliated dealer chapter confirms unit A and phone; same phone on dealer website. Updated both."
+      },
+      "coordinateCheck": {
+        "id": 73,
+        "name": "Rommel Harley-Davidson Delmarva",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.569330032548,
+          38.403200461906
+        ],
+        "matchedAddress": "2410 N SALISBURY BLVD, SALISBURY, MD, 21801",
+        "censusCoordinates": [
+          -75.569330032548,
+          38.403200461906
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Rommel Harley-Davidson",
+      "address": "450 Stadium St",
+      "city": "Smyrna",
+      "state": "DE",
+      "phone": "3026596400",
+      "lat": 39.276562983968,
+      "lng": -75.58791504354,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 74,
+      "audit": {
+        "id": 74,
+        "source": "https://www.rommelhd.com/Accessibility-Statement",
+        "note": "Updated to published Smyrna phone; street address agrees."
+      },
+      "coordinateCheck": {
+        "id": 74,
+        "name": "Rommel Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -75.58791504354,
+          39.276562983968
+        ],
+        "matchedAddress": "450 STADIUM ST, SMYRNA, DE, 19977",
+        "censusCoordinates": [
+          -75.58791504354,
+          39.276562983968
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Ironclad Harley-Davidson",
+      "address": "2211 Frederick Blvd",
+      "city": "Portsmouth",
+      "state": "VA",
+      "phone": "7573975550",
+      "lat": 36.818774218298,
+      "lng": -76.327396982173,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 75,
+      "audit": {
+        "id": 75,
+        "source": "https://ironcladharley.com/contact-us",
+        "note": "Street address agrees. Website tracking number differs from current VA dealer register; existing registry phone retained for manager review."
+      },
+      "coordinateCheck": {
+        "id": 75,
+        "name": "Ironclad Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.327396982173,
+          36.818774218298
+        ],
+        "matchedAddress": "2211 FREDERICK BLVD, PORTSMOUTH, VA, 23704",
+        "censusCoordinates": [
+          -76.327396982173,
+          36.818774218298
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Black Bear Harley-Davidson",
+      "address": "430 Lithia Rd",
+      "city": "Wytheville",
+      "state": "VA",
+      "phone": "2762289000",
+      "lat": 36.95135049877,
+      "lng": -81.054942022958,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 76,
+      "audit": {
+        "id": 76,
+        "source": "https://blackbearhd.com/contact-us",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 76,
+        "name": "Black Bear Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -81.054942022958,
+          36.95135049877
+        ],
+        "matchedAddress": "430 LITHIA RD, WYTHEVILLE, VA, 24382",
+        "censusCoordinates": [
+          -81.054942022958,
+          36.95135049877
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Black Wolf Harley-Davidson",
+      "address": "1061 Old Abingdon Hwy",
+      "city": "Bristol",
+      "state": "VA",
+      "phone": "2766449653",
+      "lat": 36.625064167261,
+      "lng": -82.155701487633,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 77,
+      "audit": {
+        "id": 77,
+        "source": "https://business.bristolchamber.com/list/member/black-wolf-harley-davidson-4745",
+        "note": "Chamber member profile confirms address/phone; owner confirmation pending."
+      },
+      "coordinateCheck": {
+        "id": 77,
+        "name": "Black Wolf Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -82.155701487633,
+          36.625064167261
+        ],
+        "matchedAddress": "1061 OLD ABINGDON HWY, BRISTOL, VA, 24201",
+        "censusCoordinates": [
+          -82.155701487633,
+          36.625064167261
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Colonial Harley-Davidson",
+      "address": "1701 Temple Pkwy",
+      "city": "Prince George",
+      "state": "VA",
+      "phone": "8048614700",
+      "lat": 37.250641611137,
+      "lng": -77.37183488983,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 79,
+      "audit": {
+        "id": 79,
+        "source": "https://colonialhd.com/contact-us",
+        "note": "Street address and main phone agree."
+      },
+      "coordinateCheck": {
+        "id": 79,
+        "name": "Colonial Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.37183488983,
+          37.250641611137
+        ],
+        "matchedAddress": "1701 TEMPLE PKWY, PRINCE GEORGE, VA, 23875",
+        "censusCoordinates": [
+          -77.37183488983,
+          37.250641611137
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Hampton Roads Harley-Davidson",
+      "address": "6450 George Washington Hwy",
+      "city": "Yorktown",
+      "state": "VA",
+      "phone": "7578727223",
+      "lat": 37.171178371273,
+      "lng": -76.473238180306,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 80,
+      "audit": {
+        "id": 80,
+        "source": "https://www.hamptonroadshd.com/?page=inventory",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 80,
+        "name": "Hampton Roads Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -76.473238180306,
+          37.171178371273
+        ],
+        "matchedAddress": "6450 GEORGE WASHINGTON MEMORIAL HWY, YORKTOWN, VA, 23692",
+        "censusCoordinates": [
+          -76.473238180306,
+          37.171178371273
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Harley-Davidson of Lynchburg",
+      "address": "20452 Timberlake Rd",
+      "city": "Lynchburg",
+      "state": "VA",
+      "phone": "4342372381",
+      "lat": 37.341601363321,
+      "lng": -79.236317470946,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 81,
+      "audit": {
+        "id": 81,
+        "source": "",
+        "note": "No current owner page confirmed in this pass; verify current operation and preferred phone."
+      },
+      "coordinateCheck": {
+        "id": 81,
+        "name": "Harley-Davidson of Lynchburg",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.236317470946,
+          37.341601363321
+        ],
+        "matchedAddress": "20452 TIMBERLAKE RD, LYNCHBURG, VA, 24502",
+        "censusCoordinates": [
+          -79.236317470946,
+          37.341601363321
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Harley-Davidson of Quantico",
+      "address": "17975 Main St",
+      "city": "Dumfries",
+      "state": "VA",
+      "phone": "7032213757",
+      "lat": 38.562264457602,
+      "lng": -77.330656728525,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 82,
+      "audit": {
+        "id": 82,
+        "source": "https://www.harleydavidsonofquantico.com/INFO-PAGE/CONTACT-US/Reserve-Anniversary-Models/Location-Hours",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 82,
+        "name": "Harley-Davidson of Quantico",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.330656728525,
+          38.562264457602
+        ],
+        "matchedAddress": "17975 MAIN ST, DUMFRIES, VA, 22026",
+        "censusCoordinates": [
+          -77.330656728525,
+          38.562264457603
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Old Dominion Harley-Davidson",
+      "address": "10611 Patriot Hwy",
+      "city": "Fredericksburg",
+      "state": "VA",
+      "phone": "5403767833",
+      "lat": 38.2506143,
+      "lng": -77.4976579,
+      "geocode": "nominatim",
+      "kind": "dealership",
+      "hours": "",
+      "id": 83,
+      "audit": {
+        "id": 83,
+        "source": "https://www.od-hd.com/Contact-Us",
+        "note": "Street address and local phone agree; pin requires manual review."
+      },
+      "coordinateCheck": {
+        "id": 83,
+        "name": "Old Dominion Harley-Davidson",
+        "match": "No_Match",
+        "originalCoordinates": [
+          -77.4976579,
+          38.2506143
+        ],
+        "needsPinReview": true
+      }
+    },
+    {
+      "name": "Patriot Harley-Davidson",
+      "address": "9739 Fairfax Blvd",
+      "city": "Fairfax",
+      "state": "VA",
+      "phone": "7033525400",
+      "lat": 38.863841134928,
+      "lng": -77.280904499319,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 84,
+      "audit": {
+        "id": 84,
+        "source": "https://www.livewire.com/locations/fairfax",
+        "note": "Manufacturer confirms street. Different tracking phone; verify preferred Harley contact with manager."
+      },
+      "coordinateCheck": {
+        "id": 84,
+        "name": "Patriot Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.280904499319,
+          38.863841134928
+        ],
+        "matchedAddress": "9739 FAIRFAX BLVD, FAIRFAX, VA, 22031",
+        "censusCoordinates": [
+          -77.280904499319,
+          38.863841134928
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Richmond Harley-Davidson",
+      "address": "12200 Harley Club Dr",
+      "city": "Ashland",
+      "state": "VA",
+      "phone": "8047522800",
+      "lat": 37.728612228537,
+      "lng": -77.4529728267,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 85,
+      "audit": {
+        "id": 85,
+        "source": "https://www.richmondhd.com/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 85,
+        "name": "Richmond Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.4529728267,
+          37.728612228537
+        ],
+        "matchedAddress": "12200 HARLEY CLUB DR, ASHLAND, VA, 23005",
+        "censusCoordinates": [
+          -77.4529728267,
+          37.728612228538
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Roanoke Valley Harley-Davidson",
+      "address": "1925 Peters Creek Rd NW",
+      "city": "Roanoke",
+      "state": "VA",
+      "phone": "5405625424",
+      "lat": 37.308979528989,
+      "lng": -80.006627596025,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 86,
+      "audit": {
+        "id": 86,
+        "source": "https://www.visitroanokeva.com/listings/roanoke-valley-harley-davidson/8457/",
+        "note": "Official tourism body confirms address/phone; current VA dealer register also agrees."
+      },
+      "coordinateCheck": {
+        "id": 86,
+        "name": "Roanoke Valley Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -80.006627596025,
+          37.308979528989
+        ],
+        "matchedAddress": "1925 PETERS CREEK RD NW, ROANOKE, VA, 24017",
+        "censusCoordinates": [
+          -80.006627596025,
+          37.308979528989
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Skyline Harley-Davidson",
+      "address": "140 Independence Dr",
+      "city": "Winchester",
+      "state": "VA",
+      "phone": "5406624468",
+      "lat": 39.140353646045,
+      "lng": -78.124922233073,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 87,
+      "audit": {
+        "id": 87,
+        "source": "https://www.skylineharley.com/",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 87,
+        "name": "Skyline Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -78.124922233073,
+          39.140353646045
+        ],
+        "matchedAddress": "140 INDEPENDENCE DR, WINCHESTER, VA, 22602",
+        "censusCoordinates": [
+          -78.124922233073,
+          39.140353646045
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Stonewall Harley-Davidson",
+      "address": "51 Buck Dr",
+      "city": "Ruckersville",
+      "state": "VA",
+      "phone": "5406725550",
+      "lat": 38.213777965013,
+      "lng": -78.383371617564,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 89,
+      "audit": {
+        "id": 89,
+        "source": "https://www.stonewallhd.com/Contact-Us",
+        "note": "Street address confirmed. Website lists toll-free number; verify existing local phone with manager."
+      },
+      "coordinateCheck": {
+        "id": 89,
+        "name": "Stonewall Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -78.383371617564,
+          38.213777965013
+        ],
+        "matchedAddress": "51 BUCK DR, RUCKERSVILLE, VA, 22968",
+        "censusCoordinates": [
+          -78.383371617564,
+          38.213777965013
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Thunder Road Harley-Davidson",
+      "address": "4870 Riverside Dr",
+      "city": "Danville",
+      "state": "VA",
+      "phone": "4348222453",
+      "lat": 36.590086251947,
+      "lng": -79.456620612365,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 90,
+      "audit": {
+        "id": 90,
+        "source": "https://thunderroadhd.com/about-us",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 90,
+        "name": "Thunder Road Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -79.456620612365,
+          36.590086251947
+        ],
+        "matchedAddress": "4870 RIVERSIDE DR, DANVILLE, VA, 24541",
+        "censusCoordinates": [
+          -79.456620612365,
+          36.590086251947
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Steel Horse Harley-Davidson",
+      "address": "11501 Hull Street Rd",
+      "city": "Midlothian",
+      "state": "VA",
+      "phone": "8046391737",
+      "lat": 37.434345852243,
+      "lng": -77.60840206326,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 91,
+      "audit": {
+        "id": 91,
+        "source": "https://www.steelhorsehd.com/map-hours-directions-harley-davidson-dealership--hours",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 91,
+        "name": "Steel Horse Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -77.60840206326,
+          37.434345852243
+        ],
+        "matchedAddress": "11501 HULL STREET RD, MIDLOTHIAN, VA, 23112",
+        "censusCoordinates": [
+          -77.60840206326,
+          37.434345852243
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Black Sheep Harley-Davidson",
+      "address": "408 4th St",
+      "city": "Huntington",
+      "state": "WV",
+      "phone": "3045231340",
+      "lat": 38.418693893671,
+      "lng": -82.452180565935,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 92,
+      "audit": {
+        "id": 92,
+        "source": "https://visithuntingtonwv.org/company/black-sheep-harley-davidson-2/",
+        "note": "Official tourism body confirms address/phone; owner confirmation pending."
+      },
+      "coordinateCheck": {
+        "id": 92,
+        "name": "Black Sheep Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -82.452180565935,
+          38.418693893671
+        ],
+        "matchedAddress": "408 4TH ST, HUNTINGTON, WV, 25701",
+        "censusCoordinates": [
+          -82.452180565935,
+          38.418693893671
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Cole Harley-Davidson",
+      "address": "1804 Bland St",
+      "city": "Bluefield",
+      "state": "WV",
+      "phone": "3043248116",
+      "lat": 37.258275372592,
+      "lng": -81.218925661056,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 93,
+      "audit": {
+        "id": 93,
+        "source": "https://colehd.com/contact-us",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 93,
+        "name": "Cole Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -81.218925661056,
+          37.258275372592
+        ],
+        "matchedAddress": "1804 BLAND ST, BLUEFIELD, WV, 24701",
+        "censusCoordinates": [
+          -81.218925661056,
+          37.258275372592
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Harley-Davidson of West Virginia",
+      "address": "4924 Maccorkle Ave SW",
+      "city": "South Charleston",
+      "state": "WV",
+      "phone": "3047681600",
+      "lat": 38.3672299,
+      "lng": -81.6846361,
+      "geocode": "nominatim",
+      "kind": "dealership",
+      "hours": "",
+      "id": 94,
+      "audit": {
+        "id": 94,
+        "source": "https://www.wvharley.com/parts-harley-davidson-dealership--parts",
+        "note": "Street address and phone agree; pin requires manual review."
+      },
+      "coordinateCheck": {
+        "id": 94,
+        "name": "Harley-Davidson of West Virginia",
+        "match": "No_Match",
+        "originalCoordinates": [
+          -81.6846361,
+          38.3672299
+        ],
+        "needsPinReview": true
+      }
+    },
+    {
+      "name": "Mountain State Harley-Davidson",
+      "address": "61 Preece Bottom Rd",
+      "city": "Delbarton",
+      "state": "WV",
+      "phone": "3044750123",
+      "lat": 37.77902185768,
+      "lng": -82.170621817436,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 95,
+      "audit": {
+        "id": 95,
+        "source": "",
+        "note": "No current owner page confirmed in this pass; manager should verify address, operation and phone."
+      },
+      "coordinateCheck": {
+        "id": 95,
+        "name": "Mountain State Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -82.170621817436,
+          37.77902185768
+        ],
+        "matchedAddress": "61 PREECE BOTTOM RD, DELBARTON, WV, 25670",
+        "censusCoordinates": [
+          -82.170621817436,
+          37.77902185768
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "RG's Almost Heaven Harley-Davidson",
+      "address": "2260 Murphys Run Rd",
+      "city": "Bridgeport",
+      "state": "WV",
+      "phone": "3046230484",
+      "lat": 39.305801570282,
+      "lng": -80.281687266576,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 96,
+      "audit": {
+        "id": 96,
+        "source": "https://www.almostheavenhd.com/map-hours-directions-harley-davidson-dealership--hours",
+        "note": "Street address and phone agree."
+      },
+      "coordinateCheck": {
+        "id": 96,
+        "name": "RG's Almost Heaven Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -80.281687266576,
+          39.305801570282
+        ],
+        "matchedAddress": "2260 MURPHYS RUN RD, BRIDGEPORT, WV, 26330",
+        "censusCoordinates": [
+          -80.281687266576,
+          39.305801570282
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Triple S Harley-Davidson",
+      "address": "7300 Willie G Ave",
+      "city": "Morgantown",
+      "state": "WV",
+      "phone": "3042848244",
+      "lat": 39.655615922408,
+      "lng": -80.013028335053,
+      "geocode": "census",
+      "kind": "dealership",
+      "hours": "",
+      "id": 97,
+      "audit": {
+        "id": 97,
+        "source": "https://www.michelinman.com/motorcycle/dealer-locator/morgantown/ylbbmrt-triple-s-harley-davidson",
+        "note": "Manufacturer directory confirms address/phone; owner confirmation pending."
+      },
+      "coordinateCheck": {
+        "id": 97,
+        "name": "Triple S Harley-Davidson",
+        "match": "Match",
+        "originalCoordinates": [
+          -80.013028335053,
+          39.655615922408
+        ],
+        "matchedAddress": "7300 WILLIE G, MORGANTOWN, WV, 26501",
+        "censusCoordinates": [
+          -80.013028335053,
+          39.655615922408
+        ],
+        "differenceMiles": 0,
+        "needsPinReview": false
+      }
+    },
+    {
+      "name": "Valley Harley-Davidson",
+      "address": "127 Fort Henry Rd",
+      "city": "Triadelphia",
+      "state": "WV",
+      "phone": "3042439300",
+      "lat": 40.06405,
+      "lng": -80.59203,
+      "geocode": "photon-place",
+      "kind": "dealership",
+      "hours": "",
+      "id": 98,
+      "audit": {
+        "id": 98,
+        "source": "https://valleyharley.com/contact-us",
+        "note": "Street address and phone agree; pin requires manual review."
+      },
+      "coordinateCheck": {
+        "id": 98,
+        "name": "Valley Harley-Davidson",
+        "match": "No_Match",
+        "originalCoordinates": [
+          -80.59203,
+          40.06405
+        ],
+        "needsPinReview": true
+      }
+    }
+  ]
+}

@@ -1,89 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marcolin · Manager</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="portal.css">
-</head>
-<body class="is-locked">
-  <div class="grain" aria-hidden="true"></div>
-  <section id="login-view" class="gate">
-    <p class="kicker">Marcolin</p>
-    <h1>Manager</h1>
-    <p class="lead">Enter the password to open location tools.</p>
-    <form id="login-form">
-      <label class="sr" for="password">Password</label>
-      <input type="password" id="password" autocomplete="current-password" required placeholder="Password" autofocus>
-      <p class="status" id="login-status" hidden></p>
-      <button type="submit">Continue</button>
-    </form>
-    <a class="back" href="../">Back to hub</a>
-  </section>
-
-  <div id="app-view" class="shell" hidden>
-    <header class="top">
-      <div>
-        <a class="back" href="../">← Hub</a>
-        <p class="kicker">Marcolin</p>
-        <h1>Locations</h1>
-      </div>
-      <button type="button" id="save-btn">Save to GitHub</button>
-    </header>
-    <p class="status banner" id="save-status" hidden></p>
-
-    <section class="layout">
-      <aside class="panel">
-        <h2>Add a place</h2>
-        <label>Search
-          <input type="search" id="place-search" placeholder="Business name or address" autocomplete="off">
-        </label>
-        <ul class="hints" id="hints" hidden></ul>
-        <form id="loc-form" class="loc-form">
-          <input type="hidden" id="loc-id">
-          <label>Name <input id="loc-name" required></label>
-          <label>Address <input id="loc-address" required></label>
-          <label>City <input id="loc-city" required></label>
-          <label>State
-            <select id="loc-state">
-              <option>MD</option><option>DE</option><option>VA</option><option>WV</option>
-            </select>
-          </label>
-          <label>Phone <input id="loc-phone" inputmode="tel"></label>
-          <label>Hours <input id="loc-hours" placeholder="Mo-Fr 09:00-17:00"></label>
-          <label>Type
-            <select id="loc-kind">
-              <option value="eyewear">Eyewear</option>
-              <option value="dealership">Dealer</option>
-            </select>
-          </label>
-          <p class="geo" id="loc-geo">No pin yet</p>
-          <div class="row">
-            <button type="submit">Add / update</button>
-            <button type="button" class="ghost" id="clear-form">Clear</button>
-          </div>
-        </form>
-      </aside>
-
-      <main class="panel">
-        <h2>Directory</h2>
-        <div class="toolbar">
-          <input type="search" id="list-search" placeholder="Filter the list">
-          <select id="list-kind">
-            <option value="ALL">All types</option>
-            <option value="eyewear">Eyewear</option>
-            <option value="dealership">Dealers</option>
-          </select>
-        </div>
-        <p class="count" id="list-count"></p>
-        <ul class="loc-list" id="loc-list"></ul>
-      </main>
-    </section>
-  </div>
-
-  <script type="module" src="portal.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer"><title>Marcolin · Location manager</title>
+  <link rel="stylesheet" href="./bridge.css"><script type="module" src="./bridge.js"></script>
+</head><body><main><p class="brand">MARCOLIN</p><h1>Location manager</h1>
+  <p id="status" role="status">Opening the manager portal…</p>
+  <a id="manager" hidden>Continue to manager sign-in</a>
+  <p><a href="../harleydavidson/">Browse eyewear shops</a></p>
+  <noscript>Enable JavaScript to open manager sign-in.</noscript>
+</main></body></html>

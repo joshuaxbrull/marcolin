@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Marcolin · Location manager</title><link rel="stylesheet" href="/vendor/leaflet/leaflet.css"><link rel="stylesheet" href="/manager.css"></head>
+<body>
+<header><a href="https://joshuaxbrull.github.io/marcolin/">MARCOLIN</a><span id="identity"></span><button id="logout" hidden>Sign out</button></header>
+<main>
+<section id="gate"><p class="eyebrow">Harley-Davidson Eyewear</p><h1>Location manager</h1><p>Keep the directory ready for the next ride.</p><a class="button" href="/auth/github" id="login">Sign in with GitHub</a><p id="login-status" role="status">Checking sign-in…</p><p class="muted">Use a GitHub account with access to manage the Marcolin directory.</p></section>
+<section id="app" hidden>
+<div class="top"><div><p class="eyebrow">Harley-Davidson Eyewear</p><h1>Locations</h1></div><div class="publish-actions"><span id="dirty-label">No unsaved changes</span><button id="save" disabled>Save and publish</button></div></div>
+<p class="banner" id="status" role="status" aria-live="polite"></p>
+<div class="utility"><button id="refresh">Load latest directory</button><button id="export">Download my draft</button><a href="https://joshuaxbrull.github.io/marcolin/hd/" target="_blank" rel="noopener">Open public locator ↗</a></div>
+<section class="conflicts" id="conflicts" hidden><h2>Review overlapping changes</h2><p>Your edits are preserved. Choose which version to use for each location below.</p><div id="conflict-rows"></div><button id="resolve">Apply these choices</button></section>
+<div class="layout">
+<section class="panel"><div class="panel-head"><h2>Location details</h2><button id="new" class="secondary">New location</button></div>
+<label>Find a business or address <input id="place-search" type="search" autocomplete="off" placeholder="Include the city and state"></label><ul id="suggestions" class="suggestions" hidden></ul><p id="place-status" role="status"></p>
+<form id="editor"><fieldset id="fields" disabled>
+<input id="id" type="hidden">
+<label>Name<input id="name" required maxlength="250"></label>
+<label>Street address<input id="address" required maxlength="250" autocomplete="street-address"></label>
+<div class="row"><label>City<input id="city" required maxlength="250"></label><label>State<select id="state"><option>MD</option><option>DE</option><option>VA</option><option>WV</option></select></label></div>
+<label>Phone<input id="phone" inputmode="tel" placeholder="Optional"></label>
+<label>Hours<input id="hours" placeholder="Mo-Fr 09:00-17:00" maxlength="500"></label>
+<label>Type<select id="kind"><option value="eyewear">Eyewear shop</option><option value="dealership">Motorcycle dealership</option></select></label>
+<p class="pin-status" id="pin-status">Find the address to place its pin.</p>
+<div id="pin-map" aria-label="Confirm the business location on the map"></div>
+<div class="row"><label>Latitude<input id="lat" type="number" step="any" min="24" max="50"></label><label>Longitude<input id="lng" type="number" step="any" min="-125" max="-66"></label></div>
+<button type="button" id="confirm-pin" class="secondary">Confirm pin for this address</button>
+<button type="submit" class="secondary">Keep edit in draft</button>
+</fieldset></form></section>
+<section class="panel"><h2>Directory</h2><div class="row"><label>Filter locations<input id="list-search" type="search"></label><label>Type<select id="list-kind"><option value="ALL">All types</option><option value="eyewear">Eyewear shops</option><option value="dealership">Motorcycle dealerships</option></select></label></div><p id="count"></p><ul id="locations" class="locations"></ul></section>
+</div>
+</section>
+</main>
+<script src="/vendor/leaflet/leaflet.js"></script><script type="module" src="/manager.js"></script>
+</body></html>

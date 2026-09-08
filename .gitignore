@@ -1,0 +1,12 @@
+node_modules
+node_modules/
+manager/dist/
+manager/.wrangler/
+.dev.vars*
+.wrangler/
+.env*
+*.pem
+*.key
+*.p12
+*.pfx
+artifacts/
