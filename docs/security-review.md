@@ -6,6 +6,7 @@
 - The replacement removes the public credential envelope and browser-side token decryption. The Worker checks repository write access, holds tokens in encrypted HttpOnly cookies, verifies OAuth state/PKCE and CSRF, and writes only the fixed directory path using the draft's original SHA.
 - Gitleaks 8.30.1 scanned all refs in both non-shallow local checkouts: seven Marcolin commits and 49 legacy `worldcup` commits. It detected no additional token signatures. The known encrypted credential envelope was identified through code review, not by that signature scan. Reports are redacted and held outside the repositories.
 - Both repositories now have prepared secret-scanning workflows and Dependabot configuration. Actions are pinned to exact official commits, checkout does not persist credentials, and job tokens have only read access. The Gitleaks download is pinned and checked against its published SHA-256 digest.
+- Gitleaks also scanned both staged release diffs before the local commits: about 2.62 MB for Marcolin and 4.86 KB for the legacy cleanup, with no additional token signatures detected.
 - Environment files, Wrangler local state and private-key files are ignored by Git. Existing input documents and card source material are preserved.
 - All 30 local tests passed, including the registration helper's wrong-owner/extra-permission rejection checks. The earlier browser suite passed its manager publication, device refresh, geolocation and service-worker migration checks using external API fixtures.
 
