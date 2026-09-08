@@ -6,8 +6,19 @@ import { pathToFileURL } from "node:url";
 import { managerDestination } from "../portal/destination.js";
 
 const OWNER = "joshuaxbrull";
+const SETUP_SECONDS = 55 * 60;
 const escape = value => String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 const equal = (a, b) => typeof a === "string" && Buffer.byteLength(a) === Buffer.byteLength(b) && timingSafeEqual(Buffer.from(a), Buffer.from(b));
+
+export function setupOrigin(value) {
+  if (!value) return "http://127.0.0.1:8736";
+  const url = new URL(value);
+  if (url.protocol !== "https:" || !/^[a-z0-9]+(?:-[a-z0-9]+)*\.trycloudflare\.com$/.test(url.hostname) ||
+      url.port || url.username || url.password || url.pathname !== "/" || url.search || url.hash) {
+    throw new Error("Use the temporary HTTPS Cloudflare Tunnel origin.");
+  }
+  return url.origin;
+}
 
 export function registrationManifest(origin, redirect) {
   const destination = managerDestination(origin);
@@ -54,7 +65,8 @@ async function main() {
   const config = JSON.parse(await readFile("manager/wrangler.jsonc", "utf8"));
   if (config.vars.GITHUB_CLIENT_ID) throw new Error("This manager already has an app. Use its existing GitHub settings instead of creating another.");
   const state = randomBytes(32).toString("hex"), browser = randomBytes(32).toString("hex");
-  const port = 8736, host = `127.0.0.1:${port}`, base = `http://${host}`;
+  const port = 8736, host = `127.0.0.1:${port}`, base = setupOrigin(process.argv[3]);
+  const secureCookie = base.startsWith("https:") ? "; Secure" : "";
   const manifest = registrationManifest(origin, base + "/callback");
   let consumed = false;
   const server = createServer(async (request, response) => {
@@ -70,7 +82,7 @@ async function main() {
     if (request.headers.host !== host || request.method !== "GET") return send(403, "Request not allowed.");
     const url = new URL(request.url, base);
     if (!consumed && url.pathname === `/start/${state}`) {
-      return send(200, `<h1>Connect the location manager</h1><p>Continue while signed in to GitHub as <strong>${OWNER}</strong>.</p><p>This creates a private app with repository Contents read/write and Metadata read. On the next installation screen, choose <strong>Only select repositories</strong> and <strong>marcolin</strong>.</p><form method="post" action="https://github.com/settings/apps/new?state=${state}"><input type="hidden" name="manifest" value="${escape(JSON.stringify(manifest))}"><button style="font:inherit;padding:12px">Create the private GitHub App</button></form><p>The generated secret goes directly to Cloudflare. You do not need to copy it.</p>`, { "Set-Cookie": `marcolin_setup=${browser}; Path=/; HttpOnly; SameSite=Lax; Max-Age=1800` });
+      return send(200, `<h1>Connect the location manager</h1><p>Continue while signed in to GitHub as <strong>${OWNER}</strong>.</p><p>This creates a private app with repository Contents read/write and Metadata read. On the next installation screen, choose <strong>Only select repositories</strong> and <strong>marcolin</strong>.</p><form method="post" action="https://github.com/settings/apps/new?state=${state}"><input type="hidden" name="manifest" value="${escape(JSON.stringify(manifest))}"><button style="font:inherit;padding:12px">Create the private GitHub App</button></form><p>The generated secret goes directly to Cloudflare. You do not need to copy it.</p>`, { "Set-Cookie": `marcolin_setup=${browser}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SETUP_SECONDS}${secureCookie}` });
     }
     const cookie = request.headers.cookie?.split(";").map(s => s.trim()).find(s => s.startsWith("marcolin_setup="))?.slice("marcolin_setup=".length);
     if (consumed || url.pathname !== "/callback" || !equal(url.searchParams.get("state"), state) || !equal(cookie, browser) || !/^[A-Za-z0-9_-]{16,256}$/.test(url.searchParams.get("code") || "")) return send(403, "Setup verification failed or expired. Return to the original setup link.");
@@ -91,14 +103,14 @@ async function main() {
       await run(["scripts/build-manager.mjs"]);
       await run(["node_modules/wrangler/bin/wrangler.js", "deploy", "--config", "manager/wrangler.jsonc"]);
       console.log(JSON.stringify({ event: "manager_app_configured", ...publicApp, manager: origin }));
-      send(200, `<h1>App connected securely</h1><p>Finish by installing it on <strong>only joshuaxbrull/marcolin</strong>. GitHub will then take you to the manager sign-in.</p><p><a href="${escape(publicApp.html_url)}/installations/new">Install the manager app</a></p>`, { "Set-Cookie": "marcolin_setup=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0" });
+      send(200, `<h1>App connected securely</h1><p>Finish by installing it on <strong>only joshuaxbrull/marcolin</strong>. GitHub will then take you to the manager sign-in.</p><p><a href="${escape(publicApp.html_url)}/installations/new">Install the manager app</a></p>`, { "Set-Cookie": `marcolin_setup=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secureCookie}` });
     } catch {
       console.error("Manager app registration could not be completed. No credentials were printed; inspect GitHub app settings before retrying.");
       send(500, "Setup could not finish. Return to Codex for help; do not paste any secrets into chat.");
       process.exitCode = 1;
     } finally { server.close(); }
   });
-  const timeout = setTimeout(() => { console.error("Manager registration link expired."); server.close(); }, 1800000);
+  const timeout = setTimeout(() => { console.error("Manager registration link expired."); server.close(); }, SETUP_SECONDS * 1000);
   server.on("close", () => clearTimeout(timeout));
   server.on("error", () => { clearTimeout(timeout); console.error("Could not start the local registration helper."); process.exitCode = 1; });
   server.listen(port, "127.0.0.1", () => console.log(`Open ${base}/start/${state}`));

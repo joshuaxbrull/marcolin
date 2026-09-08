@@ -1,16 +1,16 @@
 # Location manager
 
-The Worker is deployed at **https://marcolin-manager.marcolin-event-locator.workers.dev**. **GitHub App activation and a live end-to-end save are still pending.** `portal/config.json` deliberately has no destination until the GitHub App is configured. Do not merge the portal migration as a completed rollout before that step. [Security and deployment status](../docs/security-review.md) records the checks and remaining work.
+The Worker is deployed and its GitHub App is configured at **https://marcolin-manager.marcolin-event-locator.workers.dev**. `portal/config.json` points to that address. **Installation confirmation and a live end-to-end save are still pending.** [Security and deployment status](../docs/security-review.md) records the checks and remaining work.
 
-[Cloudflare agent setup](../docs/cloudflare-setup.md) is complete and loaded after restart. The account and deployment are configured; GitHub authorization, App installation, secrets and live save verification remain pending.
+[Cloudflare agent setup](../docs/cloudflare-setup.md) is complete and loaded after restart. Owner GitHub CLI authorization and two-factor authentication are verified. The private app's public identifiers are in `github-app.json`; its client secret and the session key exist only in Cloudflare secrets.
 
-The local registration helper can prepare the app without copying secrets into chat or files:
+For a new installation, the registration helper can prepare the app without copying secrets into chat or files. The existing manager is already configured; it refuses duplicate registration:
 
 ```sh
 node scripts/register-manager-app.mjs https://marcolin-manager.marcolin-event-locator.workers.dev
 ```
 
-Open its one-time local URL on this computer while signed in as `joshuaxbrull`. Create the private app, then install it on only `marcolin`. The helper uses a local-only callback with state and a browser cookie, validates the owner and minimal permissions, passes secrets directly to Wrangler, and deploys the connected Worker. It refuses to create another app once a client ID is configured. The manual procedure below remains an alternative for another environment.
+Open its one-time local URL on the same computer while signed in as `joshuaxbrull`. If the browser cannot reach that environment, start `cloudflared tunnel --url http://127.0.0.1:8736 --http-host-header 127.0.0.1:8736` and pass the returned HTTPS `trycloudflare.com` origin as the helper's optional third argument. The link expires after 55 minutes. The callback checks state and a browser cookie (Secure over HTTPS), validates the owner and minimal permissions, passes secrets directly to Wrangler, and deploys the connected Worker. Install the app on only `marcolin`, then stop the temporary tunnel. The manual procedure below remains an alternative for another environment.
 
 ## Activate in the owner's accounts
 
@@ -25,7 +25,7 @@ npx wrangler deploy --config manager/wrangler.jsonc
 
 The initial deployment serves the interface but rejects sign-in until configured. Record the actual `https://marcolin-manager.<account>.workers.dev` address returned by Wrangler.
 
-The workspace's previous GitHub CLI credential was the retired token as well. Reconnect with `gh auth login --hostname github.com --git-protocol https --web` before pushing the prepared changes. This is separate from registering the manager's GitHub App.
+The workspace's previous GitHub CLI credential was the retired token as well. Fresh owner CLI authorization completed on 2026-09-08. CLI authorization is separate from the manager's GitHub App sign-in.
 
 In [GitHub App settings](https://github.com/settings/apps/new), register a private app owned by `joshuaxbrull`. Set the homepage to that Worker address and the callback to `<Worker address>/auth/callback`. Disable webhooks. Request only repository **Contents: read and write** and **Metadata: read**. `github-app-manifest.json` records these settings. Install it on **only `joshuaxbrull/marcolin`**. Keep expiring user authorization enabled. Give the actual manager's GitHub account write access to that repository through the owner's account.
 
@@ -44,11 +44,11 @@ For local Worker development, use an ignored `manager/.dev.vars` containing the 
 
 ## Confirm rollout
 
-1. Sign in using the actual manager's GitHub account. Confirm an account without write access cannot edit.
+1. Publish the static locator and portal bridge after CI passes. The old `/portal/` URL then sends managers to GitHub sign-in. Sign in using the actual manager's GitHub account. Confirm an account without write access cannot edit.
 2. Make a reversible phone or hours change. Click **Save and publish** directly from the form. Confirm **Publishing**, followed by **Live** only after GitHub Pages serves the saved JSON bytes.
 3. Keep a second phone on the locator. Refocus it or wait up to 60 seconds; verify the changed field. Restore the test value and wait for Live again.
 4. Repeat using two manager sessions to confirm an overlapping change prompts for an explicit choice.
-5. Merge the static locator and portal bridge after this check. The old `/portal/` URL then sends managers to GitHub sign-in. Deploy the separate legacy locator redirect from the `worldcup` repository. Preserve this repository's actual `/worldcup/` 3D project.
+5. Deploy the separate legacy locator redirect from the `worldcup` repository after confirming the canonical locator is live. Preserve this repository's actual `/worldcup/` 3D project.
 
 ## Authentication and publishing
 

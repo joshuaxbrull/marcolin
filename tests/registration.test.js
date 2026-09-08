@@ -1,6 +1,14 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { registrationManifest, validateRegistration } from "../scripts/register-manager-app.mjs";
+import { registrationManifest, setupOrigin, validateRegistration } from "../scripts/register-manager-app.mjs";
+
+test("temporary setup links require a plain HTTPS Cloudflare Tunnel origin", () => {
+  assert.equal(setupOrigin(), "http://127.0.0.1:8736");
+  assert.equal(setupOrigin("https://example-setup.trycloudflare.com/"), "https://example-setup.trycloudflare.com");
+  for (const url of ["http://example.trycloudflare.com", "https://example.trycloudflare.com.attacker.example", "https://user@example.trycloudflare.com", "https://example.trycloudflare.com:8443", "https://example.trycloudflare.com/path", "https://example.trycloudflare.com/?query=1", "https://example.trycloudflare.com/#fragment"]) assert.throws(() => setupOrigin(url));
+  const manifest = registrationManifest("https://manager.example", setupOrigin("https://example-setup.trycloudflare.com") + "/callback");
+  assert.equal(manifest.redirect_url, "https://example-setup.trycloudflare.com/callback");
+});
 
 test("manager app registration stays private and requests only its repository permissions", () => {
   const manifest = registrationManifest("https://manager.example", "http://127.0.0.1:8736/callback");
