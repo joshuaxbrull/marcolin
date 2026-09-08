@@ -2,6 +2,8 @@
 
 The Worker is deployed and its GitHub App is configured at **https://marcolin-manager.marcolin-event-locator.workers.dev**. `portal/config.json` points to that address. **Installation confirmation and a live end-to-end save are still pending.** [Security and deployment status](../docs/security-review.md) records the checks and remaining work.
 
+To finish the existing installation, open [the private app's installation page](https://github.com/apps/marcolin-manager-joshuaxbrull/installations/new) as `joshuaxbrull`, select **only `marcolin`**, then sign in at the manager address above. The one-time setup helper is no longer needed.
+
 [Cloudflare agent setup](../docs/cloudflare-setup.md) is complete and loaded after restart. Owner GitHub CLI authorization and two-factor authentication are verified. The private app's public identifiers are in `github-app.json`; its client secret and the session key exist only in Cloudflare secrets.
 
 For a new installation, the registration helper can prepare the app without copying secrets into chat or files. The existing manager is already configured; it refuses duplicate registration:
@@ -44,11 +46,11 @@ For local Worker development, use an ignored `manager/.dev.vars` containing the 
 
 ## Confirm rollout
 
-1. Publish the static locator and portal bridge after CI passes. The old `/portal/` URL then sends managers to GitHub sign-in. Sign in using the actual manager's GitHub account. Confirm an account without write access cannot edit.
+1. The static locator and portal bridge are published, with CI and live browser checks passed. Sign in using the actual manager's GitHub account. Confirm an account without write access cannot edit.
 2. Make a reversible phone or hours change. Click **Save and publish** directly from the form. Confirm **Publishing**, followed by **Live** only after GitHub Pages serves the saved JSON bytes.
 3. Keep a second phone on the locator. Refocus it or wait up to 60 seconds; verify the changed field. Restore the test value and wait for Live again.
 4. Repeat using two manager sessions to confirm an overlapping change prompts for an explicit choice.
-5. Deploy the separate legacy locator redirect from the `worldcup` repository after confirming the canonical locator is live. Preserve this repository's actual `/worldcup/` 3D project.
+5. The separate legacy locator redirect from the `worldcup` repository is also published. This repository's actual `/worldcup/` 3D project remains available directly.
 
 ## Authentication and publishing
 
