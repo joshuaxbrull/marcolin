@@ -3,15 +3,15 @@
 Open [the three-up preview](proofs/preview.png) or [the HTML gallery](index.html). The two duplex PDFs use the same front: [light back](proofs/card-light-back.pdf), [dark back](proofs/card-dark-back.pdf).
 
 - Finished size: **4 inches wide × 3 inches high**, landscape.
-- Front: left one third contact details; right two thirds real rider photograph facing left.
+- Front: left one third contact details; right two thirds supplied `Harley.jpg` portrait facing left.
 - Back: MD/DE/VA/WV directory map with equal-size eyewear/dealership symbols, grouped nearby pins, Ocean City marker, QR and eyewear facts.
 - QR target: `https://joshuaxbrull.github.io/marcolin/hd/`, error correction Q, four quiet modules, one inch square. Both exported back PNGs decode to this URL in the automated check.
 - PDF MediaBox/BleedBox: 306 × 234 points. TrimBox: 288 × 216 points inset 9 points (⅛ inch). Text safe margin: at least ⅛ inch inside trim.
 - PNGs: 2400 × 1800 at trim; 2550 × 1950 with bleed, with 600 dpi metadata.
 
-**These are design proofs.** The selected 943 × 1200 photo supplies approximately 215 effective ppi in this tight crop. Obtain the same image at higher resolution for 300+ effective ppi (at least about 1320 pixels wide at this crop), and approve a physical print/QR scan before the press run. Raster export at 600 dpi does not create additional photographic detail. PDFs use RGB artwork; have the printer apply their specified stock/profile and duplex orientation.
+**These are design proofs.** The supplied 1080 × 1350 `Harley.jpg` portrait provides approximately 387 effective ppi at this crop, above the 300 ppi production target. Approve a physical print/QR scan before the press run. Raster export at 600 dpi does not create additional photographic detail. PDFs use RGB artwork; have the printer apply their specified stock/profile and duplex orientation.
 
-The original photo is preserved byte for byte. Mirroring and cropping happen in the layout. [Campaign image source](https://www.liensonoptic.vn/blogs/news/kinh-mat-harley-davidson-chinh-hang-voi-phong-cach-duong-pho-ca-tinh) / [original file](https://file.hstatic.net/1000357311/file/harley02_933672d7ddc24ba8adda234eb3a34298.jpg). Use the brand-supplied production file for the final print asset.
+The user-supplied [Harley.jpg](assets/Harley.jpg) is preserved byte for byte. The layout crops it to fill the photo panel in its original orientation, with the subject looking toward the contact details and the caption below his face.
 
 Facts were adapted from the user's `Style B Back Facts.docx`: iconic Harley-Davidson styling and ANSI impact standards for select Performance Series models. The copy intentionally does not claim that all frames meet a particular impact rating.
 

@@ -107,10 +107,11 @@
   "qrUrl": "https://joshuaxbrull.github.io/marcolin/hd/",
   "qrQuietModules": 4,
   "qrErrorCorrection": "Q",
+  "photoSource": "cards/assets/Harley.jpg",
   "photoSourcePixels": [
-    943,
-    1200
+    1080,
+    1350
   ],
-  "photoEffectivePpi": 215,
-  "status": "design-proof-requires-higher-resolution-photo-and-physical-scan"
+  "photoEffectivePpi": 387,
+  "status": "design-proof-requires-physical-print-and-qr-scan"
 }
