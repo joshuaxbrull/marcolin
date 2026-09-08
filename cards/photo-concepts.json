@@ -1,0 +1,49 @@
+{
+  "created": "2026-09-08",
+  "status": "Illustrative creative concepts with separately identified supplied images",
+  "variants": [
+    {
+      "id": "seasoned-rider",
+      "title": "Seasoned rider",
+      "source": "front-seasoned-rider-hz0051.png",
+      "alt": "Illustrative concept: a seasoned rider wearing wraparound glasses on a parked Harley-Davidson cruiser; based on the supplied HZ0051 reference",
+      "description": "My first pick: one strong face, prominent glasses and a recognizable Harley. The simplest read at card size. Uses the supplied HZ0051 frame as a visual guide.",
+      "initialSource": "front-seasoned-rider.png",
+      "referenceModel": "HZ0051",
+      "referenceSource": "reference-hz0051.png",
+      "referenceFilename": "1788883849437blob.jpg"
+    },
+    {
+      "id": "coastal-rider",
+      "title": "Coastal rider",
+      "source": "front-coastal-rider-hz0044.png",
+      "alt": "Illustrative concept: a woman wearing light-colored protective glasses on a parked burgundy Harley-Davidson cruiser; based on the supplied HZ0044 reference",
+      "description": "A confident woman rider with clear eyewear and a coastal setting. A useful alternate for the same rally audience. Uses the supplied HZ0044 frame as a visual guide.",
+      "initialSource": "front-coastal-rider.png",
+      "referenceModel": "HZ0044",
+      "referenceSource": "reference-hz0044.png",
+      "referenceFilename": "1788883892692blob.jpg"
+    },
+    {
+      "id": "rally-couple",
+      "title": "Rally together",
+      "source": "front-rally-couple-hz0048.png",
+      "alt": "Illustrative concept: a smiling rider couple wearing wraparound glasses beside a parked Harley-Davidson cruiser; based on the supplied HZ0048 reference",
+      "description": "Shared enthusiasm and a warmer expression. Both pairs of glasses stay visible in the two-thirds panel. Uses the supplied HZ0048 frame as a visual guide.",
+      "initialSource": "front-rally-couple.png",
+      "referenceModel": "HZ0048",
+      "referenceSource": "reference-hz0048.png",
+      "referenceFilename": "1788883939505blob.jpg"
+    }
+  ],
+  "suppliedPhotos": [
+    {
+      "id": "supplied-couple",
+      "title": "Supplied helmeted couple",
+      "source": "rally-couple-supplied.png",
+      "sourceFilename": "1788883644786blob.jpg",
+      "alt": "Supplied image of a smiling couple in Harley-Davidson helmets and sunglasses on a motorcycle",
+      "description": "A warm rally image with both pairs of glasses prominent. Slightly below the 300 ppi target; inspect the physical proof before the press run."
+    }
+  ]
+}
