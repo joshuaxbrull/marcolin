@@ -1,0 +1,1448 @@
+{
+  "checkedAt": "2026-09-08",
+  "source": "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+  "records": [
+    {
+      "id": 44,
+      "name": "Sunglass City",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.080574960676,
+        38.339572414364
+      ],
+      "matchedAddress": "901 ATLANTIC AVE, OCEAN CITY, MD, 21842",
+      "censusCoordinates": [
+        -75.080574960676,
+        38.339572414364
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 45,
+      "name": "Looking Glass Optical",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.592905425507,
+        39.129347417358
+      ],
+      "matchedAddress": "8028 RITCHIE HWY, PASADENA, MD, 21122",
+      "censusCoordinates": [
+        -76.592905425507,
+        39.129347417358
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 89,
+      "name": "Stonewall Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -78.383371617564,
+        38.213777965013
+      ],
+      "matchedAddress": "51 BUCK DR, RUCKERSVILLE, VA, 22968",
+      "censusCoordinates": [
+        -78.383371617564,
+        38.213777965013
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 46,
+      "name": "Petersburg Family Eyecare",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.363522330049,
+        37.182639034974
+      ],
+      "matchedAddress": "44 MEDICAL PARK BLVD, PETERSBURG, VA, 23805",
+      "censusCoordinates": [
+        -77.363522330049,
+        37.182639034974
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 47,
+      "name": "The Spectacle Family Eyecare",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.123131036984,
+        38.992822815939
+      ],
+      "matchedAddress": "28 VIRGINIA AVE, PETERSBURG, WV, 26847",
+      "censusCoordinates": [
+        -79.123131036984,
+        38.99282281594
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 48,
+      "name": "Crater Vision Center",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.367367430312,
+        37.184383088458
+      ],
+      "matchedAddress": "3333 S CRATER RD, PETERSBURG, VA, 23805",
+      "censusCoordinates": [
+        -77.367367430312,
+        37.184383088458
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 49,
+      "name": "Drs. Nichol & Weidema",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.551298279438,
+        38.063208630497
+      ],
+      "matchedAddress": "1518 MARKET ST, POCOMOKE CITY, MD, 21851",
+      "censusCoordinates": [
+        -75.551298279438,
+        38.063208630497
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 90,
+      "name": "Thunder Road Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.456620612365,
+        36.590086251947
+      ],
+      "matchedAddress": "4870 RIVERSIDE DR, DANVILLE, VA, 24541",
+      "censusCoordinates": [
+        -79.456620612365,
+        36.590086251947
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 91,
+      "name": "Steel Horse Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.60840206326,
+        37.434345852243
+      ],
+      "matchedAddress": "11501 HULL STREET RD, MIDLOTHIAN, VA, 23112",
+      "censusCoordinates": [
+        -77.60840206326,
+        37.434345852243
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 92,
+      "name": "Black Sheep Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -82.452180565935,
+        38.418693893671
+      ],
+      "matchedAddress": "408 4TH ST, HUNTINGTON, WV, 25701",
+      "censusCoordinates": [
+        -82.452180565935,
+        38.418693893671
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 93,
+      "name": "Cole Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -81.218925661056,
+        37.258275372592
+      ],
+      "matchedAddress": "1804 BLAND ST, BLUEFIELD, WV, 24701",
+      "censusCoordinates": [
+        -81.218925661056,
+        37.258275372592
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 50,
+      "name": "Lindsey Optical",
+      "match": "Match",
+      "originalCoordinates": [
+        -81.078530334798,
+        37.362095367327
+      ],
+      "matchedAddress": "310 LOCUST ST, PRINCETON, WV, 24740",
+      "censusCoordinates": [
+        -81.078530334798,
+        37.362095367327
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 94,
+      "name": "Harley-Davidson of West Virginia",
+      "match": "No_Match",
+      "originalCoordinates": [
+        -81.6846361,
+        38.3672299
+      ],
+      "needsPinReview": true
+    },
+    {
+      "id": 51,
+      "name": "Rebuck & Associates Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.863823954593,
+        39.30577068517
+      ],
+      "matchedAddress": "805 N MILDRED ST, RANSON, WV, 25438",
+      "censusCoordinates": [
+        -77.863823954592,
+        39.30577068517
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 95,
+      "name": "Mountain State Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -82.170621817436,
+        37.77902185768
+      ],
+      "matchedAddress": "61 PREECE BOTTOM RD, DELBARTON, WV, 25670",
+      "censusCoordinates": [
+        -82.170621817436,
+        37.77902185768
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 52,
+      "name": "Johnson-Curran Optometry Center",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.969263035641,
+        37.308136376999
+      ],
+      "matchedAddress": "5049 VALLEY VIEW BLVD NORTH NW, ROANOKE, VA, 24012",
+      "censusCoordinates": [
+        -79.969263035641,
+        37.308136376999
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 96,
+      "name": "RG's Almost Heaven Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -80.281687266576,
+        39.305801570282
+      ],
+      "matchedAddress": "2260 MURPHYS RUN RD, BRIDGEPORT, WV, 26330",
+      "censusCoordinates": [
+        -80.281687266576,
+        39.305801570282
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 53,
+      "name": "National Optical",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.959758028139,
+        37.315007202892
+      ],
+      "matchedAddress": "1507 HERSHBERGER RD NW, ROANOKE, VA, 24012",
+      "censusCoordinates": [
+        -79.959758028139,
+        37.315007202892
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 97,
+      "name": "Triple S Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -80.013028335053,
+        39.655615922408
+      ],
+      "matchedAddress": "7300 WILLIE G, MORGANTOWN, WV, 26501",
+      "censusCoordinates": [
+        -80.013028335053,
+        39.655615922408
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 10,
+      "name": "Jared P. Quesenberry, OD",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.499604212356,
+        37.328510806536
+      ],
+      "matchedAddress": "1332 LOWRY ST, BEDFORD, VA, 24523",
+      "censusCoordinates": [
+        -79.499604212356,
+        37.328510806536
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 54,
+      "name": "Blue Ridge Optical - Roanoke",
+      "match": "Match",
+      "originalCoordinates": [
+        -80.033530796171,
+        37.247652046821
+      ],
+      "matchedAddress": "1960 ELECTRIC RD, ROANOKE, VA, 24018",
+      "censusCoordinates": [
+        -80.033530796171,
+        37.247652046821
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 98,
+      "name": "Valley Harley-Davidson",
+      "match": "No_Match",
+      "originalCoordinates": [
+        -80.59203,
+        40.06405
+      ],
+      "needsPinReview": true
+    },
+    {
+      "id": 11,
+      "name": "Brewer & Marshall",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.917764250203,
+        39.027827549443
+      ],
+      "matchedAddress": "10490 BALTIMORE AVE, BELTSVILLE, MD, 20705",
+      "censusCoordinates": [
+        -76.917764250203,
+        39.027827549443
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 55,
+      "name": "Blue Ridge Optical - Botetourt",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.884320997835,
+        37.357312410417
+      ],
+      "matchedAddress": "33 BRITISH WOODS DR, ROANOKE, VA, 24019",
+      "censusCoordinates": [
+        -79.884320997835,
+        37.357312410417
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 56,
+      "name": "Rocky Mount Family Eyecare",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.889379469364,
+        36.994393091232
+      ],
+      "matchedAddress": "345 S MAIN ST, ROCKY MOUNT, VA, 24151",
+      "censusCoordinates": [
+        -79.889379469364,
+        36.994393091232
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 13,
+      "name": "Family Eye Healthcare Clinic",
+      "match": "Match",
+      "originalCoordinates": [
+        -81.204804377712,
+        37.253947634996
+      ],
+      "matchedAddress": "3101 E CUMBERLAND RD, BLUEFIELD, WV, 24701",
+      "censusCoordinates": [
+        -81.204804377712,
+        37.253947634996
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 57,
+      "name": "Friedrichs Family Eye Center - Rocky Mount",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.889539523889,
+        36.993696092122
+      ],
+      "matchedAddress": "395 S MAIN ST, ROCKY MOUNT, VA, 24151",
+      "censusCoordinates": [
+        -79.889539523889,
+        36.993696092122
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 14,
+      "name": "Focus Optical Boutique",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.018838484209,
+        37.267034288032
+      ],
+      "matchedAddress": "232 MASON AVE, CAPE CHARLES, VA, 23310",
+      "censusCoordinates": [
+        -76.018838484209,
+        37.267034288033
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 58,
+      "name": "Delaware Eye Care Center - Smyrna",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.604730945136,
+        39.299807851683
+      ],
+      "matchedAddress": "100 S MAIN ST, SMYRNA, DE, 19977",
+      "censusCoordinates": [
+        -75.604730945136,
+        39.299807851683
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 15,
+      "name": "Chatham Eyecare Center",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.393952283343,
+        36.793883604199
+      ],
+      "matchedAddress": "13995 US HWY 29, CHATHAM, VA, 24531",
+      "censusCoordinates": [
+        -79.393952283343,
+        36.793883604199
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 59,
+      "name": "Patrick County Eye Associates",
+      "match": "No_Match",
+      "originalCoordinates": [
+        -80.2533155,
+        36.639923
+      ],
+      "needsPinReview": true
+    },
+    {
+      "id": 16,
+      "name": "Friedrichs Family Eye Center - Chatham",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.398271699081,
+        36.827261880285
+      ],
+      "matchedAddress": "32 MAIN ST, CHATHAM, VA, 24531",
+      "censusCoordinates": [
+        -79.398271699081,
+        36.827261880285
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 17,
+      "name": "Great Bridge Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.235639926273,
+        36.71174227005
+      ],
+      "matchedAddress": "160 MOUNT PLEASANT RD, CHESAPEAKE, VA, 23322",
+      "censusCoordinates": [
+        -76.235639926273,
+        36.71174227005
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 18,
+      "name": "Cockeysville Opticians & Eyecare",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.639273564047,
+        39.470886220974
+      ],
+      "matchedAddress": "10255 YORK RD, COCKEYSVILLE, MD, 21030",
+      "censusCoordinates": [
+        -76.639273564047,
+        39.470886220974
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 19,
+      "name": "Dr. Craig Hoover",
+      "match": "Match",
+      "originalCoordinates": [
+        -78.015520643338,
+        38.457218305542
+      ],
+      "matchedAddress": "691 LAUREL ST, CULPEPER, VA, 22701",
+      "censusCoordinates": [
+        -78.015520643338,
+        38.457218305542
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 1,
+      "name": "Katzen Eye - Bel Air",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.305627560579,
+        39.470410141117
+      ],
+      "matchedAddress": "3401 BOX HILL CORPORATE CENTER DR, ABINGDON, MD, 21009",
+      "censusCoordinates": [
+        -76.305627560579,
+        39.470410141117
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 2,
+      "name": "Accomac Optometric Center",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.672630444716,
+        37.725579013354
+      ],
+      "matchedAddress": "23079 COURTHOUSE AVE, ACCOMAC, VA, 23301",
+      "censusCoordinates": [
+        -75.672630444716,
+        37.725579013354
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 3,
+      "name": "Vision Specialists of Annapolis",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.550904588843,
+        38.985783549362
+      ],
+      "matchedAddress": "116 DEFENSE HWY, ANNAPOLIS, MD, 21401",
+      "censusCoordinates": [
+        -76.550904588843,
+        38.985783549362
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 4,
+      "name": "Bay Hills Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.479226150585,
+        39.039090670283
+      ],
+      "matchedAddress": "1294 BAY DALE DR, ARNOLD, MD, 21012",
+      "censusCoordinates": [
+        -76.479226150585,
+        39.039090670283
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 5,
+      "name": "Family Eye Care Centers of Virginia",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.477334654012,
+        37.758754401855
+      ],
+      "matchedAddress": "306 ENGLAND ST, ASHLAND, VA, 23005",
+      "censusCoordinates": [
+        -77.477334654012,
+        37.758754401855
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 7,
+      "name": "Katzen Eye - Mercy",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.613471443651,
+        39.292414116438
+      ],
+      "matchedAddress": "301 ST PAUL PL, BALTIMORE, MD, 21202",
+      "censusCoordinates": [
+        -76.613471443651,
+        39.292414116438
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 8,
+      "name": "Young Eyes",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.646344577293,
+        39.352616578813
+      ],
+      "matchedAddress": "2 HAMILL CT, BALTIMORE, MD, 21210",
+      "censusCoordinates": [
+        -76.646344577292,
+        39.352616578813
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 9,
+      "name": "Baltimore Eye Physicians",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.62679349337,
+        39.377448923232
+      ],
+      "matchedAddress": "6231 N CHARLES ST, BALTIMORE, MD, 21212",
+      "censusCoordinates": [
+        -76.62679349337,
+        39.377448923232
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 60,
+      "name": "Enochs Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.467371475471,
+        36.862149061332
+      ],
+      "matchedAddress": "3575 BRIDGE RD, SUFFOLK, VA, 23435",
+      "censusCoordinates": [
+        -76.467371475471,
+        36.862149061332
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 61,
+      "name": "Sterling Optical - Waldorf",
+      "match": "No_Match",
+      "originalCoordinates": [
+        -76.9274,
+        38.6129271
+      ],
+      "needsPinReview": true
+    },
+    {
+      "id": 62,
+      "name": "Carroll Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.000402372524,
+        39.605119027015
+      ],
+      "matchedAddress": "1129 BUSINESS PKWY S, WESTMINSTER, MD, 21157",
+      "censusCoordinates": [
+        -77.000402372524,
+        39.605119027015
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 63,
+      "name": "The Optical Center",
+      "match": "Match",
+      "originalCoordinates": [
+        -78.168895726836,
+        39.184864600092
+      ],
+      "matchedAddress": "216 W BOSCAWEN ST, WINCHESTER, VA, 22601",
+      "censusCoordinates": [
+        -78.168895726836,
+        39.184864600092
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 20,
+      "name": "Friedrichs Family Eye Center - Danville",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.405670211408,
+        36.611699465376
+      ],
+      "matchedAddress": "723 PINEY FOREST RD, DANVILLE, VA, 24540",
+      "censusCoordinates": [
+        -79.405670211408,
+        36.611699465376
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 64,
+      "name": "Wythe Eye Associates",
+      "match": "Match",
+      "originalCoordinates": [
+        -81.095301018499,
+        36.953403805573
+      ],
+      "matchedAddress": "530 W RIDGE RD, WYTHEVILLE, VA, 24382",
+      "censusCoordinates": [
+        -81.095301018499,
+        36.953403805573
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 21,
+      "name": "Simon Eye - Dover",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.543279293873,
+        39.170058973376
+      ],
+      "matchedAddress": "820 WALKER RD, DOVER, DE, 19904",
+      "censusCoordinates": [
+        -75.543279293873,
+        39.170058973377
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 65,
+      "name": "All American Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.787795453176,
+        38.539742835676
+      ],
+      "matchedAddress": "8126 OLD LEONARDTOWN RD, HUGHESVILLE, MD, 20637",
+      "censusCoordinates": [
+        -76.787795453176,
+        38.539742835676
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 22,
+      "name": "Delaware Eye Care Center - Dover",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.521395955346,
+        39.135013685168
+      ],
+      "matchedAddress": "16 OLD RUDNICK LN, DOVER, DE, 19901",
+      "censusCoordinates": [
+        -75.521395955346,
+        39.135013685168
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 66,
+      "name": "District Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.159635927855,
+        39.170423235005
+      ],
+      "matchedAddress": "7830 AIRPARK RD, GAITHERSBURG, MD, 20879",
+      "censusCoordinates": [
+        -77.159635927855,
+        39.170423235005
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 23,
+      "name": "AP Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.278498527028,
+        38.841904247053
+      ],
+      "matchedAddress": "9665A MAIN ST, FAIRFAX, VA, 22031",
+      "censusCoordinates": [
+        -77.278498527028,
+        38.841904247053
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 67,
+      "name": "Eisenhauer's Chesapeake Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.203479459727,
+        39.649187937574
+      ],
+      "matchedAddress": "4600 THUNDER CT, DARLINGTON, MD, 21034",
+      "censusCoordinates": [
+        -76.203479459727,
+        39.649187937575
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 24,
+      "name": "Gatten Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.94668975049,
+        36.671662354691
+      ],
+      "matchedAddress": "100 BAILEY DR, FRANKLIN, VA, 23851",
+      "censusCoordinates": [
+        -76.946689750489,
+        36.671662354691
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 68,
+      "name": "Harley-Davidson of Baltimore",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.471388403145,
+        39.340476435652
+      ],
+      "matchedAddress": "8845 PULASKI HWY, ROSEDALE, MD, 21237",
+      "censusCoordinates": [
+        -76.471388403145,
+        39.340476435652
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 25,
+      "name": "Fredericktowne Eyecare",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.389259521631,
+        39.407941842199
+      ],
+      "matchedAddress": "1202 E PATRICK ST, FREDERICK, MD, 21701",
+      "censusCoordinates": [
+        -77.389259521631,
+        39.407941842199
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 26,
+      "name": "The Eyeglass Factory",
+      "match": "Match",
+      "originalCoordinates": [
+        -78.19895096749,
+        38.933191565175
+      ],
+      "matchedAddress": "1211 N SHENANDOAH AVE, FRONT ROYAL, VA, 22630",
+      "censusCoordinates": [
+        -78.19895096749,
+        38.933191565175
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 27,
+      "name": "Blue Ridge Eye Care Associates",
+      "match": "Match",
+      "originalCoordinates": [
+        -80.90763950892,
+        36.674500345027
+      ],
+      "matchedAddress": "800 E STUART DR, GALAX, VA, 24333",
+      "censusCoordinates": [
+        -80.90763950892,
+        36.674500345027
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 28,
+      "name": "Thompson Vision Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.913299997403,
+        38.998186118951
+      ],
+      "matchedAddress": "5900 GREENBELT RD, GREENBELT, MD, 20770",
+      "censusCoordinates": [
+        -76.913299997402,
+        38.998186118951
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 29,
+      "name": "Longmeadow Eyecare",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.699721252827,
+        39.664406714771
+      ],
+      "matchedAddress": "12818 SHANK FARMWAY, HAGERSTOWN, MD, 21742",
+      "censusCoordinates": [
+        -77.699721252827,
+        39.664406714771
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 70,
+      "name": "Harley-Davidson of Washington, DC",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.995300478964,
+        38.760485758747
+      ],
+      "matchedAddress": "9407 LIVINGSTON RD, FORT WASHINGTON, MD, 20744",
+      "censusCoordinates": [
+        -76.995300478964,
+        38.760485758748
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 72,
+      "name": "Old Glory Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.836219895481,
+        39.051883570143
+      ],
+      "matchedAddress": "11800 LAUREL BOWIE RD, LAUREL, MD, 20708",
+      "censusCoordinates": [
+        -76.836219895481,
+        39.051883570143
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 73,
+      "name": "Rommel Harley-Davidson Delmarva",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.569330032548,
+        38.403200461906
+      ],
+      "matchedAddress": "2410 N SALISBURY BLVD, SALISBURY, MD, 21801",
+      "censusCoordinates": [
+        -75.569330032548,
+        38.403200461906
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 30,
+      "name": "Eye to Eye Optical",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.391685138161,
+        37.04941549305
+      ],
+      "matchedAddress": "1 COLISEUM DR, HAMPTON, VA, 23666",
+      "censusCoordinates": [
+        -76.391685138161,
+        37.04941549305
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 74,
+      "name": "Rommel Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -75.58791504354,
+        39.276562983968
+      ],
+      "matchedAddress": "450 STADIUM ST, SMYRNA, DE, 19977",
+      "censusCoordinates": [
+        -75.58791504354,
+        39.276562983968
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 31,
+      "name": "Blue Ridge Optical - Hardy",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.712796047158,
+        37.120284769941
+      ],
+      "matchedAddress": "13295 BOOKER T WASHINGTON HWY, HARDY, VA, 24101",
+      "censusCoordinates": [
+        -79.712796047158,
+        37.120284769941
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 75,
+      "name": "Ironclad Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.327396982173,
+        36.818774218298
+      ],
+      "matchedAddress": "2211 FREDERICK BLVD, PORTSMOUTH, VA, 23704",
+      "censusCoordinates": [
+        -76.327396982173,
+        36.818774218298
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 32,
+      "name": "Eastern Eye Associates",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.512316536862,
+        37.302314542108
+      ],
+      "matchedAddress": "3449 GEORGE WASHINGTON MEMORIAL HWY, HAYES, VA, 23072",
+      "censusCoordinates": [
+        -76.512316536862,
+        37.302314542108
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 76,
+      "name": "Black Bear Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -81.054942022958,
+        36.95135049877
+      ],
+      "matchedAddress": "430 LITHIA RD, WYTHEVILLE, VA, 24382",
+      "censusCoordinates": [
+        -81.054942022958,
+        36.95135049877
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 33,
+      "name": "Eye Care on the Ridge",
+      "match": "Match",
+      "originalCoordinates": [
+        -80.741971926577,
+        36.75630591761
+      ],
+      "matchedAddress": "843 W STUART DR, HILLSVILLE, VA, 24343",
+      "censusCoordinates": [
+        -80.741971926577,
+        36.756305917611
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 77,
+      "name": "Black Wolf Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -82.155701487633,
+        36.625064167261
+      ],
+      "matchedAddress": "1061 OLD ABINGDON HWY, BRISTOL, VA, 24201",
+      "censusCoordinates": [
+        -82.155701487633,
+        36.625064167261
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 34,
+      "name": "Lebow Eye Associates",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.285838894341,
+        37.304470557693
+      ],
+      "matchedAddress": "221 E BROADWAY AVE, HOPEWELL, VA, 23860",
+      "censusCoordinates": [
+        -77.285838894341,
+        37.304470557693
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 35,
+      "name": "Stylish Eyes",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.381420137748,
+        37.71592853029
+      ],
+      "matchedAddress": "266 N MAIN ST, KILMARNOCK, VA, 22482",
+      "censusCoordinates": [
+        -76.381420137748,
+        37.71592853029
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 79,
+      "name": "Colonial Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.37183488983,
+        37.250641611137
+      ],
+      "matchedAddress": "1701 TEMPLE PKWY, PRINCE GEORGE, VA, 23875",
+      "censusCoordinates": [
+        -77.37183488983,
+        37.250641611137
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 36,
+      "name": "Sterling Optical - LaVale",
+      "match": "Match",
+      "originalCoordinates": [
+        -78.833450923758,
+        39.637773975605
+      ],
+      "matchedAddress": "1221B NATIONAL HWY, LAVALE, MD, 21502",
+      "censusCoordinates": [
+        -78.833450923758,
+        39.637773975605
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 37,
+      "name": "Charles W. Tyhurst, OD",
+      "match": "Match",
+      "originalCoordinates": [
+        -82.052294222375,
+        36.905766169999
+      ],
+      "matchedAddress": "1614 MAIN ST, LEBANON, VA, 24266",
+      "censusCoordinates": [
+        -82.052294222375,
+        36.905766169999
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 38,
+      "name": "Katzen Eye - Lutherville",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.613783705088,
+        39.415989003271
+      ],
+      "matchedAddress": "1209 YORK RD, LUTHERVILLE, MD, 21093",
+      "censusCoordinates": [
+        -76.613783705088,
+        39.415989003271
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 39,
+      "name": "A.G. Jefferson Opticians",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.186127687846,
+        37.369842474904
+      ],
+      "matchedAddress": "1007 SHEFFIELD DR, LYNCHBURG, VA, 24502",
+      "censusCoordinates": [
+        -79.186127687846,
+        37.369842474904
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 80,
+      "name": "Hampton Roads Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.473238180306,
+        37.171178371273
+      ],
+      "matchedAddress": "6450 GEORGE WASHINGTON MEMORIAL HWY, YORKTOWN, VA, 23692",
+      "censusCoordinates": [
+        -76.473238180306,
+        37.171178371273
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 81,
+      "name": "Harley-Davidson of Lynchburg",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.236317470946,
+        37.341601363321
+      ],
+      "matchedAddress": "20452 TIMBERLAKE RD, LYNCHBURG, VA, 24502",
+      "censusCoordinates": [
+        -79.236317470946,
+        37.341601363321
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 82,
+      "name": "Harley-Davidson of Quantico",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.330656728525,
+        38.562264457602
+      ],
+      "matchedAddress": "17975 MAIN ST, DUMFRIES, VA, 22026",
+      "censusCoordinates": [
+        -77.330656728525,
+        38.562264457603
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 83,
+      "name": "Old Dominion Harley-Davidson",
+      "match": "No_Match",
+      "originalCoordinates": [
+        -77.4976579,
+        38.2506143
+      ],
+      "needsPinReview": true
+    },
+    {
+      "id": 40,
+      "name": "Vision 2020",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.991087427765,
+        39.438879593312
+      ],
+      "matchedAddress": "171 RETAIL COMMONS PKWY, MARTINSBURG, WV, 25403",
+      "censusCoordinates": [
+        -77.991087427765,
+        39.438879593312
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 84,
+      "name": "Patriot Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.280904499319,
+        38.863841134928
+      ],
+      "matchedAddress": "9739 FAIRFAX BLVD, FAIRFAX, VA, 22031",
+      "censusCoordinates": [
+        -77.280904499319,
+        38.863841134928
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 41,
+      "name": "Friedrichs Family Eye Center - Martinsville",
+      "match": "Match",
+      "originalCoordinates": [
+        -79.909223404614,
+        36.706620565255
+      ],
+      "matchedAddress": "1975 VIRGINIA AVE, MARTINSVILLE, VA, 24112",
+      "censusCoordinates": [
+        -79.909223404614,
+        36.706620565255
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 85,
+      "name": "Richmond Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.4529728267,
+        37.728612228537
+      ],
+      "matchedAddress": "12200 HARLEY CLUB DR, ASHLAND, VA, 23005",
+      "censusCoordinates": [
+        -77.4529728267,
+        37.728612228538
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 42,
+      "name": "Peepers Family Eyecare",
+      "match": "Match",
+      "originalCoordinates": [
+        -77.164730907679,
+        39.367464100413
+      ],
+      "matchedAddress": "1311 S MAIN ST, MOUNT AIRY, MD, 21771",
+      "censusCoordinates": [
+        -77.164730907679,
+        39.367464100413
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 86,
+      "name": "Roanoke Valley Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -80.006627596025,
+        37.308979528989
+      ],
+      "matchedAddress": "1925 PETERS CREEK RD NW, ROANOKE, VA, 24017",
+      "censusCoordinates": [
+        -80.006627596025,
+        37.308979528989
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 43,
+      "name": "Sober Family Eye Care",
+      "match": "Match",
+      "originalCoordinates": [
+        -76.483365592919,
+        39.39605836354
+      ],
+      "matchedAddress": "8841C BELAIR RD, NOTTINGHAM, MD, 21236",
+      "censusCoordinates": [
+        -76.483365592919,
+        39.39605836354
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    },
+    {
+      "id": 87,
+      "name": "Skyline Harley-Davidson",
+      "match": "Match",
+      "originalCoordinates": [
+        -78.124922233073,
+        39.140353646045
+      ],
+      "matchedAddress": "140 INDEPENDENCE DR, WINCHESTER, VA, 22602",
+      "censusCoordinates": [
+        -78.124922233073,
+        39.140353646045
+      ],
+      "differenceMiles": 0.0,
+      "needsPinReview": false
+    }
+  ]
+}

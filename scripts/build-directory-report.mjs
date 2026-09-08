@@ -1,0 +1,22 @@
+import { readFile, writeFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
+const rows = JSON.parse(await readFile("harleydavidson/data/locations.json"));
+const sources = JSON.parse(await readFile("docs/directory-sources.json"));
+const geo = JSON.parse(await readFile("docs/address-audit.json"));
+const before = JSON.parse(execFileSync("git", ["show", "050a14c:harleydavidson/data/locations.json"], { encoding: "utf8" }));
+const corrections = rows.flatMap(row => {
+  const old = before.find(r => r.id === row.id);
+  return old ? Object.keys(row).filter(k => JSON.stringify(row[k]) !== JSON.stringify(old[k])).map(field => ({ id:row.id, name:row.name, field, before:old[field], after:row[field], source:sources.records.find(r=>r.id===row.id)?.source })) : [];
+});
+const records = rows.map(row => ({ ...row, audit: sources.records.find(r=>r.id===row.id), coordinateCheck:geo.records.find(r=>r.id===row.id) }));
+if (records.some(r=>!r.audit || !r.coordinateCheck)) throw new Error("Audit missing a location.");
+await writeFile("docs/directory-audit.json", JSON.stringify({ checkedAt:sources.checkedAt, corrections, records }, null, 2) + "\n");
+const cell = v => String(v ?? "").replaceAll("|", "\\|").replaceAll("\n", " ");
+const pinReview = records.filter(r=>r.coordinateCheck.needsPinReview);
+let md = `# Event directory audit — ${sources.checkedAt}\n\nSnapshot of ${rows.length} retained records (${rows.filter(r=>r.kind==='eyewear').length} eyewear shops and ${rows.filter(r=>r.kind==='dealership').length} motorcycle dealerships). ${rows.length-pinReview.length} street addresses matched the Census geocoder within 0.25 mile of the existing pin; ${pinReview.length} need manual pin review. A street match does not establish the business entrance or current operation.\n\nContact details were checked against the linked sources below. Missing or conflicting evidence is explicitly recorded. Sources do **not** establish current Harley frame inventory, event-day opening hours, or participation. The manager should confirm those with shops before cards are distributed. Existing hours remain manager-maintained except the two corrections below. This is a dated audit, not an automatic data feed.\n\n## Confirmed changes\n\nBarenburg's Park Avenue location (ID 6) was removed after its [owner announced permanent closure](https://www.barenburgeye.com/). Existing manager removals (IDs 12, 69, 71, 78, 88) remain removed; Peninsula Eye Center was not replaced with another Salisbury shop. No runtime suppression list prevents a manager from adding locations later.\n\n| Location | Field | Previous | Corrected | Evidence |\n| --- | --- | --- | --- | --- |\n`;
+for(const c of corrections) md += `| ${cell(c.name)} | ${c.field} | ${cell(c.before)} | ${cell(c.after)} | [Source](${c.source}) |\n`;
+md += `\n## Pin review needed\n\n${pinReview.map(r=>`- **${r.name}**: ${r.address}, ${r.city}, ${r.state}. Census did not match; existing pin retained (${r.lat}, ${r.lng}).`).join('\n')}\n\n## Every retained location\n\nPrioritize Sunglass City in Ocean City and Longmeadow's conflicting addresses. Other entries that request manager confirmation are not silently removed. The manager portal requires a newly confirmed pin after address edits.\n\n| ID | Location | Contact review | Source | Census pin check |\n| --- | --- | --- | --- | --- |\n`;
+for(const r of records) md += `| ${r.id} | ${cell(r.name)} (${r.city}, ${r.state}) | ${cell(r.audit.note)} | ${r.audit.source ? `[Source](${r.audit.source})` : 'Owner source unconfirmed'} | ${r.coordinateCheck.needsPinReview ? 'Manual review' : 'Street match'} |\n`;
+md += `\nCoordinate source: [U.S. Census geocoder](https://geocoding.geo.census.gov/geocoder/). Raw responses are in [address-audit.json](address-audit.json); complete before/after values and source notes are in [directory-audit.json](directory-audit.json).\n`;
+await writeFile("docs/directory-audit.md", md);
+console.log(`Wrote audit for ${rows.length} records with ${corrections.length} corrected fields.`);

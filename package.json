@@ -1,0 +1,25 @@
+{
+  "name": "marcolin-event-locator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run.mjs",
+    "test:browser": "node scripts/build-manager.mjs && node tests/browser.mjs",
+    "manager:build": "node scripts/build-manager.mjs",
+    "manager:dev": "npm run manager:build && wrangler dev --config manager/wrangler.jsonc",
+    "manager:deploy": "npm run manager:build && wrangler deploy --config manager/wrangler.jsonc",
+    "cards:build": "node scripts/build-cards.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "leaflet": "1.9.4",
+    "jsqr": "1.4.0",
+    "pngjs": "5.0.0",
+    "pdf-lib": "1.17.1",
+    "qrcode": "1.5.4",
+    "wrangler": "4.129.1"
+  }
+}

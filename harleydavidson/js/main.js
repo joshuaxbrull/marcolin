@@ -1,3 +1,6 @@
+import { fetchJson, searchPlaces } from "./geocoding.js";
+import { validateLocations, contentEqual } from "../../shared/locations.js";
+import { pinSvg } from "../../shared/pins.js";
 const STATE_ABBR = {
   alabama: "AL", alaska: "AK", arizona: "AZ", arkansas: "AR", california: "CA",
   colorado: "CO", connecticut: "CT", delaware: "DE", "district of columbia": "DC",
@@ -18,7 +21,8 @@ const state = {
   query: "",
   markers: new Map(),
   activeId: null,
-  origin: null,
+  searchCenter: null,
+  sharing: false,
   userLocation: null,
   nearestId: null,
   driveById: {},
@@ -101,6 +105,13 @@ let rasterLayers = [];
 let originMarker = null;
 let destPin = null;
 let routeLayer = null;
+let routeSeq = 0;
+let locationSeq = 0;
+let tableSeq = 0;
+let routeController = null;
+let tableController = null;
+let searchController = null;
+let reverseController = null;
 let ignoreMapClick = false;
 let planetTileTemplate = "";
 let prefetchTimer = 0;
@@ -299,7 +310,7 @@ function placeRank(props) {
 function collectRouteLabels(glMap) {
   const dest = state.locations.find((loc) => loc.id === state.activeId);
   const pinned = new Set(
-    [dest?.city, state.origin?.city].map(normalizePlaceName).filter(Boolean)
+    [dest?.city, state.searchCenter?.city].map(normalizePlaceName).filter(Boolean)
   );
   const city = new Set();
   const town = new Set(pinned);
@@ -560,7 +571,7 @@ async function warmMapCache(locations) {
 function registerMapCache() {
   if (!("serviceWorker" in navigator)) return;
   const swUrl = new URL("../sw.js", import.meta.url);
-  navigator.serviceWorker.register(swUrl).catch(() => {});
+  navigator.serviceWorker.register(swUrl, { updateViaCache: "none" }).then(reg => reg.update()).catch(() => {});
 }
 
 addMapBase();
@@ -653,7 +664,7 @@ function parseOpeningHours(spec) {
       continue;
     }
     const match = part.match(/^([A-Za-z][A-Za-z0-9,\- ]*?)\s+(\d.*)$/);
-    if (!match) continue;
+    if (!match) return null;
     const days = parseDayList(match[1]);
     const ranges = match[2].split(",").map((item) => {
       const times = item.trim().split("-");
@@ -661,6 +672,7 @@ function parseOpeningHours(spec) {
       const end = parseClock(times[1] || "");
       return start != null && end != null ? { start, end } : null;
     }).filter(Boolean);
+    if (!days.length || !ranges.length) return null;
     for (const day of days) week[day] = ranges;
   }
   return week;
@@ -787,10 +799,11 @@ function selectedActions(id) {
 }
 
 function currentRouteBounds() {
+  if (!canRoute()) return null;
   if (routeLayer && routeLayer.getBounds().isValid()) return routeLayer.getBounds();
-  if (state.origin && state.routeDest) {
+  if (canRoute() && state.routeDest) {
     return L.latLngBounds(
-      [state.origin.lat, state.origin.lng],
+      [state.userLocation.lat, state.userLocation.lng],
       [state.routeDest.lat, state.routeDest.lng]
     );
   }
@@ -828,7 +841,6 @@ function openDirections(origin, dest) {
   collapseMobileSheet();
   const destStr = `${dest.lat},${dest.lng}`;
   const originStr = origin ? `${origin.lat},${origin.lng}` : "";
-  const label = encodeURIComponent(`${dest.name.trim()}, ${dest.address.trim()}, ${dest.city.trim()}, ${dest.state.trim()}`);
   const ua = navigator.userAgent || "";
   const web = origin
     ? `https://www.google.com/maps/dir/?api=1&origin=${originStr}&destination=${destStr}&travelmode=driving&dir_action=navigate`
@@ -842,9 +854,6 @@ function openDirections(origin, dest) {
   }
   if (/Android/i.test(ua)) {
     window.location.href = `google.navigation:q=${destStr}&mode=d`;
-    setTimeout(() => {
-      window.location.href = `geo:0,0?q=${destStr}(${label})`;
-    }, 400);
     return;
   }
   window.open(web, "_blank", "noopener");
@@ -877,11 +886,6 @@ function normalizeState(value) {
   return STATE_ABBR[raw.toLowerCase()] || raw;
 }
 
-function queryHasState(query) {
-  return /,\s*[A-Za-z]{2}\b/.test(query) ||
-    /\b(MD|DE|VA|WV|NY|PA|NC|NJ|DC|Maryland|Delaware|Virginia|West Virginia)\b/i.test(query);
-}
-
 function locKind(loc) {
   return loc.kind === "dealership" ? "dealership" : "eyewear";
 }
@@ -895,19 +899,20 @@ function candidateLocations() {
 }
 
 function driveInfo(loc) {
-  return state.driveById[loc.id] || null;
+  return canRoute() ? state.driveById[loc.id] || null : null;
 }
 
 function sortByDrive(list) {
   return [...list].sort((a, b) => {
+    if (state.searchCenter) { const at = state.searchCenter; return haversineMiles(at.lat, at.lng, a.lat, a.lng) - haversineMiles(at.lat, at.lng, b.lat, b.lng); }
     const da = driveInfo(a);
     const db = driveInfo(b);
     if (da && db) return da.seconds - db.seconds || da.meters - db.meters;
     if (da) return -1;
     if (db) return 1;
-    if (!state.origin) return 0;
-    return haversineMiles(state.origin.lat, state.origin.lng, a.lat, a.lng) -
-      haversineMiles(state.origin.lat, state.origin.lng, b.lat, b.lng);
+    const center = state.searchCenter || state.userLocation;
+    if (!center) return 0;
+    return haversineMiles(center.lat, center.lng, a.lat, a.lng) - haversineMiles(center.lat, center.lng, b.lat, b.lng);
   });
 }
 
@@ -934,7 +939,7 @@ function popupHtml(loc) {
   const nearest = state.locations.find((item) => item.id === state.nearestId);
   const nearestDrive = nearest ? driveInfo(nearest) : null;
   let time = "Get directions";
-  let note = "Opens turn-by-turn from here";
+  let note = "Opens your maps app";
 
   if (drive) {
     const minutes = Math.max(1, Math.round(drive.seconds / 60));
@@ -951,10 +956,6 @@ function popupHtml(loc) {
     } else {
       note = `${milesLabel} drive`;
     }
-  } else if (state.origin) {
-    const miles = haversineMiles(state.origin.lat, state.origin.lng, loc.lat, loc.lng);
-    time = `${miles.toFixed(1)} mi`;
-    note = closest ? "Closest store" : "Straight-line distance";
   }
 
   const hours = hoursStatus(loc);
@@ -994,10 +995,6 @@ function setStatus(message, show = true) {
   searchStatus.textContent = message || "";
 }
 
-function updateGoNow(origin, dest) {
-  state.routeDest = dest || null;
-}
-
 function renderList() {
   const visible = sortByDrive(candidateLocations());
   const total = state.locations.length;
@@ -1007,9 +1004,7 @@ function renderList() {
     ? `${total} locations · ${shops} eyewear · ${dealers} dealers`
     : `${visible.length} of ${total} locations`;
 
-  if (visible[0] && (driveInfo(visible[0]) || state.origin)) {
-    state.nearestId = visible[0].id;
-  }
+  state.nearestId = canRoute() && !state.searchCenter && visible[0] ? visible[0].id : null;
 
   listEl.replaceChildren();
   emptyEl.hidden = visible.length > 0;
@@ -1024,11 +1019,7 @@ function renderList() {
     const phone = formatPhone(loc.phone);
     const drive = driveInfo(loc);
     const closest = loc.id === state.nearestId;
-    const driveLabel = drive
-      ? formatDrive(drive.seconds, drive.meters)
-      : state.origin
-        ? `${haversineMiles(state.origin.lat, state.origin.lng, loc.lat, loc.lng).toFixed(1)} mi`
-        : "";
+    const driveLabel = drive ? formatDrive(drive.seconds, drive.meters) : "";
 
     const phoneLink = phone && telHref(loc.phone)
       ? `<a class="card-phone" href="${telHref(loc.phone)}">${escapeHtml(phone)}</a>`
@@ -1057,8 +1048,8 @@ function renderList() {
     `;
     card.addEventListener("click", (event) => {
       if (event.target.closest("[data-go-id], [data-share-id], .card-phone, .card-hours")) return;
-      selectLocation(loc.id, { fly: !state.origin, openPopup: true });
-      if (state.origin) drawRouteTo(loc, { fit: true });
+      selectLocation(loc.id, { fly: !canRoute(), openPopup: true });
+      if (canRoute()) drawRouteTo(loc, { fit: true });
     });
     li.appendChild(card);
     listEl.appendChild(li);
@@ -1101,7 +1092,7 @@ function selectLocation(id, options = {}) {
   const marker = state.markers.get(id);
   if (marker) {
     if (fly) {
-      map.setView(marker.getLatLng(), Math.max(map.getZoom(), 13), { animate: false });
+      focusLocation(loc);
     }
     const at = marker.getLatLng();
     prefetchAround(at.lat, at.lng, Math.max(map.getZoom(), 13));
@@ -1109,71 +1100,51 @@ function selectLocation(id, options = {}) {
   scheduleLabelRefresh();
 }
 
-function addMarkers() {
-  const bounds = [];
+function focusLocation(loc) {
+  if (!loc) return;
+  map.setView([loc.lat, loc.lng], 14, { animate: false });
+  if (isMobile() && !appEl.classList.contains("finder-hidden")) {
+    map.panBy([0, Math.round(sidebarEl.getBoundingClientRect().height / 2)], { animate: false });
+  }
+}
+
+function markerIcon(loc, selected = false) {
+  return L.divIcon({ className: "location-pin-wrap", html: pinSvg(locKind(loc), selected), iconSize: selected ? [36, 47] : [28, 37], iconAnchor: selected ? [18, 46] : [14, 36], popupAnchor: [0, -35] });
+}
+
+function addMarkers({ initial = false } = {}) {
+  for (const marker of state.markers.values()) map.removeLayer(marker);
+  state.markers.clear();
   for (const loc of state.locations) {
     if (loc.lat == null || loc.lng == null) continue;
-    const dealer = locKind(loc) === "dealership";
-    const marker = L.circleMarker([loc.lat, loc.lng], {
-      renderer: canvasRenderer,
-      radius: dealer ? 7 : 7,
-      color: dealer ? "#f15a22" : "#111111",
-      weight: 2,
-      fillColor: dealer ? "#111111" : "#f15a22",
-      fillOpacity: 1,
-    });
+    const marker = L.marker([loc.lat, loc.lng], { icon: markerIcon(loc), title: `${loc.name} · ${locKind(loc) === "dealership" ? "Motorcycle dealership" : "Eyewear shop"}`, keyboard: true });
     marker.on("click", async () => {
       ignoreMapClick = true;
       hideFinder();
-      selectLocation(loc.id, { openPopup: true });
-      if (state.origin) await drawRouteTo(loc, { fit: true });
+      selectLocation(loc.id, { fly: !canRoute(), openPopup: true });
+      if (canRoute()) await drawRouteTo(loc, { fit: true });
     });
     marker.addTo(map);
     state.markers.set(loc.id, marker);
-    bounds.push([loc.lat, loc.lng]);
   }
-  if (bounds.length) {
-    map.setView([38.2, -77.4], 6);
-  } else {
-    map.setView([38.0, -77.5], 6);
-  }
-}
-
-function destPinIcon() {
-  return L.divIcon({
-    className: "dest-pin-wrap",
-    html: '<span class="dest-pin" aria-hidden="true"></span>',
-    iconSize: [28, 40],
-    iconAnchor: [14, 38],
-    popupAnchor: [0, -32],
-  });
+  syncActiveMarker();
+  if (initial) map.setView([38.2, -77.4], 6);
 }
 
 function syncActiveMarker() {
-  for (const [id, marker] of state.markers) {
-    const hide = id === state.activeId;
-    marker.setStyle({
-      opacity: hide ? 0 : 1,
-      fillOpacity: hide ? 0 : 1,
-    });
-  }
+  for (const [id, marker] of state.markers) marker.setOpacity(id === state.activeId ? 0 : 1);
 }
 
 function setDestPin(loc, { openPopup = true } = {}) {
   if (!loc || loc.lat == null || loc.lng == null) return;
   if (destPin) {
     destPin.setLatLng([loc.lat, loc.lng]);
+    destPin.setIcon(markerIcon(loc, true));
     destPin.setPopupContent(popupHtml(loc));
   } else {
-    destPin = L.marker([loc.lat, loc.lng], {
-      icon: destPinIcon(),
-      zIndexOffset: 800,
-      keyboard: false,
-    });
+    destPin = L.marker([loc.lat, loc.lng], { icon: markerIcon(loc, true), zIndexOffset: 800 });
     destPin.bindPopup(popupHtml(loc), popupPanOptions());
-    destPin.on("click", () => {
-      ignoreMapClick = true;
-    });
+    destPin.on("click", () => { ignoreMapClick = true; });
     destPin.addTo(map);
   }
   if (openPopup) destPin.openPopup();
@@ -1192,12 +1163,12 @@ function setOriginMarker(origin) {
   originMarker.bindPopup(`<h3>${escapeHtml(origin.label || "Your location")}</h3>`, { autoPan: false });
 }
 
-async function reverseGeocode(point) {
+async function reverseGeocode(point, signal) {
   const url = "https://photon.komoot.io/reverse?" + new URLSearchParams({
     lat: String(point.lat),
     lon: String(point.lng),
   });
-  const data = await fetch(url).then((res) => res.json());
+  const data = await fetchJson(url, { signal });
   const props = data?.features?.[0]?.properties;
   if (!props) return null;
   const city = props.city || props.town || props.village || props.name || "";
@@ -1210,123 +1181,12 @@ async function reverseGeocode(point) {
   };
 }
 
-async function geocodeAddress(query, bias) {
-  const raw = query.trim();
-  if (!raw) return null;
-
-  const biasedQuery = bias?.state && !queryHasState(raw)
-    ? `${raw}, ${bias.state}`
-    : raw;
-
-  try {
-    const params = new URLSearchParams({
-      q: biasedQuery,
-      limit: "5",
-      lang: "en",
-    });
-    if (bias?.lat != null && bias?.lng != null) {
-      params.set("lat", String(bias.lat));
-      params.set("lon", String(bias.lng));
-    }
-    const data = await fetch("https://photon.komoot.io/api/?" + params).then((res) => res.json());
-    const features = data?.features || [];
-    if (features.length) {
-      const picked = pickNearbyFeature(features, bias) || features[0];
-      const [lng, lat] = picked.geometry.coordinates;
-      const props = picked.properties || {};
-      const city = props.city || props.name || "";
-      const region = normalizeState(props.state);
-      return {
-        lat,
-        lng,
-        label: [props.name || city, city !== props.name ? city : "", region].filter(Boolean).join(", ") || biasedQuery,
-        state: region,
-      };
-    }
-  } catch {
-    // fall through
-  }
-
-  const censusQuery = biasedQuery;
-  try {
-    const censusUrl = "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?" + new URLSearchParams({
-      address: censusQuery,
-      benchmark: "Public_AR_Current",
-      format: "json",
-    });
-    const data = await fetch(censusUrl).then((res) => res.json());
-    const match = data?.result?.addressMatches?.[0];
-    if (match?.coordinates) {
-      return {
-        lat: match.coordinates.y,
-        lng: match.coordinates.x,
-        label: match.matchedAddress || censusQuery,
-      };
-    }
-  } catch {
-    // fall through
-  }
-
-  const nomParams = new URLSearchParams({
-    q: biasedQuery,
-    format: "json",
-    limit: "5",
-    countrycodes: "us",
-  });
-  if (bias?.lat != null && bias?.lng != null) {
-    const pad = 1.75;
-    nomParams.set("viewbox", `${bias.lng - pad},${bias.lat + pad},${bias.lng + pad},${bias.lat - pad}`);
-    nomParams.set("bounded", "0");
-  }
-  const nom = await fetch("https://nominatim.openstreetmap.org/search?" + nomParams, {
-    headers: { Accept: "application/json" },
-  }).then((res) => res.json());
-  if (nom?.length) {
-    const picked = pickNearbyNominatim(nom, bias) || nom[0];
-    return {
-      lat: Number(picked.lat),
-      lng: Number(picked.lon),
-      label: picked.display_name || biasedQuery,
-    };
-  }
-  return null;
-}
-
-function pickNearbyFeature(features, bias) {
-  if (!bias || bias.lat == null) return features[0];
-  let best = null;
-  let bestMiles = Infinity;
-  for (const feature of features) {
-    const [lng, lat] = feature.geometry.coordinates;
-    const miles = haversineMiles(bias.lat, bias.lng, lat, lng);
-    if (miles < bestMiles) {
-      bestMiles = miles;
-      best = feature;
-    }
-  }
-  return best;
-}
-
-function pickNearbyNominatim(results, bias) {
-  if (!bias || bias.lat == null) return results[0];
-  let best = null;
-  let bestMiles = Infinity;
-  for (const item of results) {
-    const miles = haversineMiles(bias.lat, bias.lng, Number(item.lat), Number(item.lon));
-    if (miles < bestMiles) {
-      bestMiles = miles;
-      best = item;
-    }
-  }
-  return best;
-}
-
-async function fetchDriveTable(origin, pool) {
+async function fetchDriveTable(origin, pool, signal) {
   if (!pool.length) return {};
   const coords = [`${origin.lng},${origin.lat}`, ...pool.map((loc) => `${loc.lng},${loc.lat}`)].join(";");
   const destinations = pool.map((_, index) => index + 1).join(";");
   const url = `https://router.project-osrm.org/table/v1/driving/${coords}?sources=0&destinations=${destinations}&annotations=duration,distance`;
-  const data = await fetch(url).then((res) => res.json());
+  const data = await fetchJson(url, { signal });
   const durations = data?.durations?.[0];
   const distances = data?.distances?.[0];
   if (!durations) return {};
@@ -1341,9 +1201,9 @@ async function fetchDriveTable(origin, pool) {
   return byId;
 }
 
-async function fetchRoute(origin, dest) {
+async function fetchRoute(origin, dest, signal) {
   const url = `https://router.project-osrm.org/route/v1/driving/${origin.lng},${origin.lat};${dest.lng},${dest.lat}?overview=full&geometries=geojson`;
-  const data = await fetch(url).then((res) => res.json());
+  const data = await fetchJson(url, { signal });
   const route = data?.routes?.[0];
   if (!route) return null;
   return {
@@ -1353,81 +1213,114 @@ async function fetchRoute(origin, dest) {
   };
 }
 
+function canRoute() {
+  return state.sharing && Boolean(state.userLocation) && !locationPrefOff();
+}
+
+function clearRoute() {
+  routeSeq += 1;
+  routeController?.abort();
+  routeController = null;
+  state.routeDest = null;
+  if (routeLayer) map.removeLayer(routeLayer);
+  routeLayer = null;
+}
+
 async function drawRouteTo(loc, { fit = false } = {}) {
-  if (!state.origin || loc.lat == null || loc.lng == null) return;
+  clearRoute();
+  if (!canRoute() || !state.locations.some(item => item.id === loc?.id)) return;
+  const seq = routeSeq;
+  const origin = state.userLocation;
+  const controller = new AbortController();
+  routeController = controller;
+  selectLocation(loc.id, { openPopup: true });
+  const valid = () => seq === routeSeq && canRoute() && state.userLocation === origin && state.activeId === loc.id && state.locations.includes(loc);
   try {
-    const route = await fetchRoute(state.origin, loc);
-    if (routeLayer) map.removeLayer(routeLayer);
+    const route = await fetchRoute(origin, loc, controller.signal);
+    if (!valid()) return;
     if (route?.geometry) {
-      routeLayer = L.geoJSON(route.geometry, {
-        style: { color: "#f15a22", weight: 5, opacity: 0.9 },
-      }).addTo(map);
-    }
+      routeLayer = L.geoJSON(route.geometry, { style: { className: "driving-route", color: "#f15a22", weight: 5, opacity: 0.9 } }).addTo(map);
+      state.routeDest = loc;
+      if (fit) fitInView(routeLayer.getBounds());
+    } else if (fit) focusLocation(loc);
   } catch {
-    // keep list sort even if the line fails
+    if (valid()) { if (fit) focusLocation(loc); setStatus("Route unavailable. You can still open directions in your maps app."); }
   }
-  updateGoNow(state.origin, loc);
-  if (state.activeId !== loc.id) {
-    selectLocation(loc.id, { openPopup: true });
-  } else {
-    setDestPin(loc, { openPopup: true });
-  }
-  if (fit) {
-    const fitted = routeLayer && routeLayer.getBounds().isValid()
-      ? routeLayer.getBounds()
-      : L.latLngBounds([[state.origin.lat, state.origin.lng], [loc.lat, loc.lng]]);
-    fitInView(fitted);
-  }
+  if (valid()) { refreshPopups(); scheduleLabelRefresh(); }
+}
+
+async function refreshDriving({ selectClosest = false } = {}) {
+  tableController?.abort();
+  const seq = ++tableSeq;
+  state.driveById = {};
+  if (!canRoute()) { renderList(); return; }
+  const origin = state.userLocation;
+  const controller = new AbortController();
+  tableController = controller;
+  let result = {};
+  try { result = await fetchDriveTable(origin, state.locations, controller.signal); } catch { /* Directory remains usable. */ }
+  if (seq !== tableSeq || !canRoute() || state.userLocation !== origin) return;
+  state.driveById = result;
+  renderList();
+  const target = selectClosest ? sortByDrive(candidateLocations())[0] : candidateLocations().find(loc => loc.id === state.activeId);
+  if (target) await drawRouteTo(target, { fit: selectClosest });
+}
+
+function applySearchCenter(center) {
+  state.searchCenter = center;
+  // Search changes the browsing area; routes, when enabled, still start at GPS.
+  renderList();
+  const pool = candidateLocations();
+  const closest = [...pool].sort((a, b) => haversineMiles(center.lat, center.lng, a.lat, a.lng) - haversineMiles(center.lat, center.lng, b.lat, b.lng))[0];
+  if (closest) {
+    selectLocation(closest.id, { fly: !canRoute(), openPopup: true });
+    if (canRoute()) drawRouteTo(closest, { fit: true });
+  } else map.setView([center.lat, center.lng], 12, { animate: false });
   scheduleLabelRefresh();
 }
 
-async function applyOrigin(origin, seq) {
-  state.origin = origin;
-  setOriginMarker(origin);
-  prefetchAround(origin.lat, origin.lng, 12);
-  try {
-    state.driveById = await fetchDriveTable(origin, state.locations.filter((loc) => loc.lat != null));
-  } catch {
-    state.driveById = {};
-  }
-  if (seq != null && seq !== searchSeq) return;
-  renderList();
-  const closest = sortByDrive(candidateLocations())[0];
-  if (closest) {
-    state.nearestId = closest.id;
-    await drawRouteTo(closest, { fit: true });
-    renderList();
+function showSearchChoices(choices, seq) {
+  const list = document.getElementById("search-choices");
+  list.replaceChildren();
+  list.hidden = !choices.length;
+  for (const choice of choices.slice(0, 5)) {
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+    button.type = "button"; button.textContent = choice.label;
+    button.addEventListener("click", () => {
+      if (seq !== searchSeq) return;
+      list.hidden = true; setStatus(`Near ${choice.label}`); applySearchCenter(choice);
+    });
+    li.append(button); list.append(li);
   }
 }
 
 async function updateFromSearch() {
   const seq = ++searchSeq;
+  searchController?.abort();
+  const controller = new AbortController();
+  searchController = controller;
+  showSearchChoices([], seq);
   const q = state.query.trim();
-
   if (!q) {
-    if (state.userLocation) {
-      setStatus("", false);
-      await applyOrigin(state.userLocation, seq);
-    }
+    state.searchCenter = null; setStatus("", false); renderList();
+    if (canRoute()) await refreshDriving({ selectClosest: true });
     return;
   }
-
   if (q.length < 3) return;
-
-  setStatus("Updating closest locations…");
+  setStatus("Finding that US city or address…");
   try {
-    const origin = await geocodeAddress(q, state.userLocation);
+    const choices = await searchPlaces(q, canRoute() ? state.userLocation : null, controller.signal);
     if (seq !== searchSeq) return;
-    if (!origin) {
-      setStatus("Could not find that place. Keep typing a city or address.");
-      return;
+    if (!choices.length) { setStatus("No matching US place. Include the city and state or a complete street address."); return; }
+    const best = choices[0];
+    const ambiguous = choices.filter(c => c.score === best.score && haversineMiles(best.lat, best.lng, c.lat, c.lng) > 2);
+    if (ambiguous.length) {
+      setStatus("Choose the place you meant:"); showSearchChoices([best, ...ambiguous], seq); return;
     }
-    const sameAsUser = state.userLocation && origin.label === state.userLocation.label;
-    setStatus(sameAsUser ? "" : `From ${origin.label}`, !sameAsUser);
-    await applyOrigin(origin, seq);
+    setStatus(`Near ${best.label}`); applySearchCenter(best);
   } catch {
-    if (seq !== searchSeq) return;
-    setStatus("Could not look that up right now.");
+    if (seq === searchSeq && !controller.signal.aborted) setStatus("Could not look that up right now. Try again.");
   }
 }
 
@@ -1470,104 +1363,82 @@ function resetLocateBar() {
   closeLocateMenu();
 }
 
-function clearOrigin() {
-  state.origin = null;
+function stopSharingLocation({ persist = true } = {}) {
+  locationSeq += 1;
+  tableSeq += 1;
+  reverseController?.abort();
+  tableController?.abort();
+  state.sharing = false;
+  state.userLocation = null;
   state.driveById = {};
   state.nearestId = null;
-  state.routeDest = null;
-  if (originMarker) {
-    map.removeLayer(originMarker);
-    originMarker = null;
-  }
-  if (routeLayer) {
-    map.removeLayer(routeLayer);
-    routeLayer = null;
-  }
+  if (persist) setLocationPref("off");
+  clearRoute();
+  if (originMarker) map.removeLayer(originMarker);
+  originMarker = null;
+  resetLocateBar();
   renderList();
-  const pts = state.locations
-    .filter((loc) => loc.lat != null && loc.lng != null)
-    .map((loc) => [loc.lat, loc.lng]);
-  if (pts.length) fitInView(L.latLngBounds(pts));
+  const selected = state.locations.find(loc => loc.id === state.activeId);
+  if (selected) { focusLocation(selected); setDestPin(selected, { openPopup: true }); }
+  else if (state.searchCenter) map.setView([state.searchCenter.lat, state.searchCenter.lng], 12, { animate: false });
   scheduleLabelRefresh();
 }
 
-async function revokeGeolocationPermission() {
-  if (!navigator.permissions) return;
-  try {
-    if (typeof navigator.permissions.revoke === "function") {
-      await navigator.permissions.revoke({ name: "geolocation" });
-    }
-  } catch {
-    // most browsers do not allow pages to revoke location
-  }
-}
-
-async function stopSharingLocation() {
-  const originWasUser = Boolean(
-    state.origin &&
-    state.userLocation &&
-    state.origin.lat === state.userLocation.lat &&
-    state.origin.lng === state.userLocation.lng
-  );
-  state.userLocation = null;
-  setLocationPref("off");
-  resetLocateBar();
-  await revokeGeolocationPermission();
-  if (state.query.trim()) {
-    if (originWasUser) await updateFromSearch();
-    return;
-  }
-  clearOrigin();
-}
-
 function requestUserLocation() {
+  stopSharingLocation({ persist: false });
   if (!navigator.geolocation) {
-    locateStatus.hidden = false;
     locateStatus.textContent = "Location is not available in this browser.";
     return;
   }
-
-  closeLocateMenu();
+  const seq = ++locationSeq;
   setLocationPref("");
   locateBtn.disabled = true;
   locateStatus.textContent = "Checking your location…";
-  navigator.geolocation.getCurrentPosition(
-    async (pos) => {
-      const point = {
-        lat: pos.coords.latitude,
-        lng: pos.coords.longitude,
-        label: "Your location",
-      };
-      try {
-        const rev = await reverseGeocode(point);
-        if (rev) {
-          point.label = rev.label;
-          point.state = rev.state;
-          point.city = rev.city;
-        }
-      } catch {
-        // keep raw coordinates
-      }
-      state.userLocation = point;
-      setLocationPref("");
-      locateBar.classList.add("is-on");
-      locateStatus.textContent = "Showing locations near:";
-      locateStatus.hidden = false;
-      locateBtn.textContent = point.label && point.label !== "Your location" ? point.label : "Your location";
-      locateBtn.disabled = false;
-      if (!state.query.trim()) {
-        setStatus("", false);
-        await applyOrigin(point);
-      } else {
-        await updateFromSearch();
-      }
-    },
-    () => {
-      setLocationPref("off");
-      resetLocateBar();
-    },
-    { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 }
-  );
+  navigator.geolocation.getCurrentPosition(async pos => {
+    if (seq !== locationSeq || locationPrefOff()) return;
+    const point = { lat: pos.coords.latitude, lng: pos.coords.longitude, label: "Your location" };
+    if (!Number.isFinite(point.lat) || !Number.isFinite(point.lng)) { stopSharingLocation(); return; }
+    state.sharing = true;
+    state.userLocation = point;
+    setOriginMarker(point);
+    locateBar.classList.add("is-on");
+    locateStatus.textContent = "Sharing your location";
+    locateBtn.textContent = "Your location";
+    locateBtn.disabled = false;
+    refreshDriving({ selectClosest: !state.activeId });
+    const controller = new AbortController();
+    reverseController = controller;
+    try {
+      const rev = await reverseGeocode(point, controller.signal);
+      if (seq !== locationSeq || !canRoute() || state.userLocation !== point) return;
+      if (rev) Object.assign(point, rev);
+      locateBtn.textContent = point.label;
+      setOriginMarker(point);
+    } catch { /* Routing never waits for a reverse-geocoding label. */ }
+  }, () => {
+    if (seq !== locationSeq) return;
+    stopSharingLocation();
+    locateStatus.textContent = "Location unavailable. Search a city or choose a shop.";
+  }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
+}
+
+function filterSelection() {
+  clearRoute();
+  renderList();
+  const visible = candidateLocations();
+  if (!visible.some(loc => loc.id === state.activeId)) {
+    state.activeId = null;
+    if (destPin) map.removeLayer(destPin);
+    destPin = null;
+    syncActiveMarker();
+  }
+  const target = visible.find(loc => loc.id === state.activeId) || sortByDrive(visible)[0];
+  if (target && canRoute()) drawRouteTo(target, { fit: true });
+  else if (target && state.searchCenter) selectLocation(target.id, { fly: true });
+}
+
+for (const button of kindFiltersEl.querySelectorAll("[data-kind]")) {
+  if (button.dataset.kind !== "ALL") button.insertAdjacentHTML("afterbegin", `<span class="filter-pin">${pinSvg(button.dataset.kind)}</span>`);
 }
 
 kindFiltersEl?.addEventListener("click", async (event) => {
@@ -1577,9 +1448,7 @@ kindFiltersEl?.addEventListener("click", async (event) => {
   for (const item of kindFiltersEl.querySelectorAll(".filter-btn")) {
     item.classList.toggle("is-active", item === btn);
   }
-  renderList();
-  const closest = sortByDrive(candidateLocations())[0];
-  if (closest && state.origin) await drawRouteTo(closest, { fit: true });
+  filterSelection();
 });
 
 filtersEl.addEventListener("click", async (event) => {
@@ -1589,13 +1458,14 @@ filtersEl.addEventListener("click", async (event) => {
   for (const item of filtersEl.querySelectorAll(".filter-btn")) {
     item.classList.toggle("is-active", item === btn);
   }
-  renderList();
-  const closest = sortByDrive(candidateLocations())[0];
-  if (closest && state.origin) await drawRouteTo(closest, { fit: true });
+  filterSelection();
 });
 
 searchEl.addEventListener("input", () => {
   state.query = searchEl.value;
+  searchSeq += 1;
+  searchController?.abort();
+  showSearchChoices([], searchSeq);
   clearTimeout(debounceTimer);
   debounceTimer = setTimeout(() => {
     updateFromSearch();
@@ -1659,7 +1529,7 @@ document.addEventListener("keydown", (event) => {
 if (navigator.permissions?.query) {
   navigator.permissions.query({ name: "geolocation" }).then((status) => {
     status.onchange = () => {
-      if (status.state !== "granted" && state.userLocation) {
+      if (status.state !== "granted") {
         stopSharingLocation();
       }
     };
@@ -1672,7 +1542,7 @@ document.addEventListener("click", (event) => {
   event.preventDefault();
   event.stopPropagation();
   const dest = state.locations.find((loc) => loc.id === Number(go.dataset.goId));
-  if (dest) openDirections(state.origin, dest);
+  if (dest) openDirections(canRoute() ? state.userLocation : null, dest);
 });
 
 let sheetDrag = null;
@@ -1705,6 +1575,7 @@ function endSheetDrag() {
   const h = sidebarEl.getBoundingClientRect().height;
   const expanded = h > window.innerHeight * 0.58;
   sidebarEl.classList.toggle("is-expanded", expanded);
+  sheetHandle.setAttribute("aria-expanded", String(expanded));
   sidebarEl.style.height = "";
   sheetDrag = null;
   if (sheetMoved && routeLayer) fitInView(routeLayer.getBounds());
@@ -1719,6 +1590,7 @@ sheetHandle.addEventListener("click", () => {
     return;
   }
   sidebarEl.classList.toggle("is-expanded");
+  sheetHandle.setAttribute("aria-expanded", String(sidebarEl.classList.contains("is-expanded")));
   sidebarEl.style.height = "";
   if (routeLayer) fitInView(routeLayer.getBounds());
 });
@@ -1743,23 +1615,66 @@ window.addEventListener("resize", () => {
   viewportTimer = setTimeout(syncMapViewport, 80);
 });
 
-const locations = await fetch("data/locations.json").then((res) => {
-  if (!res.ok) throw new Error(`Failed to load locations: ${res.status}`);
-  return res.json();
-});
+let directoryLoading = false;
+let directoryLoaded = false;
+const DIRECTORY_CACHE = "hd-eyewear-directory-v1";
+const directoryUrl = new URL("../data/locations.json", import.meta.url).href;
 
-if (!Array.isArray(locations) || !locations.length) {
-  console.error("Location list failed to load");
+async function refreshDirectory() {
+  if (directoryLoading) return;
+  directoryLoading = true;
+  const status = document.getElementById("directory-status");
+  const retry = document.getElementById("directory-retry");
+  let cached = false;
+  let records;
+  try {
+    try {
+      records = validateLocations(await fetchJson(`${directoryUrl}?fresh=${Date.now()}`, { cache: "no-store", timeout: 8000 }));
+      try {
+        const cache = await caches.open(DIRECTORY_CACHE);
+        await cache.put(directoryUrl, new Response(JSON.stringify(records), { headers: { "Content-Type": "application/json" } }));
+      } catch { /* Storage may be unavailable in private browsing. */ }
+    } catch (error) {
+      const hit = await caches.open(DIRECTORY_CACHE).then(cache => cache.match(directoryUrl)).catch(() => null);
+      if (!hit) throw error;
+      records = validateLocations(await hit.json()); cached = true;
+    }
+    status.textContent = cached ? "Showing a saved directory. Updates will resume when a connection is available." : "";
+    status.hidden = !cached;
+    retry.hidden = !cached;
+    if (!directoryLoaded || !contentEqual(records, state.locations)) {
+      const initial = !directoryLoaded;
+      const selectedId = state.activeId;
+      const popupOpen = destPin?.isPopupOpen();
+      clearRoute(); tableController?.abort(); tableSeq += 1; state.driveById = {};
+      state.locations = records;
+      const selected = records.find(loc => loc.id === selectedId);
+      if (!selected) {
+        state.activeId = null;
+        if (destPin) map.removeLayer(destPin);
+        destPin = null;
+      }
+      addMarkers({ initial }); renderList();
+      if (selected) setDestPin(selected, { openPopup: popupOpen });
+      directoryLoaded = true;
+      if (canRoute()) await refreshDriving();
+    }
+  } catch {
+    status.hidden = false;
+    retry.hidden = false;
+    status.textContent = "The directory is unavailable. Check your connection and retry.";
+  } finally { directoryLoading = false; }
 }
 
-state.locations = locations;
-addMarkers();
-renderList();
+window.addEventListener("online", refreshDirectory);
+window.addEventListener("focus", refreshDirectory);
+window.addEventListener("storage", event => { if (event.key === LOCATION_PREF_KEY && event.newValue === "off") stopSharingLocation({ persist: false }); });
+document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshDirectory(); });
+setInterval(() => { if (!document.hidden) refreshDirectory(); }, 60000);
+document.getElementById("directory-retry").addEventListener("click", refreshDirectory);
+await refreshDirectory();
 map.invalidateSize({ animate: false });
 resizeVectorMap();
-const warm = () => warmMapCache(state.locations);
-if ("requestIdleCallback" in window) requestIdleCallback(warm, { timeout: 1800 });
-else setTimeout(warm, 500);
 document.addEventListener("click", (event) => {
   const share = event.target.closest("[data-share-id]");
   if (!share) return;
