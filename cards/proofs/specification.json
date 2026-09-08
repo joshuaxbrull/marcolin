@@ -9,6 +9,11 @@
     "contact": 0.3333333333333333,
     "photo": 0.6666666666666666
   },
+  "frontBranding": {
+    "sidebarLogo": "cards/assets/harley-davidson-shield.svg",
+    "photoBrandFontPt": 26,
+    "contactNameFontPt": 16
+  },
   "directoryCount": 92,
   "directoryIds": [
     1,
@@ -113,5 +118,51 @@
     1350
   ],
   "photoEffectivePpi": 387,
+  "photoVariants": [
+    {
+      "id": "supplied-couple",
+      "title": "Supplied helmeted couple",
+      "source": "cards/assets/rally-couple-supplied.png",
+      "generationMode": "supplied image",
+      "sourcePixels": [
+        975,
+        968
+      ],
+      "effectivePpi": 298
+    },
+    {
+      "id": "seasoned-rider",
+      "title": "Seasoned rider",
+      "source": "cards/assets/front-seasoned-rider-hz0051.png",
+      "generationMode": "built-in image_gen",
+      "sourcePixels": [
+        1160,
+        1355
+      ],
+      "effectivePpi": 416
+    },
+    {
+      "id": "coastal-rider",
+      "title": "Coastal rider",
+      "source": "cards/assets/front-coastal-rider-hz0044.png",
+      "generationMode": "built-in image_gen",
+      "sourcePixels": [
+        1161,
+        1355
+      ],
+      "effectivePpi": 416
+    },
+    {
+      "id": "rally-couple",
+      "title": "Rally together",
+      "source": "cards/assets/front-rally-couple-hz0048.png",
+      "generationMode": "built-in image_gen",
+      "sourcePixels": [
+        1161,
+        1355
+      ],
+      "effectivePpi": 416
+    }
+  ],
   "status": "design-proof-requires-physical-print-and-qr-scan"
 }
