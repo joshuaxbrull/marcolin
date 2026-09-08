@@ -5,6 +5,10 @@ import { PNG } from "pngjs";
 import jsQR from "jsqr";
 import { PDFDocument } from "pdf-lib";
 
+const photoData = JSON.parse(await readFile("cards/photo-concepts.json", "utf8"));
+const concepts = [...photoData.suppliedPhotos, ...photoData.variants];
+const fronts = ["front", ...concepts.map(photo => `front-${photo.id}`)];
+
 test("both back PNGs decode to the short canonical shop URL", async () => {
   for (const theme of ["light", "dark"]) {
     const png = PNG.sync.read(await readFile(`cards/proofs/back-${theme}-trim.png`));
@@ -13,7 +17,7 @@ test("both back PNGs decode to the short canonical shop URL", async () => {
   }
 });
 test("raster proofs have exact trim/bleed dimensions and 600 dpi metadata", async () => {
-  for (const face of ["front", "back-light", "back-dark"]) for (const extent of ["trim", "bleed"]) {
+  for (const face of [...fronts, "back-light", "back-dark"]) for (const extent of ["trim", "bleed"]) {
     const png = await readFile(`cards/proofs/${face}-${extent}.png`);
     assert.equal(png.readUInt32BE(16), extent === "trim" ? 2400 : 2550);
     assert.equal(png.readUInt32BE(20), extent === "trim" ? 1800 : 1950);
@@ -22,8 +26,8 @@ test("raster proofs have exact trim/bleed dimensions and 600 dpi metadata", asyn
   }
 });
 test("two-sided PDFs have 4 by 3 inch trim and one eighth inch bleed", async () => {
-  for (const theme of ["light", "dark"]) {
-    const pdf = await PDFDocument.load(await readFile(`cards/proofs/card-${theme}-back.pdf`));
+  for (const suffix of ["", ...concepts.map(photo => `${photo.id}-`)]) for (const theme of ["light", "dark"]) {
+    const pdf = await PDFDocument.load(await readFile(`cards/proofs/card-${suffix}${theme}-back.pdf`));
     assert.equal(pdf.getPageCount(), 2);
     for (const page of pdf.getPages()) {
       assert.deepEqual(page.getTrimBox(), { x:9, y:9, width:288, height:216 });
