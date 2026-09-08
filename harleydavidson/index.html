@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Harley-Davidson Eyewear Locations</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.css">
   <link rel="stylesheet" href="css/styles.css">
   <script>
@@ -25,7 +25,7 @@
       <button type="button" class="finder-open" id="finder-open" hidden>Find a location</button>
     </main>
     <aside class="sidebar" id="sidebar">
-      <div class="sheet-handle" id="sheet-handle" aria-hidden="true"></div>
+      <button type="button" class="sheet-handle" id="sheet-handle" aria-label="Expand or collapse location finder" aria-expanded="false"></button>
       <header class="sidebar-header">
         <div class="header-top">
           <p class="eyebrow">Harley-Davidson Eyewear</p>
@@ -50,6 +50,8 @@
         </div>
         <h1>Find a location</h1>
         <p class="count" id="count-label">Locations</p>
+        <p class="directory-status" id="directory-status" role="status" hidden></p>
+        <button type="button" class="directory-retry" id="directory-retry" hidden>Refresh directory</button>
       </header>
 
       <div class="locate-bar" id="locate-bar">
@@ -69,7 +71,8 @@
           <input type="search" id="search" placeholder="Address or city" autocomplete="street-address" enterkeyhint="search">
         </label>
       </form>
-      <p class="search-status" id="search-status" hidden></p>
+      <p class="search-status" id="search-status" role="status" hidden></p>
+      <ul class="search-choices" id="search-choices" aria-label="Matching places" hidden></ul>
 
       <div class="filters" id="kind-filters" role="group" aria-label="Filter by type">
         <button type="button" class="filter-btn is-active" data-kind="ALL">All</button>
@@ -89,7 +92,7 @@
     </aside>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="vendor/leaflet/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@maplibre/maplibre-gl-leaflet/leaflet-maplibre-gl.js"></script>
   <script type="module" src="js/main.js"></script>

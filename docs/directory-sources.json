@@ -1,0 +1,467 @@
+{
+  "checkedAt": "2026-09-08",
+  "notes": "Snapshot from the event preparation audit. Business contact sources do not verify current Harley eyewear inventory. No automated removal or pin replacement is based on missing sources.",
+  "records": [
+    {
+      "id": 1,
+      "source": "https://www.katzeneye.com/contact-us/",
+      "note": "Suite 202 added. Website lists a central phone; keep existing optical line pending manager confirmation."
+    },
+    {
+      "id": 2,
+      "source": "https://www.accomacoptometric.com/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 3,
+      "source": "https://www.annapolis.vision/what-we-do",
+      "note": "Suite 502 added; phone agrees."
+    },
+    {
+      "id": 4,
+      "source": "https://www.bayhillseyecare.com/mobile/contactus/contactus.aspx/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 5,
+      "source": "https://www.feccva.com/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 7,
+      "source": "https://www.katzeneye.com/contact-us/",
+      "note": "Professional Office Building, suites 514 and 902. Confirm optical suite and direct phone with manager."
+    },
+    {
+      "id": 8,
+      "source": "https://tomatoglasses.com/Stockist/young-eyes-optical/",
+      "note": "Manufacturer stockist confirms address/phone and suite 345; confirm with shop."
+    },
+    {
+      "id": 9,
+      "source": "https://www.bepeye.com/locations/baltimore-md",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 10,
+      "source": "",
+      "note": "No current owner source confirmed. Verify suite A, phone and operating status with manager."
+    },
+    {
+      "id": 11,
+      "source": "https://brewerandmarshall.weebly.com/contact.html",
+      "note": "Street address confirmed; phone not independently confirmed in this pass."
+    },
+    {
+      "id": 13,
+      "source": "",
+      "note": "No current owner source confirmed. Verify current operation and phone with manager."
+    },
+    {
+      "id": 14,
+      "source": "https://focusopticalboutique.com/",
+      "note": "Street address confirmed; manager should confirm phone."
+    },
+    {
+      "id": 15,
+      "source": "https://chathameyecarecenter.com/",
+      "note": "Suite 100 added; current homepage phone retained."
+    },
+    {
+      "id": 16,
+      "source": "https://www.friedrichsfamilyeyecenter.com/",
+      "note": "Street address and branch phone agree."
+    },
+    {
+      "id": 17,
+      "source": "https://www.greatbridgeeyecare.com/contact-us/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 18,
+      "source": "https://coeoptical.com/hours-location/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 19,
+      "source": "https://www.molinahealthcare.com/members/az/en-us/-/media/Molina/PublicWebsite/PDF/members/va/Provider-Directories/MCC-CCC-Plus-Provider-Directory-Northern-Winchester-Region-January-2022.pdf",
+      "note": "Only an older insurer listing was found. Confirm current operation and suite 100."
+    },
+    {
+      "id": 20,
+      "source": "https://www.friedrichsfamilyeyecenter.com/",
+      "note": "Suite 103 added; branch phone agrees."
+    },
+    {
+      "id": 21,
+      "source": "https://www.willseye.org/diabetes-day/",
+      "note": "Provider program confirms address/phone; confirm suite C with shop."
+    },
+    {
+      "id": 22,
+      "source": "https://www.delawareeyecare.com/locations/dover-old-rudnick/",
+      "note": "Street address confirmed. Confirm direct optical phone; existing central number retained."
+    },
+    {
+      "id": 23,
+      "source": "https://apeyecare.net/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 24,
+      "source": "https://www.gatteneyecare.com/make-an-appointment",
+      "note": "Street address confirmed; phone needs manager confirmation."
+    },
+    {
+      "id": 25,
+      "source": "https://psc.walman.com/safety/web/walman/master.php?state=MD",
+      "note": "Manufacturer provider list confirms address/phone; lists suite 4. Confirm suite with shop."
+    },
+    {
+      "id": 26,
+      "source": "https://www.theeyeglassfactoryfrontroyal.com/aboutus",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 27,
+      "source": "https://blueridgeeyecare.com/our-practice/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 28,
+      "source": "https://www.thompsonvisioncare.com/default.aspx",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 29,
+      "source": "https://longmeadoweyecare.com/contact/",
+      "note": "CONFLICT: same owner page contains both 1545 Potomac Ave and 12818 Shank Farm Way Suite G. Phone agrees. Keep existing pin until manager confirms."
+    },
+    {
+      "id": 30,
+      "source": "https://www.nicholasandmelandfamilyeyecare.com/",
+      "note": "Practice address and phone agree."
+    },
+    {
+      "id": 31,
+      "source": "https://blueridgeoptical.com/contact-us/",
+      "note": "Updated to published Hardy branch phone."
+    },
+    {
+      "id": 32,
+      "source": "https://www.eea2020.com/",
+      "note": "Updated to published Hayes phone."
+    },
+    {
+      "id": 33,
+      "source": "https://eyecareontheridge.com/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 34,
+      "source": "https://www.leboweye.com/hopewell-office",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 35,
+      "source": "https://shopstylisheyes.com/",
+      "note": "Phone confirmed. Verify suite D with shop."
+    },
+    {
+      "id": 36,
+      "source": "https://www.sterlingoptical.com/locations/lavale/",
+      "note": "Phone confirmed; full street address needs manager confirmation."
+    },
+    {
+      "id": 37,
+      "source": "",
+      "note": "No current owner source confirmed. Verify current operation, address and phone."
+    },
+    {
+      "id": 38,
+      "source": "https://www.katzeneye.com/contact-us/",
+      "note": "Street address confirmed. Website central phone differs; keep optical number pending manager confirmation."
+    },
+    {
+      "id": 39,
+      "source": "https://pchp.net/index.php/vision-services.html",
+      "note": "Insurer confirms phone; owner address and operation need manager confirmation."
+    },
+    {
+      "id": 40,
+      "source": "https://longmeadoweyecare.com/contact/",
+      "note": "Owner confirms Martinsburg branch and phone; confirm street address and suite 6 with shop."
+    },
+    {
+      "id": 41,
+      "source": "https://www.friedrichsfamilyeyecenter.com/",
+      "note": "Street address and branch phone agree."
+    },
+    {
+      "id": 42,
+      "source": "https://www.peeperseye.com/contact-us",
+      "note": "Corrected Maryland phone and added suite 104."
+    },
+    {
+      "id": 43,
+      "source": "https://www.sobereyecare.com/about.html",
+      "note": "Street address and phone agree; existing unit C retained."
+    },
+    {
+      "id": 44,
+      "source": "https://www.locally.com/store/77485/sunglass-city",
+      "note": "Event-area priority: retailer listing confirms street, but current owner source/phone/Harley stock require manager confirmation."
+    },
+    {
+      "id": 45,
+      "source": "https://www.lookingglassoptical.com/",
+      "note": "Phone confirmed; street address supported by practice welcome form. Existing suite retained."
+    },
+    {
+      "id": 46,
+      "source": "",
+      "note": "No current owner source confirmed. Verify operation and suite H with manager."
+    },
+    {
+      "id": 47,
+      "source": "https://locations.essilorusa.com/wv/petersburg/28-virginia-ave",
+      "note": "Manufacturer directory confirms address and phone; current owner confirmation pending."
+    },
+    {
+      "id": 48,
+      "source": "https://individual.carefirst.com/carefirst-resources/pdf/group-ma-vision-provider-directory-spanish.pdf",
+      "note": "Insurer confirms address/phone and suite 2D. Owner confirmation pending."
+    },
+    {
+      "id": 49,
+      "source": "https://gowoyo.org/shine-taskforce-resources/",
+      "note": "Community directory calls this Lower Shore Vision Center; name spelling Nickol also differs. Address/phone supported; manager should confirm public name."
+    },
+    {
+      "id": 50,
+      "source": "https://www.lindseyoptical.com/",
+      "note": "Suite 6 added; phone agrees."
+    },
+    {
+      "id": 51,
+      "source": "https://randaeye.com/contact/",
+      "note": "Suite 3 added; phone agrees."
+    },
+    {
+      "id": 52,
+      "source": "https://johnsoncurran.com/location/valley-view/",
+      "note": "Updated branch phone and posted hours; appointments required Saturday."
+    },
+    {
+      "id": 53,
+      "source": "https://www.nationalopticalonline.com/call-national-optical-virginia",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 54,
+      "source": "https://blueridgeoptical.com/contact-us/",
+      "note": "Street address and branch phone agree."
+    },
+    {
+      "id": 55,
+      "source": "https://blueridgeoptical.com/contact-us/",
+      "note": "Street address and branch phone agree."
+    },
+    {
+      "id": 56,
+      "source": "https://www.karteszeyecare.com/tanyard-road-rocky-mount/",
+      "note": "Published street address and branch phone agree despite page title mentioning Tanyard Road."
+    },
+    {
+      "id": 57,
+      "source": "https://www.friedrichsfamilyeyecenter.com/",
+      "note": "Street address and branch phone agree."
+    },
+    {
+      "id": 58,
+      "source": "https://www.delawareeyecare.com/contact-us/request-an-appointment/",
+      "note": "Corrected suite and optical phone."
+    },
+    {
+      "id": 59,
+      "source": "https://www.patrickchamber.com/profile.cfm?ID=595",
+      "note": "Chamber member profile confirms address; updated published phone. Pin requires manual review."
+    },
+    {
+      "id": 60,
+      "source": "https://www.findclarityvision.com/suffolk-va/3575-bridge-rd-number-19/",
+      "note": "Added suite 19 from current owner page; phone and posted hours agree."
+    },
+    {
+      "id": 61,
+      "source": "https://www.sterlingoptical.com/locations/waldorf/",
+      "note": "Updated store phone; address and posted hours agree. Pin requires manual review."
+    },
+    {
+      "id": 62,
+      "source": "https://carrolleyecare.com/",
+      "note": "Updated published phone and posted hours; current moved address agrees."
+    },
+    {
+      "id": 63,
+      "source": "",
+      "note": "No current owner source confirmed. Verify current operation at 216 W Boscawen St and phone."
+    },
+    {
+      "id": 64,
+      "source": "https://www.wytheeyeassociates.net/contact-us.html",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 65,
+      "source": "https://www.npda.org/veloitem/all-american-harley-davidson",
+      "note": "Dealer association confirms address and phone; owner confirmation pending."
+    },
+    {
+      "id": 66,
+      "source": "https://www.districtducati.com/default.asp?id=456290&page=xListEvents",
+      "note": "Historical shared-dealer page supports address/phone. Confirm current Harley business with manager."
+    },
+    {
+      "id": 67,
+      "source": "https://www.chesapeakehd.com/",
+      "note": "Updated to published dealer phone; address agrees."
+    },
+    {
+      "id": 68,
+      "source": "https://www.hdstore.com/map-hours-directions-harley-davidson-dealership--hours",
+      "note": "Street address and main phone agree; alternate website tracking number also shown."
+    },
+    {
+      "id": 70,
+      "source": "https://www.hdofdc.com/index.asp",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 72,
+      "source": "https://www.oldgloryhog.com/",
+      "note": "Affiliated HOG chapter confirms street address. Multiple tracking phone numbers exist; manager should confirm preferred number."
+    },
+    {
+      "id": 73,
+      "source": "https://www.delmarva-hog.com/",
+      "note": "Affiliated dealer chapter confirms unit A and phone; same phone on dealer website. Updated both."
+    },
+    {
+      "id": 74,
+      "source": "https://www.rommelhd.com/Accessibility-Statement",
+      "note": "Updated to published Smyrna phone; street address agrees."
+    },
+    {
+      "id": 75,
+      "source": "https://ironcladharley.com/contact-us",
+      "note": "Street address agrees. Website tracking number differs from current VA dealer register; existing registry phone retained for manager review."
+    },
+    {
+      "id": 76,
+      "source": "https://blackbearhd.com/contact-us",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 77,
+      "source": "https://business.bristolchamber.com/list/member/black-wolf-harley-davidson-4745",
+      "note": "Chamber member profile confirms address/phone; owner confirmation pending."
+    },
+    {
+      "id": 79,
+      "source": "https://colonialhd.com/contact-us",
+      "note": "Street address and main phone agree."
+    },
+    {
+      "id": 80,
+      "source": "https://www.hamptonroadshd.com/?page=inventory",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 81,
+      "source": "",
+      "note": "No current owner page confirmed in this pass; verify current operation and preferred phone."
+    },
+    {
+      "id": 82,
+      "source": "https://www.harleydavidsonofquantico.com/INFO-PAGE/CONTACT-US/Reserve-Anniversary-Models/Location-Hours",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 83,
+      "source": "https://www.od-hd.com/Contact-Us",
+      "note": "Street address and local phone agree; pin requires manual review."
+    },
+    {
+      "id": 84,
+      "source": "https://www.livewire.com/locations/fairfax",
+      "note": "Manufacturer confirms street. Different tracking phone; verify preferred Harley contact with manager."
+    },
+    {
+      "id": 85,
+      "source": "https://www.richmondhd.com/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 86,
+      "source": "https://www.visitroanokeva.com/listings/roanoke-valley-harley-davidson/8457/",
+      "note": "Official tourism body confirms address/phone; current VA dealer register also agrees."
+    },
+    {
+      "id": 87,
+      "source": "https://www.skylineharley.com/",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 89,
+      "source": "https://www.stonewallhd.com/Contact-Us",
+      "note": "Street address confirmed. Website lists toll-free number; verify existing local phone with manager."
+    },
+    {
+      "id": 90,
+      "source": "https://thunderroadhd.com/about-us",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 91,
+      "source": "https://www.steelhorsehd.com/map-hours-directions-harley-davidson-dealership--hours",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 92,
+      "source": "https://visithuntingtonwv.org/company/black-sheep-harley-davidson-2/",
+      "note": "Official tourism body confirms address/phone; owner confirmation pending."
+    },
+    {
+      "id": 93,
+      "source": "https://colehd.com/contact-us",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 94,
+      "source": "https://www.wvharley.com/parts-harley-davidson-dealership--parts",
+      "note": "Street address and phone agree; pin requires manual review."
+    },
+    {
+      "id": 95,
+      "source": "",
+      "note": "No current owner page confirmed in this pass; manager should verify address, operation and phone."
+    },
+    {
+      "id": 96,
+      "source": "https://www.almostheavenhd.com/map-hours-directions-harley-davidson-dealership--hours",
+      "note": "Street address and phone agree."
+    },
+    {
+      "id": 97,
+      "source": "https://www.michelinman.com/motorcycle/dealer-locator/morgantown/ylbbmrt-triple-s-harley-davidson",
+      "note": "Manufacturer directory confirms address/phone; owner confirmation pending."
+    },
+    {
+      "id": 98,
+      "source": "https://valleyharley.com/contact-us",
+      "note": "Street address and phone agree; pin requires manual review."
+    }
+  ]
+}
+

@@ -1,0 +1,10 @@
+{
+  "name": "Marcolin Location Manager",
+  "url": "https://joshuaxbrull.github.io/marcolin/",
+  "public": false,
+  "hook_attributes": { "active": false },
+  "default_permissions": { "contents": "write", "metadata": "read" },
+  "default_events": [],
+  "callback_urls": [],
+  "request_oauth_on_install": false
+}
