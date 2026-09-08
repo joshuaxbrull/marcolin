@@ -1,6 +1,6 @@
 # Event readiness implementation
 
-The canonical production code is `joshuaxbrull/marcolin`, based on main revision `050a14c`. Work is in the `event-ready` checkout. The surrounding `worldcup` repository is an older locator deployment; its index and service worker are changed separately to retire that copy. The actual 3D project at `/marcolin/worldcup/` is preserved, with its hub card temporarily hidden.
+The canonical production code is `joshuaxbrull/marcolin`. The event release is published on `main` through [PR #1](https://github.com/joshuaxbrull/marcolin/pull/1). The surrounding `worldcup` repository was the older locator deployment; its index and service worker now redirect to the canonical locator through a separate merged release. The actual 3D project at `/marcolin/worldcup/` is preserved, with its hub card temporarily hidden.
 
 ## Failures addressed
 
@@ -19,7 +19,9 @@ The canonical production code is `joshuaxbrull/marcolin`, based on main revision
 
 ## Verification
 
-`npm test` covers schema validation, US search ranking, manager conflicts, session encryption/authorization/CSRF, optimistic writes, publication hashing, scoped service-worker caching, QR decoding and print dimensions. `npm run test:browser` covers save/publish/second-device refresh, removals, stale drafts, address/pin validation, lost geolocation consent, out-of-order routes, offline recovery and an empty published directory. External APIs are deterministic fixtures in these browser checks; this is not a claim that production GitHub/Cloudflare authentication has been exercised.
+All 31 `npm test` checks passed, covering schema validation, US search ranking, manager conflicts, session encryption/authorization/CSRF, optimistic writes, publication hashing, scoped service-worker caching, QR decoding and print dimensions. `npm run test:browser` covers save/publish/second-device refresh, removals, stale drafts, address/pin validation, lost geolocation consent, out-of-order routes, offline recovery and an empty published directory. External APIs are deterministic fixtures in these browser checks; this is not a claim that production GitHub/Cloudflare authentication has been exercised.
+
+Both GitHub release workflows and Pages deployments passed. Live file comparisons and Chromium checks verified the deployed 92-location directory, QR and portal redirects, shop selection without route requests when GPS is not shared, rendered map tiles, desktop/mobile layouts, and the preserved direct World Cup page. Production manager login/save and second-device propagation still require the owner's confirmation.
 
 `npm run manager:build` and Wrangler's deployment dry-run validate the Worker and its static bundle. Runtime credentials are not bundled into public assets. Dependencies are pinned in a portable lockfile; a clean install's npm audit reported zero vulnerabilities on 2026-09-08.
 
@@ -31,6 +33,6 @@ The canonical production code is `joshuaxbrull/marcolin`, based on main revision
 - [Directory audit](directory-audit.md): 92 retained locations, 87 Census street matches, five pins for manual review, and source notes for every retained record. Prioritize Ocean City stock/phone confirmation and the conflicting Longmeadow address.
 - [Card proofs and print specification](../cards/README.md): final production needs a higher-resolution copy of the selected photograph and a physical QR scan.
 
-Do not describe this branch as deployed or the PDFs as press-approved until those remaining checks are complete. Roll back locator code independently if needed; never restore the public credential envelope.
+The site is deployed. The PDFs remain design proofs until the photography and physical print/QR checks are complete. Roll back locator code independently if needed; never restore the public credential envelope.
 
 The exposed legacy credential was revoked on 2026-09-08. [Retirement verification](credential-retirement.json) records GitHub's HTTP 401 authentication response without any credential values. The old password portal is replaced by the configured GitHub App manager.
