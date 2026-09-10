@@ -16,6 +16,22 @@
     "endDate": "2026-09-12"
   },
   {
+    "id": 100,
+    "name": "Rommel Harley Davidson @ the Convention Center",
+    "address": "4001 Coastal Highway",
+    "city": "Ocean City",
+    "state": "MD",
+    "zip": "21842",
+    "phone": "",
+    "lat": 38.36755556,
+    "lng": -75.07311111,
+    "geocode": "owner-provided",
+    "hours": "",
+    "kind": "event",
+    "startDate": "2026-09-10",
+    "endDate": "2026-09-12"
+  },
+  {
     "id": 1,
     "name": "Katzen Eye - Bel Air",
     "address": "3401 Box Hill Corporate Center Dr, Suite 202",
