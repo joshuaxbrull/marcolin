@@ -1,6 +1,9 @@
 import { fetchJson, searchPlaces } from "./geocoding.js";
 import { validateLocations, contentEqual } from "../../shared/locations.js";
 import { pinSvg } from "../../shared/pins.js";
+import { createTracker } from "./analytics.js";
+const trackEvent = createTracker();
+trackEvent("visit");
 const STATE_ABBR = {
   alabama: "AL", alaska: "AK", arizona: "AZ", arkansas: "AR", california: "CA",
   colorado: "CO", connecticut: "CT", delaware: "DE", "district of columbia": "DC",
@@ -838,6 +841,7 @@ function syncMapViewport() {
 }
 
 function openDirections(origin, dest) {
+  trackEvent("directions", dest.id);
   collapseMobileSheet();
   const destStr = `${dest.lat},${dest.lng}`;
   const originStr = origin ? `${origin.lat},${origin.lng}` : "";
@@ -1048,6 +1052,7 @@ function renderList() {
     `;
     card.addEventListener("click", (event) => {
       if (event.target.closest("[data-go-id], [data-share-id], .card-phone, .card-hours")) return;
+      trackEvent("select", loc.id);
       selectLocation(loc.id, { fly: !canRoute(), openPopup: true });
       if (canRoute()) drawRouteTo(loc, { fit: true });
     });
@@ -1121,6 +1126,7 @@ function addMarkers({ initial = false } = {}) {
     marker.on("click", async () => {
       ignoreMapClick = true;
       hideFinder();
+      trackEvent("select", loc.id);
       selectLocation(loc.id, { fly: !canRoute(), openPopup: true });
       if (canRoute()) await drawRouteTo(loc, { fit: true });
     });
@@ -1144,7 +1150,7 @@ function setDestPin(loc, { openPopup = true } = {}) {
   } else {
     destPin = L.marker([loc.lat, loc.lng], { icon: markerIcon(loc, true), zIndexOffset: 800 });
     destPin.bindPopup(popupHtml(loc), popupPanOptions());
-    destPin.on("click", () => { ignoreMapClick = true; });
+    destPin.on("click", () => { ignoreMapClick = true; trackEvent("select", state.activeId); });
     destPin.addTo(map);
   }
   if (openPopup) destPin.openPopup();
@@ -1537,6 +1543,11 @@ if (navigator.permissions?.query) {
 }
 
 document.addEventListener("click", (event) => {
+  const phone = event.target.closest('a[href^="tel:"]');
+  if (phone) {
+    const id = Number(phone.closest(".location-card")?.dataset.id);
+    if (state.locations.some(loc => loc.id === id)) trackEvent("call", id);
+  }
   const go = event.target.closest("[data-go-id]");
   if (!go) return;
   event.preventDefault();

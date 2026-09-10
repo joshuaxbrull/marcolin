@@ -37,8 +37,9 @@ test("service worker migrates only locator caches and reloads only locator clien
 });
 test("service worker never precaches or returns a cached mutable directory",async()=>{
   const s=await setup();await s.lifecycle('install');
-  const cache=await s.caches.open('hd-locator-marcolin-shell-v5');
+  const cache=await s.caches.open('hd-locator-marcolin-shell-v6');
   assert.ok(!(await cache.keys()).some(url=>url.includes('locations.json')));
+  assert.ok((await cache.keys()).some(url=>url.endsWith('/js/analytics.js')));
   assert.equal(await (await s.request(scope+'data/locations.json?fresh=1')).text(),'network');
   assert.equal(s.calls.at(-1).options.cache,'no-store');
   s.setOffline(true);await assert.rejects(s.request(scope+'data/locations.json?fresh=2'),/offline/);
@@ -51,6 +52,7 @@ test("service worker awaits updated shell writes and leaves authentication alone
   assert.equal(await s.request('https://example.test/api/locations'),undefined);
   assert.equal(await s.request('https://example.test/auth/github'),undefined);
   assert.equal(await s.request('https://example.test/api/locations','PUT'),undefined);
+  assert.equal(await s.request('https://marcolin-manager.marcolin-event-locator.workers.dev/events','POST'),undefined);
 });
 test("retired portal destination fails closed and accepts only an HTTPS origin",()=>{
   assert.equal(managerDestination('https://manager.example.test'),'https://manager.example.test/');

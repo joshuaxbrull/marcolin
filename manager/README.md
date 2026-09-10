@@ -54,10 +54,14 @@ For local Worker development, use an ignored `manager/.dev.vars` containing the 
 
 ## Authentication and publishing
 
-OAuth uses state and S256 PKCE. GitHub credentials are held in encrypted, expiring HttpOnly cookies whose encryption key exists only in Worker secrets. Every API request checks repository write permission. Mutations require matching Origin and a session CSRF token. The server fixes the repository, branch, and directory path; clients cannot select arbitrary targets.
+OAuth uses state and S256 PKCE. GitHub credentials are held in encrypted, expiring HttpOnly cookies whose encryption key exists only in Worker secrets. Every manager API request checks repository write permission. Mutations require matching Origin and a session CSRF token. The server fixes the repository, branch, and directory path; clients cannot select arbitrary targets.
 
 Each draft retains the SHA loaded with its contents. A concurrent save yields a conflict instead of overwriting another manager's changes. The interface stages the active form when Save is clicked, preserves tab drafts, merges independent changes, and asks the manager to resolve edits to the same record. Publication compares the public directory's Git blob hash with the saved SHA; a commit alone is not labeled Live.
 
 The old static portal's public password hash was also the AES decryption key for its stored GitHub token. The credential was revoked on 2026-09-08; GitHub now returns HTTP 401 for it, as recorded in [the retirement report](../docs/credential-retirement.json). Old password-portal saves are disabled until the new manager is activated. Do not restore the old password/token flow during rollback.
 
 References: [GitHub App user authorization](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app), [App manifests](https://docs.github.com/en/apps/sharing-github-apps/registering-a-github-app-from-a-manifest), [Cloudflare secrets](https://developers.cloudflare.com/workers/configuration/secrets/).
+
+## Event activity
+
+The **Event activity** panel shows QR-link visits and shop, directions, and call clicks for the last 7, 30, or 90 days. It uses the same manager sign-in. See [measurement definitions, storage, and deployment](../docs/event-analytics.md). The existing printed QR URL is unchanged. The public `/events` collector can only add validated activity; reports and directory editing remain private.
