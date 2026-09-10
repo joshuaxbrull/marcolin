@@ -4,7 +4,10 @@ import { createServer } from "node:http";
 import { readFile, mkdir } from "node:fs/promises";
 import { resolve, extname } from "node:path";
 const root = resolve(".");
-const fixture = JSON.parse(await readFile("harleydavidson/data/locations.json", "utf8"));
+const directory = JSON.parse(await readFile("harleydavidson/data/locations.json", "utf8"));
+const inletTent = directory.find(row => row.id === 99);
+// Permanent-location scenarios should also work after temporary events expire.
+const fixture = directory.filter(row => row.kind !== "event");
 let publicRows = structuredClone(fixture), savedRows = structuredClone(fixture), sha = "a".repeat(40), revision = 0, putCount = 0, publishChecks = 0, routeCount = 0, routeDelay = 0, tableCount = 0;
 const errors = [];
 const activityEvents = [];
@@ -194,6 +197,53 @@ try{
   assert.equal(await device2.evaluate(()=>__locator.state.activeId),null);
   await context2.setOffline(true);await device2.evaluate(()=>__locator.refreshDirectory());await expect(device2.locator(".location-card")).toHaveCount(0);
   console.log("PASS directory: empty published directory stays empty offline");
+
+  publicRows=[inletTent,...structuredClone(fixture)];savedRows=structuredClone(publicRows);
+  const tentContext=await browser.newContext({viewport:{width:390,height:844},timezoneId:"Asia/Tokyo",serviceWorkers:"block"});await prepare(tentContext);
+  const tentPage=await tentContext.newPage();tentPage.on("pageerror",e=>errors.push(e.message));
+  await tentPage.clock.install({time:new Date("2026-09-10T03:59:30Z")});
+  await tentPage.goto(locatorOrigin+"/harleydavidson/");await tentPage.waitForFunction(()=>Boolean(window.__locator));
+  await expect(tentPage.locator('.location-card[data-id="99"]')).toHaveCount(0);
+  await tentPage.clock.fastForward(61000);await expect(tentPage.locator('.location-card[data-id="99"]')).toHaveCount(1);
+  await expect(tentPage.locator("#count-label")).toContainText("1 event tent");
+  for(const kind of ["eyewear","dealership"]){await tentPage.locator(`[data-kind="${kind}"]`).click();await expect(tentPage.locator('.location-card[data-id="99"]')).toHaveCount(0);}
+  await tentPage.locator('[data-kind="event"]').click();await expect(tentPage.locator(".location-card")).toHaveCount(1);
+  await tentPage.locator("#sheet-handle").click();await tentPage.clock.runFor(350);
+  const tentCard=tentPage.locator('.location-card[data-id="99"]');
+  await expect(tentCard.locator("h2")).toHaveText("Rommel Harley Davidson @ the Inlet");
+  await expect(tentCard.locator(".kind-tag")).toHaveText("Event tent");
+  await expect(tentCard.locator(".card-address")).toContainText("Ocean City, MD 21842");
+  await expect(tentCard.locator(".card-event-dates")).toContainText("Sep 10");
+  await expect(tentCard.locator(".card-event-dates")).toContainText("12, 2026");
+  await expect(tentCard.locator(".card-hours")).toHaveText("Daily hours not provided");
+  assert.deepEqual(await tentPage.evaluate(()=>{const m=__locator.state.markers.get(99);return {lat:m.getLatLng().lat,lng:m.getLatLng().lng,title:m.options.title};}),{lat:38.326872,lng:-75.086741,title:"Rommel Harley Davidson @ the Inlet · Event tent"});
+  await tentCard.click();await expect(tentPage.locator(".callout-kicker")).toHaveText("Event tent");
+  await tentPage.evaluate(()=>{navigator.share=async data=>{window.__sharedTent=data;};});
+  await tentCard.locator("[data-share-id]").click();assert.match(await tentPage.evaluate(()=>__sharedTent.text),/38\.326872,-75\.086741/);
+  await tentPage.screenshot({path:"artifacts/inlet-tent-mobile.png"});assert.ok(await tentPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  await tentCard.locator("[data-go-id]").click();assert.equal(new URL(await tentPage.evaluate(()=>__openedMap)).searchParams.get("destination"),"38.326872,-75.086741");
+  await tentPage.locator("#finder-open").click();await tentPage.evaluate(()=>__locator.requestUserLocation());
+  await expect.poll(()=>tentPage.evaluate(()=>__locator.state.routeDest?.id)).toBe(99);
+  await tentPage.clock.setSystemTime(new Date("2026-09-13T03:59:30Z"));await expect(tentCard).toHaveCount(1);
+  await tentContext.setOffline(true);await tentPage.clock.fastForward(61000);await expect(tentCard).toHaveCount(0);
+  assert.equal(await tentPage.evaluate(()=>__locator.state.activeId),null);
+  assert.equal(await tentPage.evaluate(()=>__locator.state.markers.has(99)),false);
+  assert.equal(await tentPage.evaluate(()=>Boolean(__locator.routeLayer&&__locator.map.hasLayer(__locator.routeLayer))),false);
+  await expect(tentPage.locator(".dest-popup")).toHaveCount(0);
+  await tentContext.setOffline(false);await tentPage.reload();await tentPage.waitForFunction(()=>Boolean(window.__locator));await expect(tentCard).toHaveCount(0);
+  await expect(tentPage.locator(".location-card")).toHaveCount(fixture.length);
+
+  const tentManager=await managerContext.newPage();tentManager.on("pageerror",e=>errors.push(e.message));
+  await tentManager.goto(managerOrigin+"/");await expect(tentManager.locator("#fields")).toBeEnabled();
+  await tentManager.locator("#list-kind").selectOption("event");await expect(tentManager.locator("#locations > li")).toHaveCount(1);
+  await tentManager.locator("#locations button",{hasText:"Edit"}).click();await expect(tentManager.locator("#event-dates")).toBeVisible();
+  await expect(tentManager.locator("#kind")).toHaveValue("event");await expect(tentManager.locator("#zip")).toHaveValue("21842");
+  await expect(tentManager.locator("#startDate")).toHaveValue("2026-09-10");await expect(tentManager.locator("#endDate")).toHaveValue("2026-09-12");
+  await tentManager.locator("#startDate").fill("");const eventWrites=putCount;await tentManager.locator("#save").click();assert.equal(putCount,eventWrites);
+  await tentManager.locator("#startDate").fill("2026-09-10");await tentManager.locator("#save").click();await expect(tentManager.locator("#status")).toContainText("Publishing");
+  const savedTent=savedRows.find(row=>row.id===99);assert.equal(savedTent.kind,"event");assert.equal(savedTent.endDate,"2026-09-12");assert.equal(savedTent.zip,"21842");assert.equal(savedTent.lat,38.326872);assert.equal(savedTent.lng,-75.086741);
+  await tentContext.close();await tentManager.close();
+  console.log("PASS event tent: distinct category, exact directions, date boundaries in Eastern time, offline expiration with route cleanup, and manager date validation/save");
   }
   publicRows=structuredClone(fixture);legacyWorker=true;
   const swContext=await browser.newContext({serviceWorkers:"allow"});await prepare(swContext);const swPage=await swContext.newPage();
