@@ -7,6 +7,8 @@ const root = resolve(".");
 const fixture = JSON.parse(await readFile("harleydavidson/data/locations.json", "utf8"));
 let publicRows = structuredClone(fixture), savedRows = structuredClone(fixture), sha = "a".repeat(40), revision = 0, putCount = 0, publishChecks = 0, routeCount = 0, routeDelay = 0, tableCount = 0;
 const errors = [];
+const activityEvents = [];
+let activityStatus = 200, activityDelay = 0;
 let legacyWorker = false, networkUnavailable = false;
 const mime={".html":"text/html",".js":"application/javascript",".css":"text/css",".svg":"image/svg+xml",".png":"image/png",".ttf":"font/ttf"};
 const json=(res,body,status=200)=>{res.writeHead(status,{"Content-Type":"application/json","Cache-Control":"no-store"});res.end(JSON.stringify(body));};
@@ -22,6 +24,15 @@ const serve = async(req,res,manager=false)=>{
     return;
   }
   if(manager&&url.pathname==="/api/session")return json(res,{login:"manager-fixture",csrf:"fixture",expires:Date.now()+28800000});
+  if(manager&&url.pathname==="/api/analytics"){
+    if(activityStatus!==200)return json(res,{error:activityStatus===401?"Sign in again.":"Activity service unavailable."},activityStatus);
+    const delay=activityDelay;activityDelay=0;if(delay)await new Promise(resolve=>setTimeout(resolve,delay));
+    const days=Number(url.searchParams.get("days")||30),source=url.searchParams.get("source")||"all";
+    const totals={visits:12,qrVisits:9,directVisits:3,selections:7,directions:4,calls:2};
+    if(source==="card")Object.assign(totals,{visits:9,directVisits:0,calls:0});
+    if(source==="direct")Object.assign(totals,{visits:3,qrVisits:0,selections:0,directions:0});
+    return json(res,{days,source,timezone:"UTC",retentionDays:90,startedAt:"2026-09-09T00:00:00.000Z",from:new Date(Date.UTC(2026,8,9)-(days-1)*86400000).toISOString(),generatedAt:"2026-09-09T20:00:00.000Z",totals,daily:[{day:"2026-09-09",...totals}],shops:[{locationId:2,...totals},{locationId:1788973200000,visits:0,qrVisits:0,directVisits:0,selections:0,directions:0,calls:1}]});
+  }
   if(manager&&url.pathname==="/api/locations"){
     if(req.method==="PUT"){
       const input=await body(req);putCount++;
@@ -53,6 +64,10 @@ let browser;
 async function prepare(context){
   await context.route("https://**/*",async route=>{
     const url=new URL(route.request().url());
+    if(url.hostname==="marcolin-manager.marcolin-event-locator.workers.dev"&&url.pathname==="/events"){
+      activityEvents.push(JSON.parse(route.request().postData()));
+      return route.fulfill({status:204,headers:{"Access-Control-Allow-Origin":route.request().headers().origin,"Cache-Control":"no-store"}});
+    }
     if(url.hostname==="photon.komoot.io"){
       if(url.pathname==="/reverse")return route.fulfill({json:{features:[{properties:{city:"Ocean City",state:"Maryland"}}]}});
       const point=(name,type,lng,lat,city=name)=>({type:"Feature",geometry:{type:"Point",coordinates:[lng,lat]},properties:{name,city,state:"Maryland",countrycode:"US",osm_value:type}});
@@ -72,6 +87,8 @@ async function prepare(context){
   });
   await context.addInitScript(()=>{
     window.__geo={pending:[],delay:false,denied:false};
+    window.open=url=>{window.__openedMap=String(url);return null;};
+    document.addEventListener("click",event=>{if(event.target.closest('a[href^="tel:"]'))event.preventDefault();},true);
     Object.defineProperty(navigator,"geolocation",{value:{getCurrentPosition(success,error){if(window.__geo.delay){window.__geo.pending.push(success);return;}if(window.__geo.denied)error({code:1});else success({coords:{latitude:38.3315,longitude:-75.0874}});}}});
     Object.defineProperty(navigator,"permissions",{value:{query:async()=>({state:"prompt",onchange:null})}});
     // Exercise generation guards even when the transport ignores cancellation.
@@ -84,8 +101,34 @@ await mkdir("artifacts",{recursive:true});
 try{
   browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||process.argv.find(arg=>arg.startsWith("--chromium="))?.slice(11),args:["--no-sandbox","--disable-dev-shm-usage"]});
   if(!process.argv.includes("--sw-only")) {
+  const trackingContext=await browser.newContext({viewport:{width:1280,height:850},serviceWorkers:"block"});await prepare(trackingContext);
+  const trackingPage=await trackingContext.newPage();trackingPage.on("pageerror",e=>errors.push(e.message));
+  await trackingPage.goto(locatorOrigin+"/hd/?fixture=1#nearby");await trackingPage.waitForFunction(()=>Boolean(window.__locator));
+  await expect(trackingPage.locator(".location-card")).toHaveCount(fixture.length);
+  assert.equal(new URL(trackingPage.url()).searchParams.get("entry"),"card");assert.equal(new URL(trackingPage.url()).searchParams.get("fixture"),"1");assert.equal(new URL(trackingPage.url()).hash,"#nearby");
+  await expect.poll(()=>activityEvents.length).toBe(1);assert.equal(activityEvents[0].type,"visit");assert.equal(activityEvents[0].source,"card");
+  await trackingPage.locator("#search").fill("Ocean City MD");await trackingPage.locator("#search").press("Enter");await expect(trackingPage.locator("#search-status")).toHaveText("Near Ocean City, MD");
+  assert.equal(activityEvents.length,1);
+  await trackingPage.locator('.location-card[data-id="2"]').click();await expect.poll(()=>activityEvents.length).toBe(2);
+  await trackingPage.locator('.location-card[data-id="2"] [data-go-id]').click();await expect.poll(()=>activityEvents.length).toBe(3);
+  assert.ok((await trackingPage.evaluate(()=>window.__openedMap)).startsWith("https://www.google.com/maps/dir/"));
+  await trackingPage.locator("#finder-open").click();
+  await trackingPage.locator('.location-card[data-id="2"] a.card-phone').click();await expect.poll(()=>activityEvents.length).toBe(4);
+  assert.deepEqual(activityEvents.map(e=>e.type),["visit","select","directions","call"]);
+  for(const item of activityEvents){assert.equal(item.source,"card");assert.deepEqual(Object.keys(item).sort(),["id","locationId","source","type"]);}
+  assert.ok(activityEvents.slice(1).every(e=>e.locationId===2));
+  await trackingPage.evaluate(async()=>{await __locator.refreshDirectory();__locator.requestUserLocation();});
+  await expect.poll(()=>trackingPage.evaluate(()=>__locator.state.sharing)).toBe(true);
+  assert.equal(activityEvents.length,4);
+  await trackingPage.evaluate(()=>__locator.state.markers.get(3).fire("click"));await expect.poll(()=>activityEvents.length).toBe(5);assert.equal(activityEvents.at(-1).type,"select");assert.equal(activityEvents.at(-1).locationId,3);
+  await trackingPage.reload();await expect.poll(()=>activityEvents.length).toBe(6);assert.equal(activityEvents.at(-1).type,"visit");
+  await trackingContext.route("**/events",route=>route.abort());await trackingPage.reload();await expect(trackingPage.locator(".location-card")).toHaveCount(fixture.length);
+  await trackingPage.locator('.location-card[data-id="2"]').click();assert.equal(await trackingPage.evaluate(()=>__locator.state.activeId),2);
+  await trackingContext.close();activityEvents.length=0;routeCount=0;tableCount=0;
+  console.log("PASS analytics: unchanged QR redirects, real click hooks, no automatic selection counts, reloads, and blocked tracking");
   const context=await browser.newContext({viewport:{width:1280,height:850},serviceWorkers:"block"});await prepare(context);
   const page=await context.newPage();await ready(page);
+  await expect.poll(()=>activityEvents.length).toBe(1);assert.equal(activityEvents[0].source,"direct");
   await page.locator("#search").fill("Ocean City MD");await page.locator("#search").press("Enter");
   await expect(page.locator("#search-status")).toHaveText("Near Ocean City, MD");
   assert.equal(await page.evaluate(()=>__locator.state.searchCenter.lng),-75.0874);assert.equal(routeCount,0);assert.equal(tableCount,0);
@@ -109,6 +152,18 @@ try{
   const context2=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:"block"});await prepare(context2);const device2=await context2.newPage();await device2.clock.install();await ready(device2);
   const managerContext=await browser.newContext();await prepare(managerContext);const manager=await managerContext.newPage(),otherManager=await managerContext.newPage();
   for(const p of [manager,otherManager]){await p.clock.install();p.on("dialog",dialog=>dialog.accept());p.on("pageerror",e=>errors.push(e.message));await p.goto(managerOrigin+"/");await expect(p.locator("#fields")).toBeEnabled();}
+  await manager.locator("#activity > summary").click();await expect(manager.locator("#activity-qrVisits")).toHaveText("9");
+  await expect(manager.locator("#activity-shops")).toContainText("Accomac");await expect(manager.locator("#activity-shops")).toContainText("not in the loaded directory");
+  await manager.locator("#activity-source").selectOption("card");await expect(manager.locator("#activity-directVisits")).toHaveText("0");await expect(manager.locator("#activity-calls")).toHaveText("0");
+  activityDelay=350;await manager.locator("#activity-days").selectOption("7");await manager.locator("#activity-days").selectOption("90");
+  await expect(manager.locator("#activity-period")).toContainText("2026-06-12");await new Promise(resolve=>setTimeout(resolve,450));await expect(manager.locator("#activity-period")).toContainText("2026-06-12");
+  activityStatus=503;await manager.locator("#activity-refresh").click();await expect(manager.locator("#activity-status")).toContainText("could not be loaded");await expect(manager.locator("#activity-results")).toBeHidden();await expect(manager.locator("#fields")).toBeEnabled();
+  activityStatus=200;await manager.locator("#activity-days").selectOption("30");await manager.locator("#activity-source").selectOption("all");await expect(manager.locator("#activity-results")).toBeVisible();
+  await manager.locator("#activity").screenshot({path:"artifacts/manager-activity.png"});
+  await manager.setViewportSize({width:390,height:844});await manager.locator("#activity").screenshot({path:"artifacts/manager-activity-mobile.png"});assert.ok(await manager.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await manager.setViewportSize({width:1280,height:850});
+  activityStatus=401;await manager.locator("#activity-refresh").click();await expect(manager.locator("#app")).toBeHidden();await expect(manager.locator("#gate")).toBeVisible();
+  activityStatus=200;await manager.reload();await expect(manager.locator("#fields")).toBeEnabled();
+  console.log("PASS private activity UI: totals, source/date filters, stale requests, service failures, mobile layout, and expired sign-in");
   await manager.locator("#list-search").fill("Accomac");await manager.locator("#locations button",{hasText:"Edit"}).first().click();
   await manager.locator("#phone").fill("3016398001");await manager.locator("#save").click();
   await expect(manager.locator("#status")).toContainText("Publishing");assert.equal(savedRows.find(r=>r.id===2).phone,"3016398001");assert.notEqual(publicRows.find(r=>r.id===2).phone,"3016398001");

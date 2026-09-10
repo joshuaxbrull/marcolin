@@ -1,3 +1,4 @@
+import { collectEvent, analyticsSummary, pruneAnalytics } from "./analytics.js";
 import { validateLocations } from "../../shared/locations.js";
 
 export const REPOSITORY = "joshuaxbrull/marcolin";
@@ -85,6 +86,7 @@ function redirect(url, setCookies = []) {
 }
 async function handle(request, env) {
   const url = new URL(request.url);
+  if (url.pathname === "/events") return collectEvent(request, env);
   if (url.pathname === "/auth/github" && request.method === "GET") {
     configured(env);
     const state = random(), verifier = random();
@@ -112,6 +114,7 @@ async function handle(request, env) {
   }
   if (url.pathname.startsWith("/api/") || url.pathname === "/auth/logout") {
     const session = await authorize(request, env);
+    if (url.pathname === "/api/analytics" && request.method === "GET") return json(await analyticsSummary(env, url));
     if (url.pathname === "/api/session" && request.method === "GET") return json({ login: session.login, csrf: session.csrf, expires: session.expires });
     if (url.pathname === "/auth/logout" && request.method === "POST") {
       requireWrite(request, session, env);
@@ -150,6 +153,7 @@ async function handle(request, env) {
   return secured;
 }
 export default {
+  async scheduled(controller, env) { await pruneAnalytics(env, controller.scheduledTime); },
   async fetch(request, env) {
     try { return await handle(request, env); }
     catch (error) { return json({ error: error.status ? error.message : "The manager service could not complete the request. Your draft has been kept." }, error.status || 500); }

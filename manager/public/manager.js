@@ -1,4 +1,5 @@
 import { validateLocations, normalizeRegionState, addressKey, contentEqual } from "./shared/locations.js";
+import { initAnalytics } from "./analytics.js";
 import { mergeDraft } from "./draft.js";
 const $ = id => document.getElementById(id);
 const DRAFT_KEY = "marcolin-manager-draft-v1";
@@ -34,7 +35,7 @@ async function api(path, options = {}) {
   const response = await fetch(path, { ...options, cache: "no-store", credentials: "same-origin", headers: { "Content-Type": "application/json", ...(session ? { "X-CSRF-Token": session.csrf } : {}), ...options.headers }, signal: AbortSignal.timeout(20000) });
   const body = response.status === 204 ? null : await response.json();
   if (!response.ok) {
-    if (response.status === 401) { preserve(); $("login-status").textContent = body.error; $("gate").hidden = false; }
+    if (response.status === 401) { preserve(); $("login-status").textContent = body.error; $("gate").hidden = false; $("app").hidden = true; $("activity-results").hidden = true; }
     const error = new Error(body?.error || "The request failed. Your draft is kept."); error.status = response.status; throw error;
   }
   return body;
@@ -249,6 +250,7 @@ async function init() {
       pinStatus(); showPin(); status("Your unsaved draft has been restored. Save will check for newer published changes.");
     } else { fillForm(null); status("Directory loaded. Changes are published when you save."); }
     renderList(); setBusy(false);
+    initAnalytics(api, () => base);
     const publication = storageGet(PUBLICATION_KEY); if (publication) watchPublication(publication);
   } catch (error) {
     $("login-status").textContent = error.message;

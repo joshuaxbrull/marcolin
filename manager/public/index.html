@@ -8,7 +8,24 @@
 <section id="app" hidden>
 <div class="top"><div><p class="eyebrow">Harley-Davidson Eyewear</p><h1>Locations</h1></div><div class="publish-actions"><span id="dirty-label">No unsaved changes</span><button id="save" disabled>Save and publish</button></div></div>
 <p class="banner" id="status" role="status" aria-live="polite"></p>
-<div class="utility"><button id="refresh">Load latest directory</button><button id="export">Download my draft</button><a href="https://joshuaxbrull.github.io/marcolin/hd/" target="_blank" rel="noopener">Open public locator ↗</a></div>
+<div class="utility"><button id="refresh">Load latest directory</button><button id="export">Download my draft</button><a href="https://joshuaxbrull.github.io/marcolin/harleydavidson/" target="_blank" rel="noopener">Open public locator ↗</a></div>
+<details class="activity panel" id="activity">
+<summary>Event activity <span>QR visits and shop clicks</span></summary>
+<div class="activity-controls"><label>Period<select id="activity-days"><option value="7">Last 7 days</option><option value="30" selected>Last 30 days</option><option value="90">Last 90 days</option></select></label><label>Source<select id="activity-source"><option value="all">All visits</option><option value="card">Shared QR link</option><option value="direct">Other links</option></select></label><button type="button" id="activity-refresh" class="secondary">Refresh activity</button></div>
+<p id="activity-status" role="status" aria-live="polite"></p>
+<div id="activity-results" hidden>
+<dl class="activity-totals"><div><dt>QR-link visits</dt><dd id="activity-qrVisits">—</dd></div><div><dt>Other visits</dt><dd id="activity-directVisits">—</dd></div><div><dt>Shop selections</dt><dd id="activity-selections">—</dd></div><div><dt>Directions clicks</dt><dd id="activity-directions">—</dd></div><div><dt>Call clicks</dt><dd id="activity-calls">—</dd></div></dl>
+<p class="muted" id="activity-period"></p>
+<p id="activity-empty" hidden>No activity recorded for this period and source yet.</p>
+<div id="activity-tables" hidden>
+<h2>Most-used shops</h2><p id="activity-no-shops" hidden>No shop clicks recorded yet.</p>
+<div class="activity-scroll" id="activity-shops-table" tabindex="0" role="region" aria-label="Most-used shops"><table><caption>Top 25 by total clicks; names from the loaded directory</caption><thead><tr><th scope="col">Shop</th><th scope="col">Selections</th><th scope="col">Directions</th><th scope="col">Calls</th></tr></thead><tbody id="activity-shops"></tbody></table></div>
+<details class="activity-daily"><summary>Daily totals (UTC)</summary><div class="activity-scroll" tabindex="0" role="region" aria-label="Daily activity"><table><thead><tr><th scope="col">Date</th><th scope="col">QR visits</th><th scope="col">Other visits</th><th scope="col">Selections</th><th scope="col">Directions</th><th scope="col">Calls</th></tr></thead><tbody id="activity-daily"></tbody></table></div></details>
+</div>
+</div>
+<p class="muted">Visits count page loads, including reloads and shared links—not unique people or camera scans. All printed designs use the same QR link. Directions and call counts measure clicks, not completed trips, calls, or sales. Blocked or offline activity may be missed.</p>
+<p class="muted">Activity is retained for 90 days. These counts contain no visitor names, precise visitor locations, or stored visitor identifiers.</p>
+</details>
 <section class="conflicts" id="conflicts" hidden><h2>Review overlapping changes</h2><p>Your edits are preserved. Choose which version to use for each location below.</p><div id="conflict-rows"></div><button id="resolve">Apply these choices</button></section>
 <div class="layout">
 <section class="panel"><div class="panel-head"><h2>Location details</h2><button id="new" class="secondary">New location</button></div>
