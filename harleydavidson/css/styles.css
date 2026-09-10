@@ -550,6 +550,7 @@ html.theme-light .card-hours.is-open {
 
 .card-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.55rem;
@@ -570,6 +571,13 @@ html.theme-light .card-hours.is-open {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.location-card .card-event-dates {
+  margin-top: 0.4rem;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .location-card .state-tag {

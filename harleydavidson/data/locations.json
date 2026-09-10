@@ -1,5 +1,21 @@
 [
   {
+    "id": 99,
+    "name": "Rommel Harley Davidson @ the Inlet",
+    "address": "601 S Atlantic Avenue",
+    "city": "Ocean City",
+    "state": "MD",
+    "zip": "21842",
+    "phone": "",
+    "lat": 38.326872,
+    "lng": -75.086741,
+    "geocode": "owner-provided",
+    "hours": "",
+    "kind": "event",
+    "startDate": "2026-09-10",
+    "endDate": "2026-09-12"
+  },
+  {
     "id": 1,
     "name": "Katzen Eye - Bel Air",
     "address": "3401 Box Hill Corporate Center Dr, Suite 202",
