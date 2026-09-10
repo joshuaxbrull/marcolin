@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=../harleydavidson/">
+  <meta http-equiv="refresh" content="0; url=../harleydavidson/?entry=card">
   <link rel="canonical" href="https://joshuaxbrull.github.io/marcolin/harleydavidson/">
   <title>Harley-Davidson Eyewear</title>
   <script>
-    location.replace("../harleydavidson/" + location.search + location.hash);
+    const destination = new URL("../harleydavidson/", location.href);
+    destination.search = location.search;
+    destination.searchParams.set("entry", "card");
+    destination.hash = location.hash;
+    location.replace(destination.href);
   </script>
 </head>
 <body>
-  <p><a href="../harleydavidson/">Continue to Harley-Davidson Eyewear</a></p>
+  <p><a href="../harleydavidson/?entry=card">Continue to Harley-Davidson Eyewear</a></p>
 </body>
 </html>

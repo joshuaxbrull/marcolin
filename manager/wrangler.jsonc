@@ -2,7 +2,7 @@
   "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "marcolin-manager",
   "account_id": "f1afb0e98752eec18d3fa2eaa2c3a34f",
-  "main": "src/worker.js",
+  "main": "src/entry.js",
   "compatibility_date": "2026-09-08",
   "workers_dev": true,
   "preview_urls": false,
@@ -32,6 +32,28 @@
     "required": [
       "GITHUB_CLIENT_SECRET",
       "SESSION_SECRET"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "ANALYTICS_DB",
+      "database_name": "marcolin-event-analytics",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "ratelimits": [
+    {
+      "name": "EVENT_RATE_LIMITER",
+      "namespace_id": "2026090901",
+      "simple": {
+        "limit": 600,
+        "period": 60
+      }
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "17 5 * * *"
     ]
   }
 }
