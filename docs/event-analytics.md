@@ -20,9 +20,11 @@ The existing manager Worker has a D1 binding named `ANALYTICS_DB`. Each event co
 
 The report covers the latest 90 UTC calendar days. A daily 05:17 UTC scheduled handler removes older raw events. Shop names come from the manager's loaded directory; clicks for removed locations remain counted with an ID fallback. New manager-created numeric IDs work without redeploying the collector.
 
-## Initial deployment
+## Deployment
 
-Use Node 22. The existing Worker secrets and private GitHub App remain in place.
+The production database is `marcolin-event-analytics`, bound in `manager/wrangler.jsonc`. Migration `0001_event_analytics.sql` has been applied and recorded in the Wrangler migration table through the connected Cloudflare D1 integration.
+
+For a new installation, use Node 22. The existing Worker secrets and private GitHub App remain in place.
 
 ```sh
 npx wrangler login --device --scopes user:read account:read workers:write workers_scripts:write d1:write

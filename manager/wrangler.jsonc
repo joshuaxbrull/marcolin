@@ -38,7 +38,8 @@
     {
       "binding": "ANALYTICS_DB",
       "database_name": "marcolin-event-analytics",
-      "migrations_dir": "migrations"
+      "migrations_dir": "migrations",
+      "database_id": "d6bf7083-83c7-422b-8e11-b2b5e20d16e8"
     }
   ],
   "ratelimits": [
