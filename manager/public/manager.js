@@ -1,4 +1,4 @@
-import { validateLocations, normalizeRegionState, addressKey, contentEqual } from "./shared/locations.js";
+import { validateLocations, normalizeRegionState, addressKey, contentEqual, LOCATION_KINDS, eventDateLabel } from "./shared/locations.js";
 import { initAnalytics } from "./analytics.js";
 import { mergeDraft } from "./draft.js";
 const $ = id => document.getElementById(id);
@@ -8,7 +8,7 @@ let session, records = [], base = [], baseSha = "", busy = false, formDirty = fa
 let pinnedAddress = "", currentOriginal = null, pinMap, pinMarker, searchSeq = 0, searchTimer, pendingMerge, publicationSeq = 0;
 const clone = value => structuredClone(value);
 const status = message => { $("status").textContent = message; };
-const fields = ["name", "address", "city", "state", "phone", "hours", "kind", "lat", "lng"];
+const fields = ["name", "address", "city", "state", "zip", "phone", "hours", "kind", "startDate", "endDate", "lat", "lng"];
 function storageSet(key, value) { try { sessionStorage.setItem(key, JSON.stringify(value)); } catch { /* Download remains available. */ } }
 function storageGet(key) { try { return JSON.parse(sessionStorage.getItem(key)); } catch { return null; } }
 function storageRemove(key) { try { sessionStorage.removeItem(key); } catch { /* private browsing */ } }
@@ -74,7 +74,13 @@ function fillForm(loc) {
   $("id").value = loc?.id || "";
   for (const key of fields) $(key).value = loc?.[key] ?? (key === "state" ? "MD" : key === "kind" ? "eyewear" : "");
   pinnedAddress = loc ? addressKey(loc) : ""; formDirty = false;
-  pinStatus(); showPin(); updateDirty();
+  syncEventFields(); pinStatus(); showPin(); updateDirty();
+}
+function syncEventFields() {
+  const event = $("kind").value === "event";
+  $("event-dates").hidden = !event;
+  for (const key of ["startDate", "endDate"]) { $(key).required = event; $(key).disabled = !event; }
+  $("endDate").min = event ? $("startDate").value : "";
 }
 function stageEdit() {
   if (!formDirty) return;
@@ -87,7 +93,7 @@ function stageEdit() {
   fillForm(valid); renderList(); updateDirty();
 }
 function describe(row) {
-  return row ? `${row.name}\n${row.address}, ${row.city}, ${row.state}\n${row.phone || "No phone"}\n${row.kind === "dealership" ? "Motorcycle dealership" : "Eyewear shop"}\n${row.hours || "No hours"}\nPin: ${row.lat}, ${row.lng}` : "Location removed";
+  return row ? [row.name, `${row.address}, ${row.city}, ${row.state}${row.zip ? ` ${row.zip}` : ""}`, row.phone || "No phone", LOCATION_KINDS[row.kind], eventDateLabel(row), row.hours || "No hours", `Pin: ${row.lat}, ${row.lng}`].filter(Boolean).join("\n") : "Location removed";
 }
 function renderList() {
   const q = $("list-search").value.trim().toLowerCase(), kind = $("list-kind").value;
@@ -96,7 +102,7 @@ function renderList() {
   $("locations").replaceChildren();
   for (const row of rows) {
     const li = document.createElement("li"), details = document.createElement("div"), name = document.createElement("strong"), address = document.createElement("small");
-    name.textContent = row.name; address.textContent = `${row.address}, ${row.city}, ${row.state} · ${row.kind === "dealership" ? "Motorcycle dealership" : "Eyewear shop"}`; details.append(name, address);
+    name.textContent = row.name; address.textContent = `${row.address}, ${row.city}, ${row.state}${row.zip ? ` ${row.zip}` : ""} · ${LOCATION_KINDS[row.kind]}${row.kind === "event" ? ` · ${eventDateLabel(row)}` : ""}`; details.append(name, address);
     const actions = document.createElement("div"); actions.className = "actions";
     const edit = document.createElement("button"); edit.textContent = "Edit"; edit.disabled = busy || !baseSha || Boolean(pendingMerge);
     edit.addEventListener("click", () => { try { stageEdit(); fillForm(records.find(r => r.id === row.id)); $("name").focus(); } catch (error) { status(error.message); } });
@@ -188,6 +194,7 @@ $("editor").addEventListener("submit", event => { event.preventDefault(); try { 
 $("new").addEventListener("click", () => { try { stageEdit(); fillForm(null); $("place-search").value = ""; $("place-search").focus(); } catch (error) { status(error.message); } });
 $("editor").addEventListener("input", event => {
   formDirty = true;
+  if (["kind", "startDate"].includes(event.target.id)) syncEventFields();
   if (["address", "city", "state", "lat", "lng"].includes(event.target.id)) { pinnedAddress = ""; pinStatus(); }
   if (["lat", "lng"].includes(event.target.id)) showPin();
   updateDirty();
@@ -247,7 +254,7 @@ async function init() {
       records = saved.records; base = saved.base; baseSha = saved.baseSha;
       currentOriginal = saved.currentOriginal; pinnedAddress = saved.pinnedAddress; formDirty = saved.formDirty;
       for (const [key, value] of Object.entries(saved.form || {})) if (["id", ...fields].includes(key)) $(key).value = value;
-      pinStatus(); showPin(); status("Your unsaved draft has been restored. Save will check for newer published changes.");
+      syncEventFields(); pinStatus(); showPin(); status("Your unsaved draft has been restored. Save will check for newer published changes.");
     } else { fillForm(null); status("Directory loaded. Changes are published when you save."); }
     renderList(); setBusy(false);
     initAnalytics(api, () => base);

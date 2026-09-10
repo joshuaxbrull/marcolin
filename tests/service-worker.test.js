@@ -37,7 +37,7 @@ test("service worker migrates only locator caches and reloads only locator clien
 });
 test("service worker never precaches or returns a cached mutable directory",async()=>{
   const s=await setup();await s.lifecycle('install');
-  const cache=await s.caches.open('hd-locator-marcolin-shell-v6');
+  const cache=await s.caches.open('hd-locator-marcolin-shell-v7');
   assert.ok(!(await cache.keys()).some(url=>url.includes('locations.json')));
   assert.ok((await cache.keys()).some(url=>url.endsWith('/js/analytics.js')));
   assert.equal(await (await s.request(scope+'data/locations.json?fresh=1')).text(),'network');

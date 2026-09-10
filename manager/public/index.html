@@ -35,16 +35,18 @@
 <label>Name<input id="name" required maxlength="250"></label>
 <label>Street address<input id="address" required maxlength="250" autocomplete="street-address"></label>
 <div class="row"><label>City<input id="city" required maxlength="250"></label><label>State<select id="state"><option>MD</option><option>DE</option><option>VA</option><option>WV</option></select></label></div>
+<label>ZIP code<input id="zip" inputmode="numeric" autocomplete="postal-code" placeholder="Optional" maxlength="10"></label>
 <label>Phone<input id="phone" inputmode="tel" placeholder="Optional"></label>
 <label>Hours<input id="hours" placeholder="Mo-Fr 09:00-17:00" maxlength="500"></label>
-<label>Type<select id="kind"><option value="eyewear">Eyewear shop</option><option value="dealership">Motorcycle dealership</option></select></label>
+<label>Type<select id="kind"><option value="eyewear">Eyewear shop</option><option value="dealership">Motorcycle dealership</option><option value="event">Event tent</option></select></label>
+<div id="event-dates" hidden><div class="row"><label>First day<input id="startDate" type="date" disabled></label><label>Last day<input id="endDate" type="date" disabled></label></div><p class="muted">Shown only on these dates, including the last day, in Eastern time. Daily opening hours are separate.</p></div>
 <p class="pin-status" id="pin-status">Find the address to place its pin.</p>
 <div id="pin-map" aria-label="Confirm the business location on the map"></div>
 <div class="row"><label>Latitude<input id="lat" type="number" step="any" min="24" max="50"></label><label>Longitude<input id="lng" type="number" step="any" min="-125" max="-66"></label></div>
 <button type="button" id="confirm-pin" class="secondary">Confirm pin for this address</button>
 <button type="submit" class="secondary">Keep edit in draft</button>
 </fieldset></form></section>
-<section class="panel"><h2>Directory</h2><div class="row"><label>Filter locations<input id="list-search" type="search"></label><label>Type<select id="list-kind"><option value="ALL">All types</option><option value="eyewear">Eyewear shops</option><option value="dealership">Motorcycle dealerships</option></select></label></div><p id="count"></p><ul id="locations" class="locations"></ul></section>
+<section class="panel"><h2>Directory</h2><div class="row"><label>Filter locations<input id="list-search" type="search"></label><label>Type<select id="list-kind"><option value="ALL">All types</option><option value="eyewear">Eyewear shops</option><option value="dealership">Motorcycle dealerships</option><option value="event">Event tents</option></select></label></div><p id="count"></p><ul id="locations" class="locations"></ul></section>
 </div>
 </section>
 </main>
