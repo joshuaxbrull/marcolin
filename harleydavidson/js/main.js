@@ -1,5 +1,5 @@
 import { fetchJson, searchPlaces } from "./geocoding.js";
-import { validateLocations, contentEqual } from "../../shared/locations.js";
+import { validateLocations, contentEqual, LOCATION_KINDS, isLocationActive, eventDateLabel } from "../../shared/locations.js";
 import { pinSvg } from "../../shared/pins.js";
 import { createTracker } from "./analytics.js";
 const trackEvent = createTracker();
@@ -707,6 +707,7 @@ function formatClock(minutes) {
 }
 
 function hoursStatus(loc) {
+  if (loc.kind === "event" && !loc.hours) return { open: null, label: "Daily hours not provided", href: "" };
   const week = parseOpeningHours(loc.hours);
   const tel = telHref(loc.phone);
   if (!week) {
@@ -738,7 +739,9 @@ function storeShareText(loc) {
   return [
     loc.name.trim(),
     loc.address.trim(),
-    `${loc.city.trim()}, ${loc.state.trim()}`,
+    `${loc.city.trim()}, ${loc.state.trim()}${loc.zip ? ` ${loc.zip}` : ""}`,
+    loc.kind === "event" ? `Event tent · ${eventDateLabel(loc)} (Eastern time)` : "",
+    loc.kind === "event" ? `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}` : "",
     phone,
   ].filter(Boolean).join("\n");
 }
@@ -891,7 +894,7 @@ function normalizeState(value) {
 }
 
 function locKind(loc) {
-  return loc.kind === "dealership" ? "dealership" : "eyewear";
+  return loc.kind;
 }
 
 function candidateLocations() {
@@ -953,7 +956,7 @@ function popupHtml(loc) {
       : `${minutes} min`;
     const milesLabel = `${miles >= 10 ? miles.toFixed(0) : miles.toFixed(1)} mi`;
     if (closest) {
-      note = `${milesLabel} · closest store`;
+      note = `${milesLabel} · closest location`;
     } else if (nearestDrive) {
       const extra = Math.max(1, Math.round((drive.seconds - nearestDrive.seconds) / 60));
       note = `${milesLabel} · ${extra} min farther than closest`;
@@ -969,8 +972,9 @@ function popupHtml(loc) {
 
   return `
     <div class="map-callout dest-callout">
-      <p class="callout-kicker">Destination</p>
+      <p class="callout-kicker">${loc.kind === "event" ? "Event tent" : "Destination"}</p>
       <p class="callout-name">${escapeHtml(loc.name.trim())}</p>
+      ${loc.kind === "event" ? `<p class="callout-note">${escapeHtml(eventDateLabel(loc))}</p>` : ""}
       <p class="callout-time">${escapeHtml(time)}</p>
       <p class="callout-note">${escapeHtml(note)}</p>
       ${hoursLine}
@@ -1003,9 +1007,10 @@ function renderList() {
   const visible = sortByDrive(candidateLocations());
   const total = state.locations.length;
   const dealers = state.locations.filter((loc) => locKind(loc) === "dealership").length;
-  const shops = total - dealers;
+  const events = state.locations.filter((loc) => locKind(loc) === "event").length;
+  const shops = total - dealers - events;
   countEl.textContent = visible.length === total
-    ? `${total} locations · ${shops} eyewear · ${dealers} dealers`
+    ? `${total} locations · ${shops} eyewear · ${dealers} dealers${events ? ` · ${events} event tent${events === 1 ? "" : "s"}` : ""}`
     : `${visible.length} of ${total} locations`;
 
   state.nearestId = canRoute() && !state.searchCenter && visible[0] ? visible[0].id : null;
@@ -1033,18 +1038,19 @@ function renderList() {
     const hours = hoursStatus(loc);
     const hoursLine = hours.href
       ? `<a class="card-hours ${hours.open == null ? "" : hours.open ? "is-open" : "is-closed"}" href="${hours.href}">${escapeHtml(hours.label)}</a>`
-      : `<p class="card-hours ${hours.open ? "is-open" : "is-closed"}">${escapeHtml(hours.label)}</p>`;
+      : `<p class="card-hours ${hours.open == null ? "" : hours.open ? "is-open" : "is-closed"}">${escapeHtml(hours.label)}</p>`;
 
     card.innerHTML = `
       ${closest ? '<p class="super-title">Closest</p>' : ""}
       <h2>${escapeHtml(loc.name.trim())}</h2>
       <div class="card-details">
-        <p class="card-address">${escapeHtml(loc.address.trim())}<br>${escapeHtml(loc.city.trim())}, ${escapeHtml(loc.state.trim())}</p>
+        <p class="card-address">${escapeHtml(loc.address.trim())}<br>${escapeHtml(loc.city.trim())}, ${escapeHtml(loc.state.trim())}${loc.zip ? ` ${escapeHtml(loc.zip)}` : ""}</p>
+        ${loc.kind === "event" ? `<p class="card-event-dates">${escapeHtml(eventDateLabel(loc))}</p>` : ""}
         ${phoneLink}
         ${hoursLine}
       </div>
       <div class="card-footer">
-        ${locKind(loc) === "dealership" ? '<span class="kind-tag">Dealer</span>' : ""}
+        ${loc.kind === "event" ? '<span class="kind-tag">Event tent</span>' : loc.kind === "dealership" ? '<span class="kind-tag">Dealer</span>' : ""}
         <span class="state-tag">${escapeHtml(loc.state.trim())}</span>
         ${driveLabel ? `<span class="drive-time">${escapeHtml(driveLabel)}</span>` : ""}
         ${loc.id === state.activeId ? selectedActions(loc.id) : ""}
@@ -1122,7 +1128,7 @@ function addMarkers({ initial = false } = {}) {
   state.markers.clear();
   for (const loc of state.locations) {
     if (loc.lat == null || loc.lng == null) continue;
-    const marker = L.marker([loc.lat, loc.lng], { icon: markerIcon(loc), title: `${loc.name} · ${locKind(loc) === "dealership" ? "Motorcycle dealership" : "Eyewear shop"}`, keyboard: true });
+    const marker = L.marker([loc.lat, loc.lng], { icon: markerIcon(loc), title: `${loc.name} · ${LOCATION_KINDS[loc.kind]}`, keyboard: true });
     marker.on("click", async () => {
       ignoreMapClick = true;
       hideFinder();
@@ -1628,10 +1634,35 @@ window.addEventListener("resize", () => {
 
 let directoryLoading = false;
 let directoryLoaded = false;
+let directoryRecords = null;
 const DIRECTORY_CACHE = "hd-eyewear-directory-v1";
 const directoryUrl = new URL("../data/locations.json", import.meta.url).href;
 
+function applyAvailableLocations() {
+  if (!directoryRecords) return false;
+  const now = new Date();
+  const records = directoryRecords.filter(loc => isLocationActive(loc, now));
+  if (directoryLoaded && contentEqual(records, state.locations)) return false;
+  const initial = !directoryLoaded;
+  const selectedId = state.activeId;
+  const popupOpen = destPin?.isPopupOpen();
+  clearRoute(); tableController?.abort(); tableSeq += 1; state.driveById = {};
+  state.locations = records;
+  const selected = records.find(loc => loc.id === selectedId);
+  if (!selected) {
+    state.activeId = null;
+    if (destPin) map.removeLayer(destPin);
+    destPin = null;
+  }
+  addMarkers({ initial }); renderList();
+  if (selected) setDestPin(selected, { openPopup: popupOpen });
+  directoryLoaded = true;
+  return true;
+}
+
 async function refreshDirectory() {
+  // Apply date limits before any network request, including while offline.
+  const availabilityChanged = applyAvailableLocations();
   if (directoryLoading) return;
   directoryLoading = true;
   const status = document.getElementById("directory-status");
@@ -1653,23 +1684,8 @@ async function refreshDirectory() {
     status.textContent = cached ? "Showing a saved directory. Updates will resume when a connection is available." : "";
     status.hidden = !cached;
     retry.hidden = !cached;
-    if (!directoryLoaded || !contentEqual(records, state.locations)) {
-      const initial = !directoryLoaded;
-      const selectedId = state.activeId;
-      const popupOpen = destPin?.isPopupOpen();
-      clearRoute(); tableController?.abort(); tableSeq += 1; state.driveById = {};
-      state.locations = records;
-      const selected = records.find(loc => loc.id === selectedId);
-      if (!selected) {
-        state.activeId = null;
-        if (destPin) map.removeLayer(destPin);
-        destPin = null;
-      }
-      addMarkers({ initial }); renderList();
-      if (selected) setDestPin(selected, { openPopup: popupOpen });
-      directoryLoaded = true;
-      if (canRoute()) await refreshDriving();
-    }
+    directoryRecords = records;
+    if ((applyAvailableLocations() || availabilityChanged) && canRoute()) await refreshDriving();
   } catch {
     status.hidden = false;
     retry.hidden = false;

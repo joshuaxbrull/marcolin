@@ -1,5 +1,5 @@
 const PREFIX = "hd-locator-marcolin-";
-const SHELL = `${PREFIX}shell-v6`;
+const SHELL = `${PREFIX}shell-v7`;
 const TILES = `${PREFIX}tiles-v5`;
 const TILE_LIMIT = 450;
 const ASSETS = ["./", "./index.html", "./css/styles.css", "./js/main.js", "./js/analytics.js", "./js/geocoding.js", "./vendor/leaflet/leaflet.js", "./vendor/leaflet/leaflet.css", "../shared/locations.js", "../shared/pins.js"];
