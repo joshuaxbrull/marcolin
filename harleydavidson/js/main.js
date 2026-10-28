@@ -1710,3 +1710,8 @@ document.addEventListener("click", (event) => {
   const loc = state.locations.find((item) => item.id === Number(share.dataset.shareId));
   if (loc) shareLocation(loc, share);
 });
+
+// Preserve existing QR source when visiting the contact and catalog hub.
+if (new URLSearchParams(location.search).get("entry") === "card") {
+  document.querySelector(".contact-hub").href = "../?entry=card#connect";
+}

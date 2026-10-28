@@ -8,7 +8,8 @@
     "manager:build": "node scripts/build-manager.mjs",
     "manager:dev": "npm run manager:build && wrangler dev --config manager/wrangler.jsonc",
     "manager:deploy": "npm run manager:build && wrangler deploy --config manager/wrangler.jsonc",
-    "cards:build": "node scripts/build-cards.mjs"
+    "cards:build": "node scripts/build-cards.mjs",
+    "test:landing": "node tests/landing-browser.mjs"
   },
   "engines": {
     "node": ">=22"
