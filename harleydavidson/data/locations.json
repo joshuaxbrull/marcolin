@@ -1226,5 +1226,61 @@
     "kind": "dealership",
     "hours": "",
     "id": 98
+  },
+  {
+    "id": 101,
+    "name": "Johnson-Curran Optometry Center - Lynchburg",
+    "address": "8125 Timberlake Rd",
+    "city": "Lynchburg",
+    "state": "VA",
+    "zip": "24502",
+    "phone": "4342372100",
+    "lat": 37.348964149937,
+    "lng": -79.231599703891,
+    "geocode": "census-street",
+    "hours": "",
+    "kind": "eyewear"
+  },
+  {
+    "id": 102,
+    "name": "Johnson-Curran Optometry Center - Franklin Road",
+    "address": "3763 Franklin Rd SW",
+    "city": "Roanoke",
+    "state": "VA",
+    "zip": "24014",
+    "phone": "5409896515",
+    "lat": 37.233772610129,
+    "lng": -79.971459677377,
+    "geocode": "census-street",
+    "hours": "",
+    "kind": "eyewear"
+  },
+  {
+    "id": 103,
+    "name": "Johnson-Curran Optometry Center - Salem",
+    "address": "1205 W Main St",
+    "city": "Salem",
+    "state": "VA",
+    "zip": "24153",
+    "phone": "5404445656",
+    "lat": 37.290057554377,
+    "lng": -80.076896513388,
+    "geocode": "census-street",
+    "hours": "",
+    "kind": "eyewear"
+  },
+  {
+    "id": 104,
+    "name": "Johnson-Curran Optometry Center - Christiansburg",
+    "address": "442 Peppers Ferry Rd NW",
+    "city": "Christiansburg",
+    "state": "VA",
+    "zip": "24073",
+    "phone": "5403821731",
+    "lat": 37.162217192375,
+    "lng": -80.432494626696,
+    "geocode": "census-street",
+    "hours": "",
+    "kind": "eyewear"
   }
 ]
