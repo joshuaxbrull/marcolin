@@ -127,10 +127,17 @@ try{
   await trackingPage.reload();await expect.poll(()=>activityEvents.length).toBe(6);assert.equal(activityEvents.at(-1).type,"visit");
   await trackingContext.route("**/events",route=>route.abort());await trackingPage.reload();await expect(trackingPage.locator(".location-card")).toHaveCount(fixture.length);
   await trackingPage.locator('.location-card[data-id="2"]').click();assert.equal(await trackingPage.evaluate(()=>__locator.state.activeId),2);
+  // The printed QR keeps its direct finder route, and the contact round trip keeps attribution.
+  await expect(trackingPage.locator('.contact-hub')).toHaveAttribute('href','../?entry=card#connect');
+  await trackingPage.locator('.contact-hub').click();await expect(trackingPage.locator('#contact-title')).toBeVisible();
+  await trackingPage.locator('.primary').click();await expect(trackingPage.locator('.location-card')).toHaveCount(fixture.length);
+  assert.equal(new URL(trackingPage.url()).searchParams.get('entry'),'card');
   await trackingContext.close();activityEvents.length=0;routeCount=0;tableCount=0;
   console.log("PASS analytics: unchanged QR redirects, real click hooks, no automatic selection counts, reloads, and blocked tracking");
   const context=await browser.newContext({viewport:{width:1280,height:850},serviceWorkers:"block"});await prepare(context);
   const page=await context.newPage();await ready(page);
+  await page.locator('[data-kind="event"]').click();await expect(page.locator('.location-card')).toHaveCount(0);await expect(page.locator('#empty-state')).toBeVisible();
+  await page.locator('[data-kind="ALL"]').click();await expect(page.locator('.location-card')).toHaveCount(fixture.length);
   await expect.poll(()=>activityEvents.length).toBe(1);assert.equal(activityEvents[0].source,"direct");
   await page.locator("#search").fill("Ocean City MD");await page.locator("#search").press("Enter");
   await expect(page.locator("#search-status")).toHaveText("Near Ocean City, MD");
