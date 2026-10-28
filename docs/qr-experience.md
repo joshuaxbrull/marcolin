@@ -4,7 +4,7 @@
 
 The `codex/qr-card-experience` branch includes PR #17's commit `20eaeb660c2229164f6848a6d596643425d610a8` and the landing/contact update. Merge this combined draft only after review; PR #17's additions must not be applied a second time. It preserves all 94 prior directory records and adds four Johnson-Curran locations (98 total). Census coordinates are street interpolations, not verified entrances.
 
-The printed QR remains `https://joshuaxbrull.github.io/marcolin/hd/`. It still opens the finder immediately and preserves query/hash information and card attribution. A finder link reaches the contact and collection hub, with card attribution retained on the return trip. The landing page provides call, email, and a downloadable vCard using Mike's existing card-proof contact details. No new analytics or external rendering dependencies were added.
+The printed QR remains `https://joshuaxbrull.github.io/marcolin/hd/`. It still opens the finder immediately and preserves query/hash information and card attribution. A finder link reaches the contact and collection hub, with card attribution retained on the return trip. The landing page identifies itself as an independent representative page, not Marcolin’s corporate website. It provides call, email, and a downloadable vCard using Mike's existing card-proof contact details. No new analytics or external rendering dependencies were added.
 
 ## Design and source boundaries
 
@@ -35,3 +35,5 @@ Landing checks cover 320/360/390/430 widths, 844px landscape, desktop, 44px targ
 Screenshots and lab output are in local `artifacts/` and test output. A cold local mobile sample with 4x CPU throttling, 150ms simulated RTT and 1.6Mbps download recorded CLS 0 and LCP about 0.6s. This is a laboratory sample, not a live deployment comparison, field INP, or a physical device result. Browser keyboard/semantic checks are not a screen-reader listening session.
 
 The existing print tests decode both QR proof PNGs to the stable URL. Physical actual-size print scans on iPhone and Android remain unperformed; printer stock, lighting and camera distance cannot be verified by browser emulation. No print order was initiated.
+
+GitHub reported seven default-branch dependency alerts during push (two high, two moderate, three low). These were not remediated by the UI/location change and strengthen the case for a separate dependency review before release.
